@@ -1,5 +1,5 @@
 const pizzaIngredients = document.getElementById('pizza-ingredients');
-// const pizzaCost = document.getElementById('pizza-cost')
+const pizzaPriceElement = document.getElementById('pizza-cost')
 
 const data = [
     {
@@ -7,15 +7,18 @@ const data = [
         ingredients: [
             {name: 'chicken', price: 3, count: 0},
             {name: 'beef', price: 5, count: 0},
-            {name: 'salami', price: 4, count: 0}
+            {name: 'salami', price: 4, count: 0},
+            {name: 'boczek', price: 2.8, count: 0},
+            {name: 'szynka parmeńska', price: 4.8, count: 0}
     ]
     },
     {
         name: 'vegetables',
         ingredients: [
-            {name: 'paprica', price: 3, count: 0},
-            {name: 'onion', price: 1, count: 0},
+            {name: 'pepper', price: 2.1, count: 0},
+            {name: 'onion', price: 0.8, count: 0},
             {name: 'tomato', price: 1.6, count: 0},
+            {name: 'maize', price: 1.2, count: 0},
 
         ]
     },
@@ -25,30 +28,36 @@ const data = [
             {name: 'tuńczyk', price: 2, count: 0},
             {name: 'małże', price: 2, count: 0},
             {name: 'marynowane ośmiorniczki', price: 2, count: 0},
-            {name: 'łosoś', price: 2, count: 0}
+            {name: 'łosoś', price: 4.6, count: 0}
         ]
     }
 ];
 
-// Pizza ingredients with current price
+// Array of Pizza ingredients with current price
 const pizzaCost = [];
-
-function entireCost() {
-   pizzaCost.map( price => {
-    //    console.log(price)
-       let priceArray = Object.values(price.price);
-       console.log(priceArray)
-       return priceArray;
-    })
-
-    // console.log(pizzaPrice);
+//Reducer for final price
+function reducePrice(finalPrice) {
+    
+    let reducePrice = finalPrice.reduce(( sum, num ) => sum + num);
+    pizzaPriceElement.innerText = `Cost: ${reducePrice} + 10 za ciasto = ${reducePrice + 10}`;
 }
-
+// Almost final price function
+function entireCost() {
+   let finalPrice = pizzaCost.map( price => {
+       let priceArray = Object.values(price);
+       let filteredPrice = priceArray.find( el => typeof el === 'number')
+       return filteredPrice;
+    })
+    console.log(`Cost: ${finalPrice}`)
+    reducePrice(finalPrice);
+};
+// Add ingredients to the pizzaCost array
 function addIngredient(ingredient, ingredientsElementCount, ingredientsElementCost) {
     let ingredientPlus = ++ingredient.count;
-    ingredientsElementCount.innerText = ingredientPlus;
+    ingredientsElementCount.innerText = `Quantity: ${ingredient.count}`;
+
     let ingredientPrice = ingredientPlus * ingredient.price;
-    ingredientsElementCost.innerText = ingredientPrice;
+    ingredientsElementCost.innerText = `Entire price: ${ingredientPrice}`;
 
     let findPrice = pizzaCost.find(el => el.name === ingredient.name);
     if( pizzaCost.length === 0){
@@ -64,18 +73,21 @@ function addIngredient(ingredient, ingredientsElementCount, ingredientsElementCo
     entireCost();
 
 };
-
+// Remove ingredients from the pizzaCost array
 function cutIngredient(ingredient, ingredientsElementCount, ingredientsElementCost) {
     let ingredientMinus = --ingredient.count;
-    ingredientsElementCount.innerText = ingredientMinus;
-    if(ingredientsElementCount.innerText <= 0) {
+    ingredientsElementCount.innerText = `Quantity: ${ingredient.count}`;
+    // Statement for no negative values of ingredients quantity or price
+    if(ingredientMinus <= 0) {
         ingredient.count = 0;
-        ingredientsElementCount.innerText = 0;
+        ingredientMinus = 0;
+        ingredientsElementCount.innerText = `Quantity: ${ingredient.count}`;
     }
-    let ingredientPrice = ingredientMinus * ingredient.price;
-    ingredientsElementCost.innerText = ingredientPrice;
-    console.log(ingredientMinus)
 
+    let ingredientPrice = ingredientMinus * ingredient.price;
+    ingredientsElementCost.innerText = `Entire price: ${ingredientPrice}`;
+    console.log(ingredientMinus)
+    //Push single ingredient to pizzaCost array and decrease its price when clicked
     let findPrice = pizzaCost.find(el => el.name === ingredient.name);
     if( pizzaCost.length === 0){
         pizzaCost.push({name: ingredient.name, price: ingredientPrice});
@@ -87,15 +99,17 @@ function cutIngredient(ingredient, ingredientsElementCount, ingredientsElementCo
     }
     entireCost();
 
-}
-
+};
+// Create ingredients lists with functionality
 function createIngrediensGroup(group) {
-
+    // Create ingredients main group
     let groupIngredients = document.createElement('ul');
-    groupIngredients.innerText = group.name;
+    groupIngredients.classList.add('groupIngredients')
+    groupIngredients.innerText = group.name.toUpperCase();
     pizzaIngredients.appendChild(groupIngredients)
 
     group.ingredients.forEach( ingredient => {
+        // Create DOM elements for ingredients list
         let ingredientsElement = document.createElement('div');
         let ingredientsElementName = document.createElement('li')
         let ingredientsElementPlus = document.createElement('button');
@@ -104,28 +118,30 @@ function createIngrediensGroup(group) {
         let ingredientsElementPrice = document.createElement('p');
         let ingredientsElementCost = document.createElement('p');
 
-        ingredientsElementName.innerText = ingredient.name;
+        ingredientsElement.classList.add('ingredientsElement')
+
+        ingredientsElementName.innerText = ingredient.name.toUpperCase();
         ingredientsElementPlus.innerText = '+';
-        ingredientsElementMinus.innerText = '-';
+        ingredientsElementMinus.innerText = '—';
         ingredientsElementCount.innerText = `Quantity: ${ingredient.count}`;
-        ingredientsElementPrice.innerText = `Price for one: ${ingredient.price}`;
-        ingredientsElementCost.innerText = 0;
+        ingredientsElementPrice.innerText = `Single price: ${ingredient.price}`;
+        ingredientsElementCost.innerText = `Entire price: ${ingredient.count}`;
         ingredientsElementCost.classList.add('ingredientsElementCost');
 
+        ingredientsElement.appendChild(ingredientsElementName);
         ingredientsElement.appendChild(ingredientsElementPlus);
         ingredientsElement.appendChild(ingredientsElementMinus);
-        ingredientsElement.appendChild(ingredientsElementName);
         ingredientsElement.appendChild(ingredientsElementCount);
         ingredientsElement.appendChild(ingredientsElementPrice);
         ingredientsElement.appendChild(ingredientsElementCost);
 
         groupIngredients.appendChild(ingredientsElement);
 
-        
+        // Event to add clicked ingredient to pizza
         ingredientsElementPlus.addEventListener('click', e => {
             addIngredient(ingredient, ingredientsElementCount, ingredientsElementCost);
         });
-
+        // Event to remove clicked ingredient from pizza
         ingredientsElementMinus.addEventListener('click', e => {
             cutIngredient(ingredient, ingredientsElementCount, ingredientsElementCost);
         });
@@ -133,13 +149,11 @@ function createIngrediensGroup(group) {
         
     })
 }
-
+// Generator for ingredients list
 function ingredientsGenerator() {
     
-
     data.forEach( group => {
         createIngrediensGroup(group);
-        
     })
 }
 

@@ -1,5 +1,10 @@
-*{
+* {
     box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 header h1 ul{
@@ -16,32 +21,65 @@ header h1 ul li{
 /* PIZZA VIEW SECTION */
 
 .pizza-view {
-    height: 400px;
-    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
+
+.pizza-photo {
+    width: 600px;
+    height: 600px;
     border: 3px solid black;
 }
 
 /* PIZZA INGREDIENTS SECTION */
 
 .pizza-ingredients {
+    background-image: url('https://image.freepik.com/free-photo/side-view-ripe-fresh-vegetables-colorful-bell-peppers-tomatoes-garlic-broccoli-green-onion-black-background_141793-3403.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
-    justify-content: center;
+    justify-content: space-between;
+    color: #fff;
+}
+/* UL IN INGREDIENTS LIST */
+.groupIngredients{
+    width: 300px;
+    margin: 0;
+    padding: 20px 20px;
+    font-size: 2rem;
+    background: rgba(76, 175, 80, 0.7);
+}
+/* DIV IN UL */
+.ingredientsElement{
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 5px solid #e87e76;
 }
 
-.pizza-ingredients ul {
+.ingredientsElement li{
+    list-style-type: none;
+}
+
+.ingredientsElement button{
+    margin-top: 10px;
+    margin-right: 5px;
+    background: #e87e76;
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
     font-size: 2rem;
 }
 
-.pizza-ingredients ul li{
-    cursor: pointer;
-    list-style-type: none;
-    font-size: 1.2rem;
+.ingredientsElement button:focus {
+    outline: none;
 }
 
-.pizza-ingredients button{
-    width: 20px;
-    height: 20px;
-    border: 2px solid black;
+.ingredientsElement p {
+
 }
