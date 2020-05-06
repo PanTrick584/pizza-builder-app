@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+
+header h1 ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+
+header h1 ul li{
+    list-style-type: none;
+}
+
+/* PIZZA VIEW SECTION */
+
+.pizza-view {
+    height: 400px;
+    width: 500px;
+    border: 3px solid black;
+}
+
+/* PIZZA INGREDIENTS SECTION */
+
+.pizza-ingredients {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.pizza-ingredients ul {
+    font-size: 2rem;
+}
+
+.pizza-ingredients ul li{
+    cursor: pointer;
+    list-style-type: none;
+    font-size: 1.2rem;
+}
+
+.pizza-ingredients button{
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+}
