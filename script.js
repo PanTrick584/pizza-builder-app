@@ -1,37 +1,57 @@
 const pizzaIngredients = document.getElementById('pizza-ingredients');
-const pizzaPriceElement = document.getElementById('pizza-cost')
+const pizzaPriceElement = document.getElementById('pizza-cost');
+const pizzaBuilderContainer = document.getElementById('pizza-builder-container');
 
 const data = [
     {
         name: 'meat',
         ingredients: [
-            {name: 'chicken', price: 3, count: 0},
-            {name: 'beef', price: 5, count: 0},
-            {name: 'salami', price: 4, count: 0},
-            {name: 'boczek', price: 2.8, count: 0},
-            {name: 'szynka parmeńska', price: 4.8, count: 0}
+            {name: 'chicken', picture: 'https://cdn.pixabay.com/photo/2017/02/01/00/02/drumstick-2028375_1280.png', price: 3, count: 0},
+            {name: 'beef' , picture: 'https://cdn.pixabay.com/photo/2014/12/21/23/24/spare-ribs-575310_1280.png', price: 5, count: 0},
+            {name: 'salami', picture: 'https://cdn.pixabay.com/photo/2016/10/16/16/32/sausage-1745701_1280.png', price: 4, count: 0},
+            {name: 'boczek', picture: 'https://cdn.pixabay.com/photo/2014/12/21/23/25/bacon-575334_1280.png', price: 2.8, count: 0},
+            {name: 'szynka parmeńska', picture: 'https://cdn.pixabay.com/photo/2012/04/13/11/31/ham-31982_1280.png', price: 4.8, count: 0}
     ]
     },
     {
         name: 'vegetables',
         ingredients: [
-            {name: 'pepper', price: 2.1, count: 0},
-            {name: 'onion', price: 0.8, count: 0},
-            {name: 'tomato', price: 1.6, count: 0},
-            {name: 'maize', price: 1.2, count: 0},
+            {name: 'pepper', picture: 'https://cdn.pixabay.com/photo/2012/04/13/21/00/bell-pepper-33623_1280.png', price: 2.1, count: 0},
+            {name: 'onion', picture: 'https://cdn.pixabay.com/photo/2013/07/13/13/49/onion-161611_1280.png', price: 0.8, count: 0},
+            {name: 'tomato', picture: 'https://cdn.pixabay.com/photo/2016/06/14/15/02/vector-1456768_1280.png', price: 1.6, count: 0},
+            {name: 'maize', picture: 'https://cdn.pixabay.com/photo/2013/07/13/01/22/corn-155613_1280.png', price: 1.2, count: 0},
 
         ]
     },
     {
         name: 'see fruits',
         ingredients: [
-            {name: 'tuńczyk', price: 2, count: 0},
-            {name: 'małże', price: 2, count: 0},
-            {name: 'marynowane ośmiorniczki', price: 2, count: 0},
-            {name: 'łosoś', price: 4.6, count: 0}
+            {name: 'tuńczyk', picture: 'https://cdn.pixabay.com/photo/2016/10/25/07/47/fish-1768103_1280.png', price: 2, count: 0},
+            {name: 'małże', picture: 'https://cdn.pixabay.com/photo/2014/04/03/11/36/shell-311976_1280.png', price: 2, count: 0},
+            {name: 'marynowane ośmiorniczki', picture: 'https://cdn.pixabay.com/photo/2016/06/15/19/00/octopus-1459684_1280.png', price: 2, count: 0},
+            {name: 'łosoś', picture: 'https://cdn.pixabay.com/photo/2016/04/01/08/57/animal-1299070_1280.png', price: 4.6, count: 0}
         ]
     }
 ];
+
+// PIZZA CONTAINER
+const pizzaBuilder = [];
+
+function pizzaBuilderGenerator(elements) {
+
+    
+    let count = 0;
+    for( let i = 0; i <= elements; i++){
+        
+        ++count;
+        let pizzaBuilderElement = document.createElement('div');
+        pizzaBuilderElement.setAttribute('id', count);
+        pizzaBuilderElement.classList.add('pizza-builder-element');
+
+        pizzaBuilderContainer.appendChild(pizzaBuilderElement);
+    }
+}
+
 
 // Array of Pizza ingredients with current price
 const pizzaCost = [];
@@ -40,6 +60,20 @@ function reducePrice(finalPrice) {
     
     let reducePrice = finalPrice.reduce(( sum, num ) => sum + num);
     pizzaPriceElement.innerText = `Cost: ${reducePrice} + 10 za ciasto = ${reducePrice + 10}`;
+}
+
+function pizzaBuilderAddPhoto(ingredient) {
+
+    
+    let pizzaBuilderElementAll = document.querySelectorAll('.pizza-builder-element');
+
+    let num = Math.floor(Math.random() * pizzaBuilderElementAll.length);
+    pizzaBuilderElementAll.forEach( el => {
+
+        if(num === parseFloat(el.id)){
+            el.style.backgroundImage = `url(${ingredient.picture})`;
+        }
+    })
 }
 // Almost final price function
 function entireCost() {
@@ -71,6 +105,7 @@ function addIngredient(ingredient, ingredientsElementCount, ingredientsElementCo
 
     console.log(pizzaCost);
     entireCost();
+    pizzaBuilderAddPhoto(ingredient);
 
 };
 // Remove ingredients from the pizzaCost array
@@ -157,4 +192,5 @@ function ingredientsGenerator() {
     })
 }
 
+pizzaBuilderGenerator(48);
 ingredientsGenerator();

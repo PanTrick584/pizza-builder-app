@@ -6,39 +6,71 @@ body {
     margin: 0;
     padding: 0;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://image.freepik.com/darmowe-zdjecie/drewniana-deska-z-tekstura-tle-materialu_53876-33591.jpg');
+    width: 100%;
+}
 
 header h1 ul{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 0 30px;
 }
 
 header h1 ul li{
     list-style-type: none;
+    margin: 0 50px;
 }
 
 /* PIZZA VIEW SECTION */
 
-.pizza-view {
+.pizza-builder { 
+    background-color: #fcbf4c;
+    border: 10px solid #8c6823;
+    border-radius: 50%;
+    margin: 80px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: 800px;
+    width: 800px;
+}
+
+.pizza-builder-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 600px;
     height: 600px;
 }
 
-.pizza-photo {
-    width: 600px;
-    height: 600px;
-    border: 3px solid black;
+.pizza-builder-element{
+    margin: 0;
+    width: 80px;
+    height: 80px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+/* PIZZA COST */
+
+.pizza-cost{
+    color: #fff;
+    font-size: 4rem;
+    background: rgba(76, 175, 80, 0.7);
+    width: 900px;
 }
 
 /* PIZZA INGREDIENTS SECTION */
 
 .pizza-ingredients {
     background-image: url('https://image.freepik.com/free-photo/side-view-ripe-fresh-vegetables-colorful-bell-peppers-tomatoes-garlic-broccoli-green-onion-black-background_141793-3403.jpg');
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: 100%;
     display: flex;
     flex-direction: row;
