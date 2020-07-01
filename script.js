@@ -1,6 +1,6 @@
-const pizzaIngredients = document.getElementById('pizza-ingredients');
-const pizzaPriceElement = document.getElementById('pizza-cost');
-const pizzaBuilderContainer = document.getElementById('pizza-builder-container');
+const pizzaIngredientsDOM = document.getElementById('ingredients');
+const pizzaPriceElement = document.getElementById('cost');
+const pizzaBuilderDOM = document.getElementById('builder__pizza');
 
 async function getData() {
     let res = await fetch('./data.json');
@@ -15,40 +15,40 @@ function pizzaBuilderGenerator(elements) {
     let elementID = 0;
     for( let i = 0; i <= elements; i++){
         ++elementID;
-        let pizzaBuilderElement = document.createElement('div');
-        pizzaBuilderElement.setAttribute('id', elementID);
-        pizzaBuilderElement.classList.add('pizza-builder-element');
-        pizzaBuilderContainer.appendChild(pizzaBuilderElement);
+        let pizzaBuilderCell = document.createElement('div');
+        pizzaBuilderCell.setAttribute('id', elementID);
+        pizzaBuilderCell.classList.add('builder__pizza-cell');
+        pizzaBuilderDOM.appendChild(pizzaBuilderCell);
     }
 };
 // Array of Pizza ingredients with current price
 const pizzaCost = [];
 //Reducer for final price
-function reducePrice(finalPrice) {
-    let reducePrice = finalPrice.reduce(( sum, num ) => sum + num);
-    pizzaPriceElement.innerText = `Cost: ${reducePrice} + 10 za ciasto = ${reducePrice + 10}`;
-}
+// function reducePrice(finalPrice) {
+//     let reducePrice = finalPrice.reduce(( sum, num ) => sum + num);
+//     pizzaPriceElement.innerText = `Cost: ${reducePrice} + 10 za ciasto = ${reducePrice + 10}`;
+// }
 
-function pizzaBuilderAddPhoto(ingredient) {
-    let pizzaBuilderElementAll = document.querySelectorAll('.pizza-builder-element');
-    let num = Math.floor(Math.random() * pizzaBuilderElementAll.length);
-    pizzaBuilderElementAll.forEach( el => {
+// function pizzaBuilderAddPhoto(ingredient) {
+//     let pizzaBuilderElementAll = document.querySelectorAll('.pizza-builder-element');
+//     let num = Math.floor(Math.random() * pizzaBuilderElementAll.length);
+//     pizzaBuilderElementAll.forEach( el => {
 
-        if(num === parseFloat(el.id)){
-            el.style.backgroundImage = `url(${ingredient.picture})`;
-        }
-    })
-}
+//         if(num === parseFloat(el.id)){
+//             el.style.backgroundImage = `url(${ingredient.picture})`;
+//         }
+//     })
+// }
 // Almost final price function
-function entireCost() {
-   let finalPrice = pizzaCost.map( price => {
-       let priceArray = Object.values(price);
-       let filteredPrice = priceArray.find( el => typeof el === 'number')
-       return filteredPrice;
-    })
-    console.log(`Cost: ${finalPrice}`)
-    reducePrice(finalPrice);
-};
+// function entireCost() {
+//    let finalPrice = pizzaCost.map( price => {
+//        let priceArray = Object.values(price);
+//        let filteredPrice = priceArray.find( el => typeof el === 'number')
+//        return filteredPrice;
+//     })
+//     console.log(`Cost: ${finalPrice}`)
+//     reducePrice(finalPrice);
+// };
 // Add ingredients to the pizzaCost array
 // function addIngredient(ingredient, ingredientsElementCount, ingredientsElementCost) {
 //     let ingredientPlus = ++ingredient.count;
@@ -99,6 +99,40 @@ function entireCost() {
 //     entireCost();
 
 // };
+function addIngredientData(name) {
+    for( key in pizzaBuilder) {
+        if(name === pizzaBuilder[key].name) {
+            console.log(pizzaBuilder[key].amount)
+            pizzaBuilder[key].amount++;
+            pizzaBuilder[key].cost = pizzaBuilder[key].price * pizzaBuilder[key].amount;
+            console.log(pizzaBuilder)
+            updateIngredientData(name);
+        }
+    }
+}
+function changeBtn() {
+
+    let startBtn = document.querySelectorAll('.startBtn');
+    startBtn.forEach( btn => {
+        btn.classList.add('addBtn');
+        btn.classList.remove('startBtn');
+        btn.removeEventListener('click')
+    });
+    let removeBtn = document.querySelectorAll('removeBtn')
+    removeBtn.forEach( btn => {
+        btn.style.visibility = 'visible';
+    });
+
+    let addBtn = document.querySelectorAll('.addBtn');
+    addBtn.forEach( btn => {
+        btn.addEventListener('click', () => {
+            let name = btn.dataset.name;
+            addIngredientData(name);
+        })
+    });
+    removeBtn.forEach( btn => btn.addEventListener('click', () => removeIngredientData()));
+}
+
 function updateIngredientData(name) {
     let pQuantity = document.querySelectorAll('.pQuantity');
     let pCost = document.querySelectorAll('.pCost');
@@ -113,12 +147,16 @@ function updateIngredientData(name) {
             p.innerHTML = `Entire cost: ${pizzaBuilder[name].cost}`
         }
     })
+};
+
+function createPizzaBuilder() {
+    
 }
 
 function checkEvents(data) {
     // Event to add clicked ingredient to pizza
-    let addBtn = document.querySelectorAll('.addBtn');
-    addBtn.forEach( btn =>  {
+    let startBtn = document.querySelectorAll('.startBtn');
+    startBtn.forEach( btn =>  {
         let name = btn.dataset.name;
         btn.addEventListener('click', () => {
             data.forEach( group => {
@@ -130,6 +168,7 @@ function checkEvents(data) {
                         pizzaBuilder[name].amount = 1;
                         pizzaBuilder[name].price = ingredient.price;
                         pizzaBuilder[name].cost = pizzaBuilder[name].price * pizzaBuilder[name].amount;
+                        changeBtn();
                         updateIngredientData(name);
                         console.log(pizzaBuilder);
                     }
@@ -137,36 +176,55 @@ function checkEvents(data) {
             })
         });
     });
-    //     // Event to remove clicked ingredient from pizza
-    //     ingredientsElementMinus.addEventListener('click', e => {
-    //         cutIngredient(ingredient, ingredientsElementCount, ingredientsElementCost);
-    //     });
 }
 
 // Create ingredients lists
 function createIngrediensGroup(data) {
-    data.forEach( group => {
-        // Create ingredients main group
-        let block = document.createElement('div');
-        block.classList.add('blockIngredients');
-        block.innerHTML = `<h1>${group.name.toUpperCase()}</h1>`;
-        pizzaIngredients.appendChild(block);
 
-        group.ingredients.forEach( ingredient => {
-            let ingredientDOM = document.createElement('div');
-            ingredientDOM.classList.add('ingredientsElement');
-            ingredientDOM.innerHTML += `
-            <h1>${ingredient.name.toUpperCase()}</h1>
-            <button class="addBtn" data-name="${ingredient.name}">+</button>
-            <button class="removeBtn" data-name="${ingredient.name}">-</button>
-            <p class="pQuantity" data-name="${ingredient.name}">Quantity: 0</p>
-            <p>Single price: ${ingredient.price}</p>
-            <p class="pCost" data-name="${ingredient.name}">Entire cost: 0</p>
-            `;
-            block.appendChild(ingredientDOM);
-        });
+    
+
+    data.forEach( group => {
+        // Create ingredients group
+        let ingredientsGroup = document.createElement("div");
+        ingredientsGroup.classList.add("ingredients__group");
+        // header
+        let ingredientsHeader = document.createElement("h1");
+        ingredientsHeader.classList.add("heading-two");
+        ingredientsHeader.classList.add("ingredients__group-header");
+        ingredientsHeader.innerHTML = `${group.name.toUpperCase()}`;
+        // container
+        let ingredientsContainer = document.createElement("div");
+        ingredientsContainer.classList.add("ingredients__container");
+
+        //Group render
+        ingredientsGroup.appendChild(ingredientsHeader);
+        ingredientsGroup.appendChild(ingredientsContainer);
+            //Ingredients render
+            group.ingredients.forEach( ingredient => {
+                let ingredientItem = document.createElement('div');
+                ingredientItem.classList.add('ingredients__container-item');
+                ingredientItem.innerHTML += `
+                <h1>${ingredient.name.toUpperCase()}</h1>
+                <button class="btn ingredients__container-btn" data-name="${ingredient.name}">add</button>
+                <p class="ingredients__container-price">Price: ${ingredient.price}</p>
+                
+                `;
+                ingredientsContainer.appendChild(ingredientItem);
+            });
+
+        pizzaIngredientsDOM.appendChild(ingredientsGroup);
     });
 }
+// ingredientItem.innerHTML += `
+//                 <h1>${ingredient.name.toUpperCase()}</h1>
+//                 <button class="startBtn" data-name="${ingredient.name}">+</button>
+//                 <button class="removeBtn" data-name="${ingredient.name}">-</button>
+//                 <p class="pQuantity" data-name="${ingredient.name}">Quantity: 0</p>
+//                 <p>Single price: ${ingredient.price}</p>
+//                 <p class="pCost" data-name="${ingredient.name}">Entire cost: 0</p>
+//                 `;
+//                 ingredientsContainer.appendChild(ingredientItem);
+// {/* <button class="addBtn" data-name="${ingredient.name}">+</button> */}
 document.addEventListener('DOMContentLoaded', () => {
 
     getData()
@@ -174,6 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
         createIngrediensGroup(data);
         checkEvents(data);
     });
-    pizzaBuilderGenerator(48);
+    pizzaBuilderGenerator(99);
 
 });

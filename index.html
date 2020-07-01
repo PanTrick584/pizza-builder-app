@@ -3,34 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
-    
-    <header>
-        <h1>
-            <ul>
-                <li>NameCompany</li>
-                <li>About Us</li>
-                <li>Your Order</li>
-                <li>Shop card</li>
-                <li>Contact</li>
+      <!-- NAVIGATION -->
+      <!-- <nav class="navigation">
+        <div class="navigation__logo">LOGO</div>
+        <h3 class="heading-three">
+            <ul class="navigation__menu">
+                <li class="navigation__menu-li">NameCompany</li>
+                <li class="navigation__menu-li">About Us</li>
+                <li class="navigation__menu-li">Your Order</li>
+                <li class="navigation__menu-li">Shop card</li>
+                <li class="navigation__menu-li">Contact</li>
             </ul>
-        </h1>
-    </header>
-    <div class="container" id="container">
+        </h3>
+    </nav> -->
+    <!-- END OF NAVIGATION -->
+    
+    <!-- MAIN -->
+    <main>
+        <!-- BUILDER -->
+        <section class="section__builder" id="builder">
+            <!-- HEADER -->
+            <header class="header">
+                <div class="header__container">
+                    <h1 class="header__container-h1 heading-two">PIZZA ESPECIALY <br /> FOR YOU</h1>
+                    <h2 class="header__container-h2 heading-three"> created by you, made with our love</h2>
+                    <!-- <a href="#" class="btn header__btn">create now</a> -->
+                </div>
+            </header>
+            <!-- END OF HEADER -->
+            <div class="builder">
+                <div class="builder__pizza" id="builder__pizza"></div>
+                <h2 class="builder__cost heading-three" id="cost">Cost: 10 za ciasto</h2>
+            </div>
+        </section>
+        <!-- END OF BUILDER -->
+        <!-- INGREDIENTS -->
+        <section class="section__ingredients">
+            <div class="ingredients" id="ingredients"></div>
+        </section>
+        <!-- END OF IGREDIENTS -->
+        <!-- <div class="container" id="container">
         
-        <div class="pizza-builder" id="pizza-builder">
-            <div class="pizza-builder-container" id="pizza-builder-container"></div>
-            <p class="pizza-cost" id="pizza-cost">Cost: 10 za ciasto</p>
-        </div>
-        
-        <div class="pizza-ingredients" id="pizza-ingredients"></div>
-        <!-- <div class="pizza-stats" id="pizza-stats"></div> -->
-        <footer></footer>
-
-    </div>
+            <div class="pizza-builder" id="pizza-builder">
+                <div class="pizza-builder-container" id="pizza-builder-container"></div>
+                <p class="pizza-cost" id="pizza-cost"></p>
+            </div>
+            
+            <div class="pizza-ingredients" id="pizza-ingredients"></div>
+            <div class="pizza-stats" id="pizza-stats"></div>
+            <footer></footer>
+    
+        </div> -->
+    </main>
+    <!-- END OF MAIN -->
+    
 
     <script src="script.js"></script>
 </body>

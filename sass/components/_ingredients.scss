@@ -1,0 +1,51 @@
+.ingredients {
+
+    @include center-column;
+
+    &__group {
+        
+        width: 30rem;
+        // border-radius: 2rem;
+        background-color: $color-three;
+        color: $color-two;
+        padding-top: 2rem;
+        margin-top: $margin-small;
+        @include center-column;
+        
+        &-header {
+            text-align: center;
+            width: 100%;
+            padding: 1rem 0;
+            background-color: $color-four;
+        }
+    }
+
+    &__container {
+       
+        margin: 0 auto;
+        color: $color-two;
+       
+        @include center-column;
+
+        &-item {
+            
+            width: 15rem;
+            margin-bottom: $margin-middle;
+            border: .3rem solid $color-two;
+            border-radius: 2rem;
+            padding: 1rem;
+            @include center-column;
+        }
+
+        &-btn {
+            text-align: center;
+            margin: $margin-small 0;
+            border: .3rem solid $color-two;
+            outline: none;
+        }
+
+        &-price {
+            font-size: $font-size-small;
+        }
+    }
+}

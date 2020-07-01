@@ -1,0 +1,18 @@
+.btn {
+
+    &,
+    &:link,
+    &:visited {
+        background-color: $color-three;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        border: none;
+        outline: none;
+        border-radius: 200px;
+        color: $color-two;
+        font-size: $font-size-small;
+        font-weight: 700;
+        letter-spacing: .3rem;
+    }
+}

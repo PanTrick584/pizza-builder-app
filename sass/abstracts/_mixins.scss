@@ -1,0 +1,28 @@
+@mixin center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin center-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin header-red {
+    text-align: center;
+    width: 25rem;
+    padding: 1rem;
+    background-color: $color-three;
+    border-radius: .5rem;
+    color: $color-two;
+}
+
+@mixin border-small {
+    border: 1rem solid white;
+}
+
+@mixin border-bot {
+    border-bottom: 1rem solid white;
+}

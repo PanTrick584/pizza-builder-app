@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: "Playfair Display", sans-serif;
+  box-sizing: border-box; }
+
+.heading-one {
+  font-size: 10rem;
+  margin-bottom: 5rem; }
+
+.heading-two {
+  font-size: 2.5rem;
+  margin-bottom: 2rem; }
+
+.heading-three {
+  font-size: 1.4rem;
+  margin-bottom: 2rem; }
+
+.u-margin-bot-small {
+  margin-bottom: 2rem; }
+
+.u-margin-bot-middle {
+  margin-bottom: 5rem; }
+
+.u-margin-bot-big {
+  margin-bottom: 8rem; }
+
+.btn, .btn:link, .btn:visited {
+  background-color: #cb3b3b;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  border: none;
+  outline: none;
+  border-radius: 200px;
+  color: #e0c45c;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .3rem; }
+
+.builder {
+  background-image: url("https://c.pxhere.com/photos/e1/04/pizza_ham_cheese_view_from_the_top_motherboard_good_food_fast_food_restaurant-1202870.jpg!d");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .builder__pizza {
+    max-width: 25rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2rem; }
+    .builder__pizza-cell {
+      width: 2.5rem;
+      height: 2.5rem; }
+  .builder__cost {
+    text-align: center;
+    width: 25rem;
+    padding: 1rem;
+    background-color: #cb3b3b;
+    border-radius: .5rem;
+    color: #e0c45c; }
+
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .ingredients__group {
+    width: 30rem;
+    background-color: #cb3b3b;
+    color: #e0c45c;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .ingredients__group-header {
+      text-align: center;
+      width: 100%;
+      padding: 1rem 0;
+      background-color: #85203b; }
+  .ingredients__container {
+    margin: 0 auto;
+    color: #e0c45c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .ingredients__container-item {
+      width: 15rem;
+      margin-bottom: 5rem;
+      border: 0.3rem solid #e0c45c;
+      border-radius: 2rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+    .ingredients__container-btn {
+      text-align: center;
+      margin: 2rem 0;
+      border: 0.3rem solid #e0c45c;
+      outline: none; }
+    .ingredients__container-price {
+      font-size: 1.4rem; }
+
+.header {
+  padding: 1rem;
+  background-color: #e0c45c;
+  border-bottom: 1rem solid white; }
+  .header__container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .header__container-h2 {
+      text-align: center;
+      width: 25rem;
+      padding: 1rem;
+      background-color: #cb3b3b;
+      border-radius: .5rem;
+      color: #e0c45c; }
+
+.navigation {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff98c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.5rem; }
+  .navigation__logo {
+    padding: 2rem; }
+  .navigation__menu {
+    display: flex;
+    list-style: none; }
+    .navigation__menu-li {
+      margin-right: 5rem; }
+
+.section__builder {
+  position: fixed;
+  top: 0;
+  height: 55rem;
+  width: 100%;
+  background-color: #fff98c;
+  margin: 0 auto;
+  z-index: 2;
+  border: 1rem solid white; }
+
+.section__ingredients {
+  margin-top: 55rem;
+  width: 100%;
+  background-color: #e0c45c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1rem solid white; }
