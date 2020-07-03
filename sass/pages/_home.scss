@@ -8,6 +8,12 @@
     z-index: 2;
 
     @include border-small;
+    @include respond(tab-port) {
+        position: static; // 1rem = 12px, 12/16 = 50%
+        width: 80%;
+        border: 0;
+        margin: 3rem auto;
+    }
 }
 
 .section__ingredients{
@@ -17,4 +23,9 @@
 
     @include center-column;
     @include border-small;
+    @include respond(tab-port) {
+        width: 80%;
+        border: 0;
+        margin: 0 auto;
+    }
 }

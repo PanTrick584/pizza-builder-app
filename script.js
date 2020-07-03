@@ -99,6 +99,10 @@ const pizzaCost = [];
 //     entireCost();
 
 // };
+function changeIngredientData() {
+    
+}
+
 function addIngredientData(name) {
     for( key in pizzaBuilder) {
         if(name === pizzaBuilder[key].name) {
@@ -110,27 +114,44 @@ function addIngredientData(name) {
         }
     }
 }
-function changeBtn() {
+function changeBtn(name, ingredient) {
 
-    let startBtn = document.querySelectorAll('.startBtn');
+    let startBtn = document.querySelectorAll('.ingredients__container-btn');
     startBtn.forEach( btn => {
-        btn.classList.add('addBtn');
-        btn.classList.remove('startBtn');
-        btn.removeEventListener('click')
+        let ingItem = document.querySelectorAll(".ingredients__container-item");
+        if(btn.dataset.name === name) {
+            btn.style.display = "none";
+            ingItem.forEach( ing => {
+                if(ing.dataset.name === name) {
+                    ing.innerHTML = 
+                        `<h1>${ingredient.name.toUpperCase()}</h1>
+                            <div class="ingredients__container-box">
+                                <button class="btn ingredients__container-addBtn" data-name="${ingredient.name}">+</button>
+                                <button class="btn ingredients__container-removeBtn" data-name="${ingredient.name}">-</button>
+                            </div>
+                            <div class="ingredients__container-box">
+                                <p class="pQuantity" data-name="${ingredient.name}">Quantity: 0</p>
+                                <p>Price: ${ingredient.price}</p>
+                                <p class="pCost" data-name="${ingredient.name}">Entire cost: 0</p>
+                            </div>
+                        `;
+                }
+            })
+        }
     });
-    let removeBtn = document.querySelectorAll('removeBtn')
+    let removeBtn = document.querySelectorAll('.ingredients__container-addBtn');
+    console.log(removeBtn)
     removeBtn.forEach( btn => {
-        btn.style.visibility = 'visible';
+        console.log(btn)
     });
 
-    let addBtn = document.querySelectorAll('.addBtn');
+    let addBtn = document.querySelectorAll('.ingredients__container-removeBtn');
     addBtn.forEach( btn => {
         btn.addEventListener('click', () => {
             let name = btn.dataset.name;
-            addIngredientData(name);
+            changeIngredientData(name);
         })
     });
-    removeBtn.forEach( btn => btn.addEventListener('click', () => removeIngredientData()));
 }
 
 function updateIngredientData(name) {
@@ -149,13 +170,10 @@ function updateIngredientData(name) {
     })
 };
 
-function createPizzaBuilder() {
-    
-}
 
 function checkEvents(data) {
     // Event to add clicked ingredient to pizza
-    let startBtn = document.querySelectorAll('.startBtn');
+    let startBtn = document.querySelectorAll('.ingredients__container-btn');
     startBtn.forEach( btn =>  {
         let name = btn.dataset.name;
         btn.addEventListener('click', () => {
@@ -168,7 +186,7 @@ function checkEvents(data) {
                         pizzaBuilder[name].amount = 1;
                         pizzaBuilder[name].price = ingredient.price;
                         pizzaBuilder[name].cost = pizzaBuilder[name].price * pizzaBuilder[name].amount;
-                        changeBtn();
+                        changeBtn(name, ingredient);
                         updateIngredientData(name);
                         console.log(pizzaBuilder);
                     }
@@ -181,8 +199,6 @@ function checkEvents(data) {
 // Create ingredients lists
 function createIngrediensGroup(data) {
 
-    
-
     data.forEach( group => {
         // Create ingredients group
         let ingredientsGroup = document.createElement("div");
@@ -191,7 +207,7 @@ function createIngrediensGroup(data) {
         let ingredientsHeader = document.createElement("h1");
         ingredientsHeader.classList.add("heading-two");
         ingredientsHeader.classList.add("ingredients__group-header");
-        ingredientsHeader.innerHTML = `${group.name.toUpperCase()}`;
+        ingredientsHeader.innerHTML = `${group.name}`;
         // container
         let ingredientsContainer = document.createElement("div");
         ingredientsContainer.classList.add("ingredients__container");
@@ -203,6 +219,7 @@ function createIngrediensGroup(data) {
             group.ingredients.forEach( ingredient => {
                 let ingredientItem = document.createElement('div');
                 ingredientItem.classList.add('ingredients__container-item');
+                ingredientItem.dataset.name = ingredient.name;
                 ingredientItem.innerHTML += `
                 <h1>${ingredient.name.toUpperCase()}</h1>
                 <button class="btn ingredients__container-btn" data-name="${ingredient.name}">add</button>
@@ -215,16 +232,7 @@ function createIngrediensGroup(data) {
         pizzaIngredientsDOM.appendChild(ingredientsGroup);
     });
 }
-// ingredientItem.innerHTML += `
-//                 <h1>${ingredient.name.toUpperCase()}</h1>
-//                 <button class="startBtn" data-name="${ingredient.name}">+</button>
-//                 <button class="removeBtn" data-name="${ingredient.name}">-</button>
-//                 <p class="pQuantity" data-name="${ingredient.name}">Quantity: 0</p>
-//                 <p>Single price: ${ingredient.price}</p>
-//                 <p class="pCost" data-name="${ingredient.name}">Entire cost: 0</p>
-//                 `;
-//                 ingredientsContainer.appendChild(ingredientItem);
-// {/* <button class="addBtn" data-name="${ingredient.name}">+</button> */}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     getData()

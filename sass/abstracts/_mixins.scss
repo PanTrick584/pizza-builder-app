@@ -26,3 +26,27 @@
 @mixin border-bot {
     border-bottom: 1rem solid white;
 }
+
+@mixin respond($breakpoint) {
+    
+    //moje
+    @if $breakpoint == phone {
+        @media (max-width: 26.56em ) { @content }; // 425px
+    }
+    @if $breakpoint == tab-port {
+        @media (min-width: 39.1em ) { @content }; // 625px
+    }
+    @if $breakpoint == tab-land {
+        @media (min-width: 64em ) { @content }; // 1024px
+    }
+    @if $breakpoint == standart-screen {
+        @media (min-width: 90em ) { @content }; // 1440px
+    }
+    @if $breakpoint == big-screen {
+        @media (min-width: 112.5em ) { @content }; // 1440px
+    }
+    @if $breakpoint == big-screen {
+        @media (min-width: 160em ) { @content }; // 2560px
+    }
+    
+}

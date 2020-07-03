@@ -6,7 +6,9 @@
     background-repeat: no-repeat;
     padding-top: $margin-small;
     @include center-column;
-
+    @include respond(tab-port) {
+        max-height: 50rem; // 1rem = 12px, 12/16 = 50%
+    }
     
     &__pizza {
     

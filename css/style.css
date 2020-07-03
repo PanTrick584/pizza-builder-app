@@ -8,14 +8,32 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 26.56em) {
+    html {
+      font-size: 56.25%; } }
+  @media (min-width: 39.1em) {
+    html {
+      font-size: 75%; } }
+  @media (min-width: 64em) {
+    html {
+      font-size: 87.5%; } }
+  @media (min-width: 90em) {
+    html {
+      font-size: 100%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 125%; } }
+  @media (min-width: 160em) {
+    html {
+      font-size: 125%; } }
 
 body {
   font-family: "Playfair Display", sans-serif;
   box-sizing: border-box; }
 
 .heading-one {
-  font-size: 10rem;
-  margin-bottom: 5rem; }
+  font-size: 5rem;
+  margin-bottom: 2rem; }
 
 .heading-two {
   font-size: 2.5rem;
@@ -41,7 +59,7 @@ body {
   padding: 1.5rem 4rem;
   border: none;
   outline: none;
-  border-radius: 200px;
+  border-radius: 1rem;
   color: #e0c45c;
   font-size: 1.4rem;
   font-weight: 700;
@@ -57,6 +75,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  @media (min-width: 39.1em) {
+    .builder {
+      max-height: 50rem; } }
   .builder__pizza {
     max-width: 25rem;
     display: flex;
@@ -75,16 +96,21 @@ body {
     color: #e0c45c; }
 
 .ingredients {
+  width: 100%;
+  margin: 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  .ingredients__h1 {
+    width: 100%;
+    padding: 3rem 0;
+    text-align: center;
+    background-color: #e0c45c; }
   .ingredients__group {
-    width: 30rem;
-    background-color: #cb3b3b;
+    width: 100%;
+    border-radius: 2rem;
     color: #e0c45c;
-    padding-top: 2rem;
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,7 +119,8 @@ body {
       text-align: center;
       width: 100%;
       padding: 1rem 0;
-      background-color: #85203b; }
+      background-color: #cb3b3b;
+      color: #e0c45c; }
   .ingredients__container {
     margin: 0 auto;
     color: #e0c45c;
@@ -101,23 +128,57 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+    @media (min-width: 39.1em) {
+      .ingredients__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly; } }
     .ingredients__container-item {
-      width: 15rem;
+      width: 29rem;
+      height: 25rem;
       margin-bottom: 5rem;
       border: 0.3rem solid #e0c45c;
+      background-color: #fff98c;
+      color: #cb3b3b;
       border-radius: 2rem;
       padding: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center; }
+      @media (min-width: 39.1em) {
+        .ingredients__container-item {
+          width: 20rem;
+          height: 18rem; } }
+      .ingredients__container-item:last-of-type {
+        float: left; }
     .ingredients__container-btn {
+      background-color: #cb3b3b;
       text-align: center;
       margin: 2rem 0;
-      border: 0.3rem solid #e0c45c;
-      outline: none; }
+      outline: none;
+      transition: all .2s; }
+      .ingredients__container-btn:hover {
+        transform: translateY(-0.5rem); }
+      .ingredients__container-btn:active {
+        transform: scale(0.95); }
     .ingredients__container-price {
       font-size: 1.4rem; }
+    .ingredients__container-box {
+      width: 100%;
+      font-size: 1.4rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+    .ingredients__container-addBtn, .ingredients__container-removeBtn {
+      padding: 1rem 2.5rem;
+      transition: all .2s; }
+      .ingredients__container-addBtn:hover, .ingredients__container-removeBtn:hover {
+        transform: translateY(-0.5rem); }
+      .ingredients__container-addBtn:active, .ingredients__container-removeBtn:active {
+        transform: scale(0.95); }
 
 .header {
   padding: 1rem;
@@ -164,6 +225,12 @@ body {
   margin: 0 auto;
   z-index: 2;
   border: 1rem solid white; }
+  @media (min-width: 39.1em) {
+    .section__builder {
+      position: static;
+      width: 80%;
+      border: 0;
+      margin: 3rem auto; } }
 
 .section__ingredients {
   margin-top: 55rem;
@@ -174,3 +241,8 @@ body {
   justify-content: center;
   align-items: center;
   border: 1rem solid white; }
+  @media (min-width: 39.1em) {
+    .section__ingredients {
+      width: 80%;
+      border: 0;
+      margin: 0 auto; } }

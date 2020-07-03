@@ -1,22 +1,31 @@
 .ingredients {
 
+    width: 100%;
+    margin: 0 0;
     @include center-column;
+
+    &__h1 {
+        
+        width: 100%;
+        padding: 3rem 0;
+        text-align: center;
+        background-color: $color-two;
+    }
 
     &__group {
         
-        width: 30rem;
-        // border-radius: 2rem;
-        background-color: $color-three;
+        width: 100%;
+        border-radius: 2rem;
         color: $color-two;
-        padding-top: 2rem;
-        margin-top: $margin-small;
         @include center-column;
-        
+       
         &-header {
             text-align: center;
             width: 100%;
             padding: 1rem 0;
-            background-color: $color-four;
+
+            background-color: $color-three;
+            color: $color-two;
         }
     }
 
@@ -26,26 +35,79 @@
         color: $color-two;
        
         @include center-column;
+        @include respond(tab-port) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            // margin: 0 auto;
+        }
+
 
         &-item {
             
-            width: 15rem;
+            // display: none;
+            width: 29rem;
+            height: 25rem;
             margin-bottom: $margin-middle;
             border: .3rem solid $color-two;
+            background-color: $color-one;
+            color: $color-three;
             border-radius: 2rem;
             padding: 1rem;
             @include center-column;
+            @include respond(tab-port) {
+                width: 20rem;
+                height: 18rem;
+            }
+
+            &:last-of-type{
+                float: left;
+            }
         }
 
         &-btn {
+            background-color: $color-three;
             text-align: center;
             margin: $margin-small 0;
-            border: .3rem solid $color-two;
             outline: none;
+            transition: all .2s;
+
+            &:hover {
+                transform: translateY(-.5rem);
+            }
+
+            &:active {
+                transform: scale(.95);
+            }
         }
 
         &-price {
             font-size: $font-size-small;
+        }
+
+        &-box {
+            width: 100%;
+            font-size: $font-size-small;
+            margin: $margin-small 0;
+
+            @include center-row;
+            justify-content: space-around;
+        }
+
+        &-addBtn,
+        &-removeBtn {
+
+            padding: 1rem 2.5rem;
+            transition: all .2s;
+
+            &:hover {
+                transform: translateY(-.5rem);
+            }
+
+            &:active {
+                transform: scale(.95);
+            }
         }
     }
 }
