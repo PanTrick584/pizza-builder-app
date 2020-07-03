@@ -1,5 +1,5 @@
 const pizzaIngredientsDOM = document.getElementById('ingredients');
-const pizzaPriceElement = document.getElementById('cost');
+const pizzaPriceDOM = document.getElementById('cost');
 const pizzaBuilderDOM = document.getElementById('builder__pizza');
 
 async function getData() {
@@ -99,8 +99,64 @@ const pizzaCost = [];
 //     entireCost();
 
 // };
-function changeIngredientData() {
-    
+function updateEntireCost() {
+    let sum = Array.from(Object.values(pizzaBuilder)).map( num => {
+       return num.cost;
+    }).reduce( (sum, num) => {
+       return sum + num
+     }, 0);
+    pizzaPriceDOM.innerHTML = `Cost: ${sum} + 10 za ciasto`;
+}
+
+function updatePizzaCost(btn) {
+    let name = btn.dataset.name;
+    let btnClass = btn.classList[1];
+    if(btnClass === "ingredients__container-addBtn"){
+        for(key in pizzaBuilder) {
+            if(name === pizzaBuilder[key].name) {
+                pizzaBuilder[key].amount++;
+                pizzaBuilder[key].cost = pizzaBuilder[key].price * pizzaBuilder[key].amount;
+                console.log(pizzaBuilder[key].amount, pizzaBuilder[key]);
+                updateIngredientData(name);
+                console.log(pizzaBuilder)
+                updateEntireCost();
+            }
+        }
+    } else {
+        for(key in pizzaBuilder) {
+            if(name === key) {
+                pizzaBuilder[key].amount--;
+                pizzaBuilder[key].cost = pizzaBuilder[key].cost - pizzaBuilder[key].price;
+                console.log(pizzaBuilder[key].amount, pizzaBuilder[key]);
+                updateIngredientData(name);
+                updateEntireCost();
+            }
+        }
+    }
+}
+
+function getButtons(name) {
+
+    let addBtn = document.querySelectorAll('.ingredients__container-addBtn');
+    addBtn.forEach( btn => {
+        let btnName = btn.dataset.name;
+        if(btnName === name) {
+            btn.addEventListener("click", () => {
+                updatePizzaCost(btn); 
+            })
+        }
+    });
+
+    let removeBtn = document.querySelectorAll('.ingredients__container-removeBtn');
+
+    removeBtn.forEach( btn => {
+        let btnName = btn.dataset.name;
+        if(btnName === name) {
+            btn.addEventListener("click", () => {
+                updatePizzaCost(btn); 
+            })
+        }
+    });
 }
 
 function addIngredientData(name) {
@@ -139,29 +195,20 @@ function changeBtn(name, ingredient) {
             })
         }
     });
-    let removeBtn = document.querySelectorAll('.ingredients__container-addBtn');
-    console.log(removeBtn)
-    removeBtn.forEach( btn => {
-        console.log(btn)
-    });
-
-    let addBtn = document.querySelectorAll('.ingredients__container-removeBtn');
-    addBtn.forEach( btn => {
-        btn.addEventListener('click', () => {
-            let name = btn.dataset.name;
-            changeIngredientData(name);
-        })
-    });
+    getButtons(name);
 }
 
 function updateIngredientData(name) {
     let pQuantity = document.querySelectorAll('.pQuantity');
     let pCost = document.querySelectorAll('.pCost');
-
+    
     pQuantity.forEach( p => {
-        if(name === p.dataset.name){
-            p.innerHTML = `Quantity: ${pizzaBuilder[name].amount}`
+        for(key in pizzaBuilder) {
+            if(name === p.dataset.name){
+                p.innerHTML = `Quantity: ${pizzaBuilder[name].amount}`
+            }
         }
+        
     });
     pCost.forEach( p => {
         if(name === p.dataset.name){
@@ -188,7 +235,7 @@ function checkEvents(data) {
                         pizzaBuilder[name].cost = pizzaBuilder[name].price * pizzaBuilder[name].amount;
                         changeBtn(name, ingredient);
                         updateIngredientData(name);
-                        console.log(pizzaBuilder);
+                        updateEntireCost();
                     }
                 })
             })
@@ -221,9 +268,13 @@ function createIngrediensGroup(data) {
                 ingredientItem.classList.add('ingredients__container-item');
                 ingredientItem.dataset.name = ingredient.name;
                 ingredientItem.innerHTML += `
-                <h1>${ingredient.name.toUpperCase()}</h1>
-                <button class="btn ingredients__container-btn" data-name="${ingredient.name}">add</button>
-                <p class="ingredients__container-price">Price: ${ingredient.price}</p>
+                <h1 class="ingredients__container-h1">${ingredient.name}</h1>
+                <div class="ingredients__container-box">
+                    <p class="ingredients__container-price">Price: ${ingredient.price}</p>
+                    <button class="btn ingredients__container-btn" data-name="${ingredient.name}">add</button>
+                    
+                </div>
+                
                 
                 `;
                 ingredientsContainer.appendChild(ingredientItem);

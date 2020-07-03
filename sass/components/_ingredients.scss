@@ -31,8 +31,10 @@
 
     &__container {
        
+        width: 100%;
         margin: 0 auto;
         color: $color-two;
+        text-align: center;
        
         @include center-column;
         @include respond(tab-port) {
@@ -40,36 +42,42 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-evenly;
-            // margin: 0 auto;
         }
 
-
+        &-h1 {
+            font-size: $font-size-middle;
+            margin-bottom: $margin-small;
+        }
         &-item {
             
-            // display: none;
-            width: 29rem;
-            height: 25rem;
+            width: 90%;
+            padding: 2rem .5rem;
             margin-bottom: $margin-middle;
-            border: .3rem solid $color-two;
             background-color: $color-one;
-            color: $color-three;
-            border-radius: 2rem;
-            padding: 1rem;
-            @include center-column;
+            color: $color-four;
+            box-shadow: .5rem 1rem 1rem $color-four;
+            // padding: 1rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            // align-items: flex-end;
+            transition: all .2s;
+
             @include respond(tab-port) {
                 width: 20rem;
                 height: 18rem;
             }
 
-            &:last-of-type{
-                float: left;
+            &:hover {
+                transform: scale(1.05);
             }
         }
 
         &-btn {
             background-color: $color-three;
             text-align: center;
-            margin: $margin-small 0;
+            margin: 0;
             outline: none;
             transition: all .2s;
 
@@ -83,16 +91,18 @@
         }
 
         &-price {
-            font-size: $font-size-small;
+            font-weight: 700;
+            font-size: $font-size-middle;
         }
 
         &-box {
             width: 100%;
             font-size: $font-size-small;
-            margin: $margin-small 0;
+            margin: 0;
 
             @include center-row;
             justify-content: space-around;
+            align-items: flex-end;
         }
 
         &-addBtn,

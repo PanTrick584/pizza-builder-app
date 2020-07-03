@@ -56,7 +56,7 @@ body {
   background-color: #cb3b3b;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 2rem;
   border: none;
   outline: none;
   border-radius: 1rem;
@@ -122,8 +122,10 @@ body {
       background-color: #cb3b3b;
       color: #e0c45c; }
   .ingredients__container {
+    width: 100%;
     margin: 0 auto;
     color: #e0c45c;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,29 +136,30 @@ body {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly; } }
+    .ingredients__container-h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem; }
     .ingredients__container-item {
-      width: 29rem;
-      height: 25rem;
+      width: 90%;
+      padding: 2rem .5rem;
       margin-bottom: 5rem;
-      border: 0.3rem solid #e0c45c;
       background-color: #fff98c;
-      color: #cb3b3b;
-      border-radius: 2rem;
-      padding: 1rem;
+      color: #85203b;
+      box-shadow: 0.5rem 1rem 1rem #85203b;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center; }
+      justify-content: space-around;
+      transition: all .2s; }
       @media (min-width: 39.1em) {
         .ingredients__container-item {
           width: 20rem;
           height: 18rem; } }
-      .ingredients__container-item:last-of-type {
-        float: left; }
+      .ingredients__container-item:hover {
+        transform: scale(1.05); }
     .ingredients__container-btn {
       background-color: #cb3b3b;
       text-align: center;
-      margin: 2rem 0;
+      margin: 0;
       outline: none;
       transition: all .2s; }
       .ingredients__container-btn:hover {
@@ -164,14 +167,16 @@ body {
       .ingredients__container-btn:active {
         transform: scale(0.95); }
     .ingredients__container-price {
-      font-size: 1.4rem; }
+      font-weight: 700;
+      font-size: 2.5rem; }
     .ingredients__container-box {
       width: 100%;
       font-size: 1.4rem;
-      margin: 2rem 0;
+      margin: 0;
       display: flex;
       flex-direction: row;
-      justify-content: space-around; }
+      justify-content: space-around;
+      align-items: flex-end; }
     .ingredients__container-addBtn, .ingredients__container-removeBtn {
       padding: 1rem 2.5rem;
       transition: all .2s; }
