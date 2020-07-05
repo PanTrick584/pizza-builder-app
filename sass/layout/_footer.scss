@@ -1,0 +1,12 @@
+.footer {
+
+    margin-top: $margin-small;
+
+    &__container {
+        background-color: $color-four;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}

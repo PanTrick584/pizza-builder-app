@@ -12,10 +12,9 @@
 
 @mixin header-red {
     text-align: center;
-    width: 25rem;
+    width: 100%;
     padding: 1rem;
     background-color: $color-three;
-    border-radius: .5rem;
     color: $color-two;
 }
 

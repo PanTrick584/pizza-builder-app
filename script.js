@@ -110,7 +110,7 @@ function changeBtn(name, ingredient) {
             ingItem.forEach( ing => {
                 if(ing.dataset.name === name) {
                     ing.innerHTML = 
-                        `<h1>${ingredient.name.toUpperCase()}</h1>
+                        `<h1 class="item__header">${ingredient.name.toUpperCase()}</h1>
                         <div class="item__box-end">
                             <p class="item__box-end--quantity" data-name="${ingredient.name}">Quantity: 0</p>
                             <p>Price: ${ingredient.price}</p>
@@ -148,6 +148,11 @@ function updateIngredientData(name) {
     })
 };
 
+function fixedButton() {
+
+    // pizzaPriceDOM.style.position = "absolute";
+    // pizzaPriceDOM.style.bottom = "30px";
+}
 
 function checkEvents(data) {
     // Event to add clicked ingredient to pizza
@@ -167,6 +172,7 @@ function checkEvents(data) {
                         updateIngredientData(name);
                         updateEntireCost();
                         showIngredient(name);
+                        fixedButton();
                     }
                 })
             })
@@ -199,7 +205,7 @@ function createIngrediensGroup(data) {
                 ingredientItem.classList.add('item');
                 ingredientItem.dataset.name = ingredient.name;
                 ingredientItem.innerHTML += `
-                <h1>${ingredient.name}</h1>
+                <h1 class="item__header">${ingredient.name}</h1>
                 <div class="item__box-start">
                     <p class="item__box-start--price">Price: ${ingredient.price}</p>
                 </div>
