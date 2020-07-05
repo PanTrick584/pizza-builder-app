@@ -22,6 +22,17 @@ function pizzaBuilderGenerator(elements) {
     }
 };
 
+function showIngredient(name) {
+    let cell = document.querySelectorAll(".builder__pizza-cell");
+    let num = Math.floor(Math.random() * cell.length);
+    
+    cell.forEach( (cell, id) => {
+        cell.style.color = "#cb3b3b"
+       num === id ? cell.innerHTML = name : "";
+    })
+    
+}
+
 function updateEntireCost() {
     let sum = Array.from(Object.values(pizzaBuilder)).map( num => {
        return num.cost;
@@ -40,10 +51,9 @@ function updatePizzaCost(btn) {
             if(name === pizzaBuilder[key].name) {
                 pizzaBuilder[key].amount++;
                 pizzaBuilder[key].cost = pizzaBuilder[key].price * pizzaBuilder[key].amount;
-                console.log(pizzaBuilder[key].amount, pizzaBuilder[key]);
                 updateIngredientData(name);
-                console.log(pizzaBuilder)
                 updateEntireCost();
+                showIngredient(name);
             }
         }
     } else {
@@ -51,7 +61,6 @@ function updatePizzaCost(btn) {
             if(name === key && pizzaBuilder[key].amount > 0) {
                 pizzaBuilder[key].amount--;
                 pizzaBuilder[key].cost = pizzaBuilder[key].cost - pizzaBuilder[key].price;
-                console.log(pizzaBuilder[key].amount, pizzaBuilder[key]);
                 updateIngredientData(name);
                 updateEntireCost();
             }
@@ -86,10 +95,8 @@ function getButtons(name) {
 function addIngredientData(name) {
     for( key in pizzaBuilder) {
         if(name === pizzaBuilder[key].name) {
-            console.log(pizzaBuilder[key].amount)
             pizzaBuilder[key].amount++;
             pizzaBuilder[key].cost = pizzaBuilder[key].price * pizzaBuilder[key].amount;
-            console.log(pizzaBuilder)
             updateIngredientData(name);
         }
     }
@@ -151,7 +158,6 @@ function checkEvents(data) {
             data.forEach( group => {
                 group.ingredients.forEach( ingredient => {
                     if(name === ingredient.name) {
-                        console.log(ingredient.name)
                         pizzaBuilder[name] = {};
                         pizzaBuilder[name].name = ingredient.name;
                         pizzaBuilder[name].amount = 1;
@@ -160,6 +166,7 @@ function checkEvents(data) {
                         changeBtn(name, ingredient);
                         updateIngredientData(name);
                         updateEntireCost();
+                        showIngredient(name);
                     }
                 })
             })

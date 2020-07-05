@@ -161,7 +161,8 @@ body {
       justify-content: center;
       align-items: center; } }
   .item:hover {
-    transform: scale(1.05); }
+    transform: scale(1.05);
+    z-index: 1; }
   .item__header {
     font-size: 1.4rem;
     text-transform: uppercase;
@@ -229,6 +230,7 @@ body {
   top: 0;
   width: 100%;
   margin: 0 auto;
+  z-index: 2;
   border: 1rem solid white; }
   @media (min-width: 39.1em) {
     .section__builder {
