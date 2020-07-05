@@ -83,10 +83,17 @@ body {
     margin-bottom: 2rem; }
     .builder__pizza-cell {
       width: 2.5rem;
-      height: 2.5rem; }
+      height: 2.5rem;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat; }
   .builder__cost {
     position: absolute;
     top: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     width: 100%;
     padding: 1rem;
@@ -95,6 +102,13 @@ body {
     @media (min-width: 39.1em) {
       .builder__cost {
         position: static; } }
+    .builder__cost-btn {
+      width: 100%;
+      cursor: pointer;
+      padding: 0;
+      transition: all .2s; }
+      .builder__cost-btn:hover {
+        background-color: #85203b; }
 
 .ingredients {
   width: 100%;
@@ -164,17 +178,22 @@ body {
     transform: scale(1.05);
     z-index: 1; }
   .item__header {
+    width: 25%;
     font-size: 1.4rem;
-    text-transform: uppercase;
-    border-bottom: 1px solid #cb3b3b; }
+    text-transform: uppercase; }
     @media (min-width: 39.1em) {
       .item__header {
+        width: 100%;
         height: 25%;
         margin-bottom: 2rem;
-        text-align: center; } }
+        text-align: center;
+        border-bottom: 1px solid #cb3b3b; } }
     @media (min-width: 64em) {
       .item__header {
         font-size: .95rem; } }
+    @media (min-width: 90em) {
+      .item__header {
+        font-size: 1.4rem; } }
   @media (min-width: 39.1em) {
     .item__box-start {
       width: 100%; } }
@@ -202,22 +221,51 @@ body {
       background-color: #85203b; }
     .item__box-start--btn:active {
       transform: scale(0.95); }
-  @media (min-width: 39.1em) {
-    .item__box-end {
-      width: 100%; } }
-  .item__box-end--addBtn, .item__box-end--removeBtn {
-    padding: 1rem 1.6rem;
-    transition: all .2s; }
+  .item__box-end {
+    text-align: left; }
     @media (min-width: 39.1em) {
-      .item__box-end--addBtn, .item__box-end--removeBtn {
-        width: 100%;
-        padding: .5rem 0; }
-        .item__box-end--addBtn:not(:last-child), .item__box-end--removeBtn:not(:last-child) {
-          margin: 1rem 0; } }
-    .item__box-end--addBtn:hover, .item__box-end--removeBtn:hover {
+      .item__box-end {
+        width: 100%; } }
+    .item__box-end--addBtn, .item__box-end--removeBtn {
+      padding: 1rem 1.6rem;
+      transition: all .2s; }
+      @media (min-width: 39.1em) {
+        .item__box-end--addBtn, .item__box-end--removeBtn {
+          width: 100%;
+          padding: .5rem 0; }
+          .item__box-end--addBtn:not(:last-child), .item__box-end--removeBtn:not(:last-child) {
+            margin: 1rem 0; } }
+      .item__box-end--addBtn:hover, .item__box-end--removeBtn:hover {
+        background-color: #85203b; }
+      .item__box-end--addBtn:active, .item__box-end--removeBtn:active {
+        transform: scale(0.95); }
+
+.popup {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(224, 196, 92, 0.7);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .popup__container {
+    width: 60%;
+    height: 40%;
+    margin: 0 auto;
+    background-color: #e0c45c;
+    box-shadow: 1rem 1rem 1rem #fff98c; }
+  .popup__closeBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    transition: all .2s; }
+    .popup__closeBtn:hover {
       background-color: #85203b; }
-    .item__box-end--addBtn:active, .item__box-end--removeBtn:active {
-      transform: scale(0.95); }
 
 .header {
   background-color: #e0c45c;
@@ -254,13 +302,17 @@ body {
       margin-right: 5rem; }
 
 .footer {
-  margin-top: 2rem; }
+  width: 100%;
+  background-color: #85203b; }
   .footer__container {
+    width: 90%;
+    padding: 3rem 0;
+    margin: 0 auto;
     background-color: #85203b;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
-    align-items: center; }
+    align-items: flex-start; }
 
 .section__builder {
   position: fixed;
@@ -277,7 +329,7 @@ body {
       margin: 3rem auto; } }
 
 .section__ingredients {
-  margin-top: 50vh;
+  margin-top: 55vh;
   width: 100%;
   background-color: #e0c45c;
   display: flex;
@@ -292,6 +344,5 @@ body {
       margin: 0 auto; } }
 
 .footer {
-  height: 20rem;
   width: 100%;
   background-color: #85203b; }

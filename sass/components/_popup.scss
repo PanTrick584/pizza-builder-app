@@ -1,0 +1,38 @@
+.popup {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 3;
+   
+    background-color: rgba($color-two, .7);
+
+    // display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+
+        width: 60%;
+        height: 40%;
+        margin: 0 auto;
+        background-color: $color-two;
+        box-shadow: 1rem 1rem 1rem $color-one;
+    }
+
+    &__closeBtn {
+        cursor: pointer;
+        
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        transition: all .2s;
+
+        &:hover {
+            background-color: $color-four;
+        }
+    }
+}

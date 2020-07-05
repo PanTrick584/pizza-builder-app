@@ -1,6 +1,10 @@
 const pizzaIngredientsDOM = document.getElementById('ingredients');
 const pizzaPriceDOM = document.getElementById('cost');
 const pizzaBuilderDOM = document.getElementById('builder__pizza');
+// POPUP DOM
+const popup = document.getElementById("popup");
+const popupOpen = document.getElementById("popupBtn");
+const popupClose = document.getElementById("popupBtnClose");
 
 async function getData() {
     let res = await fetch('./data.json');
@@ -28,7 +32,7 @@ function showIngredient(name) {
     
     cell.forEach( (cell, id) => {
         cell.style.color = "#cb3b3b"
-       num === id ? cell.innerHTML = name : "";
+       num === id ? cell.style.backgroundImage = `url("https://pngimg.com/uploads/trollface/trollface_PNG28.png")` : "";
     })
     
 }
@@ -219,6 +223,14 @@ function createIngrediensGroup(data) {
         pizzaIngredientsDOM.appendChild(ingredientsGroup);
     });
 }
+// Events
+popupBtn.addEventListener("click", () => {
+    popup.style.display = "flex";
+});
+popupClose.addEventListener("click", () => {
+    popup.style.display = "none";
+})
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
