@@ -1,9 +1,9 @@
 .section__builder{
     position: fixed;
     top: 0;
-    height: 55rem;
     width: 100%;
-    background-color: $color-one;
+    height: 50vh;
+    // background-color: $color-one;
     margin: 0 auto;
     z-index: 2;
 
@@ -17,7 +17,7 @@
 }
 
 .section__ingredients{
-    margin-top: 55rem;
+    margin-top: 50vh;
     width: 100%;
     background-color: $color-two;
 

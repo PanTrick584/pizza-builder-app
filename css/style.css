@@ -66,8 +66,9 @@ body {
   letter-spacing: .3rem; }
 
 .builder {
+  height: 50%;
   background-image: url("https://c.pxhere.com/photos/e1/04/pizza_ham_cheese_view_from_the_top_motherboard_good_food_fast_food_restaurant-1202870.jpg!d");
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 2rem;
@@ -224,9 +225,8 @@ body {
 .section__builder {
   position: fixed;
   top: 0;
-  height: 55rem;
   width: 100%;
-  background-color: #fff98c;
+  height: 50vh;
   margin: 0 auto;
   z-index: 2;
   border: 1rem solid white; }
@@ -238,7 +238,7 @@ body {
       margin: 3rem auto; } }
 
 .section__ingredients {
-  margin-top: 55rem;
+  margin-top: 50vh;
   width: 100%;
   background-color: #e0c45c;
   display: flex;
