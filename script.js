@@ -28,13 +28,14 @@ function updateEntireCost() {
     }).reduce( (sum, num) => {
        return sum + num
      }, 0);
-    pizzaPriceDOM.innerHTML = `Cost: ${sum} + 10 za ciasto`;
+    pizzaPriceDOM.innerHTML = `Cost: ${parseFloat(sum.toFixed(2))} + 10 za ciasto`;
+    
 }
 
 function updatePizzaCost(btn) {
     let name = btn.dataset.name;
     let btnClass = btn.classList[1];
-    if(btnClass === "ingredients__container-addBtn"){
+    if(btnClass === "item__box-end--addBtn"){
         for(key in pizzaBuilder) {
             if(name === pizzaBuilder[key].name) {
                 pizzaBuilder[key].amount++;
@@ -47,7 +48,7 @@ function updatePizzaCost(btn) {
         }
     } else {
         for(key in pizzaBuilder) {
-            if(name === key) {
+            if(name === key && pizzaBuilder[key].amount > 0) {
                 pizzaBuilder[key].amount--;
                 pizzaBuilder[key].cost = pizzaBuilder[key].cost - pizzaBuilder[key].price;
                 console.log(pizzaBuilder[key].amount, pizzaBuilder[key]);
@@ -60,7 +61,7 @@ function updatePizzaCost(btn) {
 
 function getButtons(name) {
 
-    let addBtn = document.querySelectorAll('.ingredients__container-addBtn');
+    let addBtn = document.querySelectorAll('.item__box-end--addBtn');
     addBtn.forEach( btn => {
         let btnName = btn.dataset.name;
         if(btnName === name) {
@@ -70,7 +71,7 @@ function getButtons(name) {
         }
     });
 
-    let removeBtn = document.querySelectorAll('.ingredients__container-removeBtn');
+    let removeBtn = document.querySelectorAll('.item__box-end--removeBtn');
 
     removeBtn.forEach( btn => {
         let btnName = btn.dataset.name;
@@ -95,24 +96,23 @@ function addIngredientData(name) {
 }
 function changeBtn(name, ingredient) {
 
-    let startBtn = document.querySelectorAll('.ingredients__container-btn');
+    let startBtn = document.querySelectorAll('.item__box-start--btn');
     startBtn.forEach( btn => {
-        let ingItem = document.querySelectorAll(".ingredients__container-item");
+        let ingItem = document.querySelectorAll(".item");
         if(btn.dataset.name === name) {
-            btn.style.display = "none";
             ingItem.forEach( ing => {
                 if(ing.dataset.name === name) {
                     ing.innerHTML = 
                         `<h1>${ingredient.name.toUpperCase()}</h1>
-                            <div class="ingredients__container-box">
-                                <button class="btn ingredients__container-addBtn" data-name="${ingredient.name}">+</button>
-                                <button class="btn ingredients__container-removeBtn" data-name="${ingredient.name}">-</button>
-                            </div>
-                            <div class="ingredients__container-box">
-                                <p class="pQuantity" data-name="${ingredient.name}">Quantity: 0</p>
-                                <p>Price: ${ingredient.price}</p>
-                                <p class="pCost" data-name="${ingredient.name}">Entire cost: 0</p>
-                            </div>
+                        <div class="item__box-end">
+                            <p class="item__box-end--quantity" data-name="${ingredient.name}">Quantity: 0</p>
+                            <p>Price: ${ingredient.price}</p>
+                            <p class="item__box-end--cost" data-name="${ingredient.name}">Entire cost: 0</p>
+                        </div>
+                        <div class="item__box-end">
+                            <button class="btn item__box-end--addBtn" data-name="${ingredient.name}">+</button>
+                            <button class="btn item__box-end--removeBtn" data-name="${ingredient.name}">-</button>
+                        </div>
                         `;
                 }
             })
@@ -122,8 +122,8 @@ function changeBtn(name, ingredient) {
 }
 
 function updateIngredientData(name) {
-    let pQuantity = document.querySelectorAll('.pQuantity');
-    let pCost = document.querySelectorAll('.pCost');
+    let pQuantity = document.querySelectorAll('.item__box-end--quantity');
+    let pCost = document.querySelectorAll('.item__box-end--cost');
     
     pQuantity.forEach( p => {
         for(key in pizzaBuilder) {
@@ -135,7 +135,8 @@ function updateIngredientData(name) {
     });
     pCost.forEach( p => {
         if(name === p.dataset.name){
-            p.innerHTML = `Entire cost: ${pizzaBuilder[name].cost}`
+            p.innerHTML = `Entire cost: ${ parseFloat(pizzaBuilder[name].cost.toFixed(2))}`
+           
         }
     })
 };
@@ -143,7 +144,7 @@ function updateIngredientData(name) {
 
 function checkEvents(data) {
     // Event to add clicked ingredient to pizza
-    let startBtn = document.querySelectorAll('.ingredients__container-btn');
+    let startBtn = document.querySelectorAll('.item__box-start--btn');
     startBtn.forEach( btn =>  {
         let name = btn.dataset.name;
         btn.addEventListener('click', () => {
@@ -188,17 +189,16 @@ function createIngrediensGroup(data) {
             //Ingredients render
             group.ingredients.forEach( ingredient => {
                 let ingredientItem = document.createElement('div');
-                ingredientItem.classList.add('ingredients__container-item');
+                ingredientItem.classList.add('item');
                 ingredientItem.dataset.name = ingredient.name;
                 ingredientItem.innerHTML += `
-                <h1 class="ingredients__container-h1">${ingredient.name}</h1>
-                <div class="ingredients__container-box">
-                    <p class="ingredients__container-price">Price: ${ingredient.price}</p>
-                    <button class="btn ingredients__container-btn" data-name="${ingredient.name}">add</button>
-                    
+                <h1>${ingredient.name}</h1>
+                <div class="item__box-start">
+                    <p class="item__box-start--price">Price: ${ingredient.price}</p>
                 </div>
-                
-                
+                <div class="item__box-start">
+                    <button class="btn item__box-start--btn" data-name="${ingredient.name}">add</button>
+                </div>
                 `;
                 ingredientsContainer.appendChild(ingredientItem);
             });

@@ -66,12 +66,10 @@ body {
   letter-spacing: .3rem; }
 
 .builder {
-  height: 50%;
   background-image: url("https://c.pxhere.com/photos/e1/04/pizza_ham_cheese_view_from_the_top_motherboard_good_food_fast_food_restaurant-1202870.jpg!d");
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,12 +87,17 @@ body {
       width: 2.5rem;
       height: 2.5rem; }
   .builder__cost {
+    position: absolute;
+    top: 80%;
     text-align: center;
     width: 25rem;
     padding: 1rem;
     background-color: #cb3b3b;
     border-radius: .5rem;
     color: #e0c45c; }
+    @media (min-width: 39.1em) {
+      .builder__cost {
+        position: static; } }
 
 .ingredients {
   width: 100%;
@@ -114,8 +117,7 @@ body {
     color: #e0c45c;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; }
+    justify-content: center; }
     .ingredients__group-header {
       text-align: center;
       width: 100%;
@@ -136,55 +138,55 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly; } }
-    .ingredients__container-h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem; }
-    .ingredients__container-item {
-      width: 90%;
-      padding: 2rem .5rem;
-      margin-bottom: 5rem;
-      background-color: #fff98c;
-      color: #85203b;
-      box-shadow: 0.5rem 1rem 1rem #85203b;
+        justify-content: space-around; } }
+
+.item {
+  width: 90%;
+  padding: 1rem .5rem;
+  margin-bottom: 5rem;
+  background-color: #fff98c;
+  color: #85203b;
+  box-shadow: 0.5rem 1rem 1rem #85203b;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  transition: all .2s; }
+  @media (min-width: 39.1em) {
+    .item {
+      width: 45%;
+      height: 12rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      transition: all .2s; }
-      @media (min-width: 39.1em) {
-        .ingredients__container-item {
-          width: 20rem;
-          height: 18rem; } }
-      .ingredients__container-item:hover {
-        transform: scale(1.05); }
-    .ingredients__container-btn {
-      background-color: #cb3b3b;
-      text-align: center;
-      margin: 0;
-      outline: none;
-      transition: all .2s; }
-      .ingredients__container-btn:hover {
-        transform: translateY(-0.5rem); }
-      .ingredients__container-btn:active {
-        transform: scale(0.95); }
-    .ingredients__container-price {
-      font-weight: 700;
-      font-size: 2.5rem; }
-    .ingredients__container-box {
-      width: 100%;
-      font-size: 1.4rem;
-      margin: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: flex-end; }
-    .ingredients__container-addBtn, .ingredients__container-removeBtn {
-      padding: 1rem 2.5rem;
-      transition: all .2s; }
-      .ingredients__container-addBtn:hover, .ingredients__container-removeBtn:hover {
-        transform: translateY(-0.5rem); }
-      .ingredients__container-addBtn:active, .ingredients__container-removeBtn:active {
-        transform: scale(0.95); }
+      justify-content: center;
+      align-items: center; } }
+  .item:hover {
+    transform: scale(1.05); }
+  .item__header {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-right: 1rem; }
+  .item__box-start--price {
+    font-weight: 400;
+    font-size: 1.4rem; }
+  .item__box-start--btn {
+    background-color: #cb3b3b;
+    text-align: center;
+    margin: 0;
+    padding: .8rem;
+    outline: none;
+    transition: all .2s; }
+    .item__box-start--btn:hover {
+      background-color: #85203b; }
+    .item__box-start--btn:active {
+      transform: scale(0.95); }
+  .item__box-end--addBtn, .item__box-end--removeBtn {
+    padding: 1rem 1.6rem;
+    transition: all .2s; }
+    .item__box-end--addBtn:hover, .item__box-end--removeBtn:hover {
+      background-color: #85203b; }
+    .item__box-end--addBtn:active, .item__box-end--removeBtn:active {
+      transform: scale(0.95); }
 
 .header {
   padding: 1rem;
@@ -226,9 +228,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 50vh;
   margin: 0 auto;
-  z-index: 2;
   border: 1rem solid white; }
   @media (min-width: 39.1em) {
     .section__builder {

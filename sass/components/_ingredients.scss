@@ -17,7 +17,10 @@
         width: 100%;
         border-radius: 2rem;
         color: $color-two;
-        @include center-column;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
        
         &-header {
             text-align: center;
@@ -41,83 +44,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-evenly;
-        }
-
-        &-h1 {
-            font-size: $font-size-middle;
-            margin-bottom: $margin-small;
-        }
-        &-item {
-            
-            width: 90%;
-            padding: 2rem .5rem;
-            margin-bottom: $margin-middle;
-            background-color: $color-one;
-            color: $color-four;
-            box-shadow: .5rem 1rem 1rem $color-four;
-            // padding: 1rem;
-
-            display: flex;
-            flex-direction: column;
             justify-content: space-around;
-            // align-items: flex-end;
-            transition: all .2s;
-
-            @include respond(tab-port) {
-                width: 20rem;
-                height: 18rem;
-            }
-
-            &:hover {
-                transform: scale(1.05);
-            }
-        }
-
-        &-btn {
-            background-color: $color-three;
-            text-align: center;
-            margin: 0;
-            outline: none;
-            transition: all .2s;
-
-            &:hover {
-                transform: translateY(-.5rem);
-            }
-
-            &:active {
-                transform: scale(.95);
-            }
-        }
-
-        &-price {
-            font-weight: 700;
-            font-size: $font-size-middle;
-        }
-
-        &-box {
-            width: 100%;
-            font-size: $font-size-small;
-            margin: 0;
-
-            @include center-row;
-            justify-content: space-around;
-            align-items: flex-end;
-        }
-
-        &-addBtn,
-        &-removeBtn {
-
-            padding: 1rem 2.5rem;
-            transition: all .2s;
-
-            &:hover {
-                transform: translateY(-.5rem);
-            }
-
-            &:active {
-                transform: scale(.95);
-            }
         }
     }
 }

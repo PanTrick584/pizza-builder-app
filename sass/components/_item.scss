@@ -1,0 +1,76 @@
+.item {
+    width: 90%;
+    padding: 1rem .5rem;
+    margin-bottom: $margin-middle;
+    background-color: $color-one;
+    color: $color-four;
+    box-shadow: .5rem 1rem 1rem $color-four;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transition: all .2s;
+
+    @include respond(tab-port) {
+        width: 45%;
+        height: 12rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &__header {
+        font-size: $font-size-small;
+        text-transform: uppercase;
+        // text-align: left;
+        margin-right: 1rem;
+    }
+
+    &__box-start {
+
+    
+        &--price {
+            font-weight: 400;
+            font-size: $font-size-small;
+        }
+        &--btn {
+            background-color: $color-three;
+            text-align: center;
+            margin: 0;
+            padding: .8rem;
+            outline: none;
+            transition: all .2s;
+    
+            &:hover {
+                background-color: $color-four;
+            }
+            &:active {
+                transform: scale(.95);
+            }
+        }
+    }
+
+    &__box-end {
+
+        &--addBtn,
+        &--removeBtn {
+
+            padding: 1rem 1.6rem;
+            transition: all .2s;
+
+            &:hover {
+                 background-color: $color-four;
+            }
+            &:active {
+                transform: scale(.95);
+            }
+        }
+    }
+}
