@@ -1,7 +1,14 @@
 .header {
     
-    // padding: 1rem;
+    position: fixed;
+    height: 100%;
+    width: 100%;
     background-color: $color-two;
+
+    // display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include border-bot;
     
@@ -22,6 +29,23 @@
     }
 
     &__btn {
+        height: 15rem;
+        width: 15rem;
+        font-family: inherit;
+        font-size: $font-size-small;
+        background-color: $color-three;
+        border: 5px solid $color-one;
+        border-radius: 50%;
+        transition: all .2s;
+        
 
+        &:hover {
+            color: $color-two;
+        }
+        &:active,
+        &:focus {
+            outline: none;
+            transform: scale(.95);
+        }
     }
 }

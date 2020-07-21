@@ -9,35 +9,36 @@
 <body>
     <!-- POPUP -->
     <div class="popup" id="popup">
-        <div class="popup__container">
+        <div class="popup__container" id="popupContainer">
             tutaj będą produkty z "koszyka"
         </div>
-        <button class="btn popup__closeBtn" id="popupBtnClose">X
-        </button>
+        <button class="btn popup__closeBtn" id="popupBtnClose">X</button>
+        <button class="btn popup__order">order now<button>
     </div>
     <!-- END OF POPUP -->
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <h1 class="header__container-h1 heading-one">pizza for you</h1>
+            <h2 class="header__container-h2 heading-three"> created by you, made with our love</h2>
+            <button class="header__btn" id="headerBtn">click to create</button>
+        </div>
+    </header>
+    <!-- END OF HEADER -->
+    <!-- BUILDER -->
+    <section class="section__builder">
+        
+        <div class="builder"  id="builder">
+            <div class="builder__pizza" id="builder__pizza"></div>
+            <h2 class="builder__cost heading-three">
+                <p class="builder__cost-p" id="cost">Cost: 10 za ciasto</p>
+                <butto class="btn builder__cost-btn" id="popupBtn"> check order</butto>
+            </h2>
+        </div>
+    </section>
+    <!-- END OF BUILDER -->
     <!-- MAIN -->
     <main>
-        <!-- BUILDER -->
-        <section class="section__builder" id="builder">
-            <!-- HEADER -->
-            <header class="header">
-                <div class="header__container">
-                    <h1 class="header__container-h1 heading-one">pizza for you</h1>
-                    <h2 class="header__container-h2 heading-three"> created by you, made with our love</h2>
-                    <!-- <a href="#" class="btn header__btn">create now</a> -->
-                </div>
-            </header>
-            <!-- END OF HEADER -->
-            <div class="builder">
-                <div class="builder__pizza" id="builder__pizza"></div>
-                <h2 class="builder__cost heading-three">
-                    <p class="builder__cost-p" id="cost">Cost: 10 za ciasto</p>
-                    <butto class="btn builder__cost-btn" id="popupBtn"> check order</butto>
-                </h2>
-            </div>
-        </section>
-        <!-- END OF BUILDER -->
         <!-- INGREDIENTS -->
         <section class="section__ingredients">
             <div class="ingredients" id="ingredients">

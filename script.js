@@ -5,6 +5,10 @@ const pizzaBuilderDOM = document.getElementById('builder__pizza');
 const popup = document.getElementById("popup");
 const popupOpen = document.getElementById("popupBtn");
 const popupClose = document.getElementById("popupBtnClose");
+const popupContainerDOM = document.getElementById("popupContainer");
+//DISPLAY
+const headerDOM = document.getElementById("header");
+const headerBtnDom = document.getElementById("headerBtn");
 
 async function getData() {
     let res = await fetch('./data.json');
@@ -12,6 +16,13 @@ async function getData() {
     let data = doc.data;
     return data;
 };
+//DOM DISPLAYS
+
+function displayHeader() {
+    headerBtnDom.addEventListener('click', () => {
+        headerDOM.style.display = "none";
+    })
+}
 // ADDED PIZZA INGREDIENTS
 const pizzaBuilder = {};
 
@@ -152,10 +163,23 @@ function updateIngredientData(name) {
     })
 };
 
-function fixedButton() {
+function popupBasket() {
 
-    // pizzaPriceDOM.style.position = "absolute";
-    // pizzaPriceDOM.style.bottom = "30px";
+    let item = "";
+    for( key in pizzaBuilder) {
+        if(pizzaBuilder[key].amount > 0) {
+            item += 
+            `
+                <div class="popup__container-item">
+                    <h1>${pizzaBuilder[key].name}</h1>
+                    <p>Price: ${pizzaBuilder[key].cost}</p>
+                    <button class="btn popup__container-btn">remove</button>
+                </div>
+            `
+            popupContainerDOM.innerHTML = item;
+        }
+        
+    }
 }
 
 function checkEvents(data) {
@@ -226,6 +250,7 @@ function createIngrediensGroup(data) {
 // Events
 popupBtn.addEventListener("click", () => {
     popup.style.display = "flex";
+    popupBasket();
 });
 popupClose.addEventListener("click", () => {
     popup.style.display = "none";
@@ -240,5 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
         checkEvents(data);
     });
     pizzaBuilderGenerator(99);
+    displayHeader();
 
 });

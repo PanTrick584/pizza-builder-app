@@ -88,8 +88,6 @@ body {
       background-size: cover;
       background-repeat: no-repeat; }
   .builder__cost {
-    position: absolute;
-    top: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -260,6 +258,9 @@ body {
     margin: 0 auto;
     background-color: #e0c45c;
     box-shadow: 1rem 1rem 1rem #fff98c; }
+    .popup__container-item {
+      display: flex;
+      width: 80%; }
   .popup__closeBtn {
     cursor: pointer;
     position: absolute;
@@ -270,7 +271,13 @@ body {
       background-color: #85203b; }
 
 .header {
+  position: fixed;
+  height: 100%;
+  width: 100%;
   background-color: #e0c45c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1rem solid white; }
   .header__container {
     text-align: center;
@@ -284,6 +291,20 @@ body {
       padding: 1rem;
       background-color: #cb3b3b;
       color: #e0c45c; }
+  .header__btn {
+    height: 15rem;
+    width: 15rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    background-color: #cb3b3b;
+    border: 5px solid #fff98c;
+    border-radius: 50%;
+    transition: all .2s; }
+    .header__btn:hover {
+      color: #e0c45c; }
+    .header__btn:active, .header__btn:focus {
+      outline: none;
+      transform: scale(0.95); }
 
 .navigation {
   width: 100%;
@@ -317,7 +338,6 @@ body {
     align-items: flex-start; }
 
 .section__builder {
-  position: fixed;
   top: 0;
   width: 100%;
   margin: 0 auto;
@@ -331,7 +351,6 @@ body {
       margin: 3rem auto; } }
 
 .section__ingredients {
-  margin-top: 55vh;
   width: 100%;
   background-color: #e0c45c;
   display: flex;
