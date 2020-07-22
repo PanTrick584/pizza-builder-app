@@ -1,14 +1,16 @@
 .builder {
 
-    // height: 50%;
+    width: 100%;
     background-image: url("https://c.pxhere.com/photos/e1/04/pizza_ham_cheese_view_from_the_top_motherboard_good_food_fast_food_restaurant-1202870.jpg!d");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    // padding-top: $margin-small;
     @include center-column;
     @include respond(tab-port) {
         max-height: 50rem; // 1rem = 12px, 12/16 = 50%
+    }
+    @include respond(standart-screen) {
+
     }
     
     &__pizza {

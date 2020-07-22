@@ -64,6 +64,7 @@ body {
   letter-spacing: .3rem; }
 
 .builder {
+  width: 100%;
   background-image: url("https://c.pxhere.com/photos/e1/04/pizza_ham_cheese_view_from_the_top_motherboard_good_food_fast_food_restaurant-1202870.jpg!d");
   background-size: cover;
   background-position: center;
@@ -117,6 +118,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  @media (min-width: 90em) {
+    .ingredients {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start; } }
   .ingredients__h1 {
     width: 100%;
     padding: 3rem 0;
@@ -130,50 +137,58 @@ body {
     flex-direction: column;
     justify-content: center; }
     .ingredients__group-header {
-      text-align: center;
       width: 100%;
       padding: 1rem 0;
       background-color: #cb3b3b;
-      color: #e0c45c; }
+      color: #e0c45c;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .ingredients__group-h1 {
+      flex: 0 0 50%; }
+    .ingredients__group-btn {
+      cursor: pointer;
+      background-color: inherit;
+      font-family: inherit;
+      font-size: 2.5rem;
+      color: #e0c45c;
+      border: 0.2rem solid #e0c45c;
+      width: 90%;
+      height: 4rem;
+      transition: all .2s;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center; }
+      .ingredients__group-btn:hover {
+        background-color: #85203b; }
+      .ingredients__group-btn:focus, .ingredients__group-btn:active {
+        outline: none; }
   .ingredients__container {
     width: 100%;
-    margin: 0 auto;
     color: #e0c45c;
     text-align: center;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    @media (min-width: 39.1em) {
+    @media (min-width: 90em) {
       .ingredients__container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around; } }
+        margin: 0; } }
 
 .item {
   width: 90%;
   padding: 1rem .5rem;
-  margin-bottom: 5rem;
+  margin: 1.5rem 0;
   background-color: #fff98c;
   color: #85203b;
   box-shadow: 0.5rem 1rem 1rem #85203b;
+  z-index: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   transition: all .2s; }
-  @media (min-width: 39.1em) {
-    .item {
-      width: 45%;
-      height: 20rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; } }
-  @media (min-width: 64em) {
-    .item {
-      width: 15%; } }
   .item:hover {
     transform: scale(1.05);
     z-index: 1; }
@@ -275,6 +290,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: #e0c45c;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -296,12 +312,13 @@ body {
     width: 15rem;
     font-family: inherit;
     font-size: 1.4rem;
+    color: #e0c45c;
     background-color: #cb3b3b;
     border: 5px solid #fff98c;
     border-radius: 50%;
     transition: all .2s; }
     .header__btn:hover {
-      color: #e0c45c; }
+      color: #fff98c; }
     .header__btn:active, .header__btn:focus {
       outline: none;
       transform: scale(0.95); }
@@ -338,17 +355,14 @@ body {
     align-items: flex-start; }
 
 .section__builder {
-  top: 0;
   width: 100%;
   margin: 0 auto;
-  z-index: 2;
   border: 1rem solid white; }
   @media (min-width: 39.1em) {
     .section__builder {
       position: static;
-      width: 80%;
-      border: 0;
-      margin: 3rem auto; } }
+      width: 95%;
+      border: 0; } }
 
 .section__ingredients {
   width: 100%;
@@ -360,6 +374,6 @@ body {
   border: 1rem solid white; }
   @media (min-width: 39.1em) {
     .section__ingredients {
-      width: 80%;
+      width: 95%;
       border: 0;
       margin: 0 auto; } }

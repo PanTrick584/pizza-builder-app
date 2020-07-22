@@ -216,10 +216,18 @@ function createIngrediensGroup(data) {
         let ingredientsGroup = document.createElement("div");
         ingredientsGroup.classList.add("ingredients__group");
         // header
-        let ingredientsHeader = document.createElement("h1");
-        ingredientsHeader.classList.add("heading-two");
+        let ingredientsHeader = document.createElement("div");
+        // let ingredientsHeaderH1 = document.createElement("h1");
+        let ingredientsHeaderBtn = document.createElement("button");
+        ingredientsHeaderBtn.classList.add("ingredients__group-btn");
+        // ingredientsHeaderH1.classList.add("ingredients__group-h1");
+        // ingredientsHeaderH1.classList.add("heading-two");
         ingredientsHeader.classList.add("ingredients__group-header");
-        ingredientsHeader.innerHTML = `${group.name}`;
+        ingredientsHeaderBtn.innerHTML = `<span>&#x290B;</span>${group.name}<span>&#x290B;</span>`;
+        //header
+        // ingredientsHeader.appendChild(ingredientsHeaderH1);
+        ingredientsHeader.appendChild(ingredientsHeaderBtn);
+        
         // container
         let ingredientsContainer = document.createElement("div");
         ingredientsContainer.classList.add("ingredients__container");

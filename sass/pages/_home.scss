@@ -1,16 +1,28 @@
+.container {
+
+    // @include respond(standart-screen) {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     margin: 3rem;
+    // }
+}
 .section__builder {
-    top: 0;
+    
     width: 100%;
     margin: 0 auto;
-    z-index: 2;
 
     @include border-small;
     @include respond(tab-port) {
         position: static; // 1rem = 12px, 12/16 = 50%
-        width: 80%;
+        width: 95%;
         border: 0;
-        margin: 3rem auto;
     }
+    // @include respond(standart-screen) {
+    //     // width: 50%;
+    //     margin: 2rem 0;
+    //     // align-self: flex-end;
+    // }
 }
 
 .section__ingredients{
@@ -20,8 +32,13 @@
     @include center-column;
     @include border-small;
     @include respond(tab-port) {
-        width: 80%;
+        width: 95%;
         border: 0;
         margin: 0 auto;
     }
+    // @include respond(standart-screen) {
+    //     width: 50%;
+    //     margin-right: auto;
+
+    // }
 }

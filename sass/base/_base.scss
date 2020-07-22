@@ -30,12 +30,6 @@ html{
     @include respond(4k) {
         font-size: 150%; // 1rem = 16px, 24/16 = 100%
     }
-   
-    
-    // // min width for biggest screens can be at the end
-    // @include respond(big-desktop) {
-    //     font-size: 75%; // 1rem = 12, 12/16 = 80%
-    // }
 }
 
 body {

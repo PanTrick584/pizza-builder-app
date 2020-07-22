@@ -4,6 +4,7 @@
     height: 100%;
     width: 100%;
     background-color: $color-two;
+    z-index: 100;
 
     // display: none;
     display: flex;
@@ -17,7 +18,6 @@
 
         text-align: center;
         @include center-column;
-        // @include center-column;
         &-h1 {
             
         }
@@ -33,6 +33,7 @@
         width: 15rem;
         font-family: inherit;
         font-size: $font-size-small;
+        color: $color-two;
         background-color: $color-three;
         border: 5px solid $color-one;
         border-radius: 50%;
@@ -40,7 +41,7 @@
         
 
         &:hover {
-            color: $color-two;
+            color: $color-one;
         }
         &:active,
         &:focus {
