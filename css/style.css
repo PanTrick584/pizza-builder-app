@@ -198,13 +198,14 @@ body {
     margin: 0 auto;
     padding: 1rem;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     transition: all .2s; }
   .item__header {
-    width: 25%;
     font-size: 1.4rem;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    margin-bottom: .8rem; }
     @media (min-width: 39.1em) {
       .item__header {
         width: 100%;
@@ -253,9 +254,10 @@ body {
       .item__box-end {
         width: 100%; } }
     .item__box-end--addBtn, .item__box-end--removeBtn, .item__box-end--clearBtn {
-      padding: 0 1.6rem;
+      padding: .5rem 1.6rem;
       background-color: #fff98c;
       border: 0.1rem solid #e0c45c;
+      margin: .8rem 0;
       transition: all .2s; }
       @media (min-width: 39.1em) {
         .item__box-end--addBtn, .item__box-end--removeBtn, .item__box-end--clearBtn {
@@ -281,7 +283,7 @@ body {
   justify-content: center;
   align-items: center; }
   .popup__container {
-    width: 50%;
+    width: 90%;
     height: 80%;
     margin: 0 auto;
     background-color: #e0c45c;

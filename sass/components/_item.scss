@@ -23,15 +23,15 @@
         padding: 1rem;
 
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         align-items: center;
         transition: all .2s;
     }
     &__header {
-        width: 25%;
         font-size: $font-size-small;
         text-transform: uppercase;
-        
+        margin-bottom: .8rem;
 
 
         @include respond(tab-port) {
@@ -104,9 +104,10 @@
         &--removeBtn,
         &--clearBtn {
 
-            padding: 0 1.6rem;
+            padding: .5rem 1.6rem;
             background-color: $color-one;
             border: .1rem solid $color-two;
+            margin: .8rem 0;
             transition: all .2s;
 
             @include respond(tab-port) {
