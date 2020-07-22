@@ -7,20 +7,22 @@
     left: 0;
     z-index: 3;
    
-    background-color: rgba($color-two, .7);
+    background-color: rgba($color-two, .3);
 
-    // display: flex;
+    //----- STYLE FOR JS! -----
+    // display: flex; 
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     &__container {
 
-        width: 60%;
-        height: 40%;
+        width: 50%;
+        height: 80%;
         margin: 0 auto;
         background-color: $color-two;
-        box-shadow: 1rem 1rem 1rem $color-one;
+        border: .3rem solid $color-one;
 
         &-item {
             display: flex;
@@ -35,10 +37,26 @@
         position: absolute;
         top: 3rem;
         right: 3rem;
+        border: .3rem solid $color-one;
         transition: all .2s;
 
         &:hover {
             background-color: $color-four;
         }
     }
+
+    &__order {
+        position: fixed;
+        cursor: pointer;
+        border: .3rem solid $color-one;
+        top: 3rem;
+        transition: all .2s;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $color-four;
+        }
+    }
+    
 }

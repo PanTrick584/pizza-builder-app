@@ -1,6 +1,7 @@
 .footer {
     width: 100%;
     background-color: $color-four;
+    text-align: center;
 
     &__container {
         width: 90%;
@@ -8,12 +9,19 @@
         margin: 0 auto;
         background-color: $color-four;
         display: flex;
-        flex-direction: row;
         justify-content: space-around;
         align-items: flex-start;
 
         &-p {
 
         }
+    }
+
+    &__ul {
+        flex: 0 0 40%;
+        font-size: $font-size-small;
+        list-style: none;
+        text-decoration: none;
+        text-align: left;
     }
 }

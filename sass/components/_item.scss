@@ -1,6 +1,6 @@
 .item {
     width: 90%;
-    padding: 1rem .5rem;
+    padding: 1.5rem .5rem;
     margin: 1.5rem 0;
     background-color: $color-one;
     color: $color-four;
@@ -8,29 +8,25 @@
     z-index: 0;
     
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     transition: all .2s;
-
-    // @include respond(tab-port) {
-    //     width: 45%;
-    //     height: 20rem;
-
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
-    // @include respond(tab-land) {
-    //     width: 15%;
-    // }
 
     &:hover {
         transform: scale(1.05);
         z-index: 1;
     }
+    &__container {
+        background-color: $color-one;
+        border: .3rem solid $color-two;
+        margin: 0 auto;
+        padding: 1rem;
 
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        transition: all .2s;
+    }
     &__header {
         width: 25%;
         font-size: $font-size-small;
@@ -97,15 +93,20 @@
 
     &__box-end {
 
+        display: flex;
+        flex-direction: column;
         text-align: left;
         @include respond(tab-port) {
             width: 100%;
         }
 
         &--addBtn,
-        &--removeBtn {
+        &--removeBtn,
+        &--clearBtn {
 
-            padding: 1rem 1.6rem;
+            padding: 0 1.6rem;
+            background-color: $color-one;
+            border: .1rem solid $color-two;
             transition: all .2s;
 
             @include respond(tab-port) {

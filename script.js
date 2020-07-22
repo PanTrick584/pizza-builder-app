@@ -122,9 +122,11 @@ function changeBtn(name, ingredient) {
     startBtn.forEach( btn => {
         let ingItem = document.querySelectorAll(".item");
         if(btn.dataset.name === name) {
+            let popupItem = document.createElement("div");
+            popupItem.classList.add('item__container')
             ingItem.forEach( ing => {
                 if(ing.dataset.name === name) {
-                    ing.innerHTML = 
+                    popupItem.innerHTML = 
                         `<h1 class="item__header">${ingredient.name.toUpperCase()}</h1>
                         <div class="item__box-end">
                             <p class="item__box-end--quantity" data-name="${ingredient.name}">Quantity: 0</p>
@@ -134,9 +136,11 @@ function changeBtn(name, ingredient) {
                         <div class="item__box-end">
                             <button class="btn item__box-end--addBtn" data-name="${ingredient.name}">+</button>
                             <button class="btn item__box-end--removeBtn" data-name="${ingredient.name}">-</button>
+                            <button class="btn item__box-end--clearBtn" data-name="${ingredient.name}">remove</button>
                         </div>
                         `;
                 }
+                popupContainerDOM.appendChild(popupItem);
             })
         }
     });
@@ -163,23 +167,31 @@ function updateIngredientData(name) {
     })
 };
 
-function popupBasket() {
+// function popupBasket() {
 
-    let item = "";
-    for( key in pizzaBuilder) {
-        if(pizzaBuilder[key].amount > 0) {
-            item += 
-            `
-                <div class="popup__container-item">
-                    <h1>${pizzaBuilder[key].name}</h1>
-                    <p>Price: ${pizzaBuilder[key].cost}</p>
-                    <button class="btn popup__container-btn">remove</button>
-                </div>
-            `
-            popupContainerDOM.innerHTML = item;
-        }
+//     let item = "";
+//     for( key in pizzaBuilder) {
+//         if(pizzaBuilder[key].amount > 0) {
+//             item += 
+//             `
+//                 <div class="popup__container-item">
+//                     <h1>${pizzaBuilder[key].name}</h1>
+//                     <p>Price: ${pizzaBuilder[key].cost}</p>
+//                     <button class="btn popup__container-btn">remove</button>
+//                 </div>
+//             `
+//             popupContainerDOM.innerHTML = item;
+//         }
         
-    }
+//     }
+// }
+
+function deactivateButton(btn) {
+
+    btn.parentElement.parentElement.innerHTML = "in basket";
+    // let grandParent = parent.parentElement;
+    // console.log(grandParent);
+    // 
 }
 
 function checkEvents(data) {
@@ -200,7 +212,7 @@ function checkEvents(data) {
                         updateIngredientData(name);
                         updateEntireCost();
                         showIngredient(name);
-                        fixedButton();
+                        deactivateButton(btn);
                     }
                 })
             })
@@ -258,7 +270,7 @@ function createIngrediensGroup(data) {
 // Events
 popupBtn.addEventListener("click", () => {
     popup.style.display = "flex";
-    popupBasket();
+    // popupBasket();
 });
 popupClose.addEventListener("click", () => {
     popup.style.display = "none";
