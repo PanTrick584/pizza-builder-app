@@ -5,11 +5,20 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    @include center-column;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     @include respond(tab-port) {
         max-height: 50rem; // 1rem = 12px, 12/16 = 50%
         margin: 3rem auto;
     }
+    // @include respond(tab-land) {
+    //     width: 45%;
+    //     position: fixed;
+    // }
     @include respond(standart-screen) {
 
     }
@@ -37,10 +46,14 @@
         align-items: center;
         justify-content: center;
         
-
         @include header-red;
         @include respond(tab-port) {
-            position: static;
+            width: 60%;
+            margin-bottom: 1.5rem;
+        }
+        @include respond(tab-land) {
+            width: 30%;
+            margin-bottom: 3rem;
         }
 
         &-p {

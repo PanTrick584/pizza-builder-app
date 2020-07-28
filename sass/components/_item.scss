@@ -1,21 +1,22 @@
 .item {
     width: 90%;
-    padding: 1.5rem .5rem;
-    margin: 1.5rem 0;
-    background-color: $color-one;
+    height: 6rem;
+    margin: .5rem 0;
     color: $color-four;
-    box-shadow: .5rem 1rem 1rem $color-four;
-    z-index: 0;
     
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    transition: all .2s;
+    
 
-    &:hover {
-        transform: scale(1.05);
-        z-index: 1;
+    @include respond(tab-port) {
+        border-bottom: .3rem solid $color-one;
+        margin-bottom: 2rem;
     }
+    @include respond(tab-land) {
+
+    }
+    // POPUP
     &__container {
         background-color: $color-one;
         border: .3rem solid $color-two;
@@ -29,39 +30,35 @@
         transition: all .2s;
     }
     &__header {
-        font-size: $font-size-small;
+        flex: 0 0 40%;
+        font-size: 1rem;
         text-transform: uppercase;
-        margin-bottom: .8rem;
-
 
         @include respond(tab-port) {
-            width: 100%;
-            height: 25%;
-            margin-bottom: $margin-small;
-            text-align: center;
-            border-bottom: 1px solid $color-three;
+            flex: 0 0 35%;
+            // font-size: 1.2rem;
         }
         @include respond(tab-land) {
-            font-size: .95rem;
+            font-size: 1.5rem;
         }
         @include respond(standart-screen) {
-            font-size: $font-size-small;
+            // font-size: $font-size-small;
         }
     }
 
     &__box-start {
+        flex: 0 0 30%;
+        margin: 0 auto;
 
         @include respond(tab-port) {
             width: 100%;
         }
-        
-
         &--price {
-            font-weight: 400;
-            font-size: $font-size-small;
+            font-weight: 100;
+            font-size: 1rem;
 
             @include respond(tab-port) {
-                margin-bottom: $margin-small;
+
             }
             @include respond(tab-land) {
                 font-size: .95rem;
@@ -69,7 +66,9 @@
         }
         &--btn {
             font-family: inherit;
-            background-color: $color-three;
+            background-color: $color-two;
+            color: $color-three;
+            border: .3rem solid $color-three;
             text-align: center;
             margin: 0;
             padding: .8rem;
@@ -79,9 +78,9 @@
             @include respond(tab-port) {
                 width: 100%;
             }
-    
+
             &:hover {
-                background-color: $color-four;
+                transform: scale(1.05);
             }
             &:active {
                 transform: scale(.95);
@@ -126,5 +125,13 @@
                 transform: scale(.95);
             }
         }
+    }
+
+    &__grandParent {
+        
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
     }
 }

@@ -1,16 +1,24 @@
 .container {
 
+    @include respond(tab-land) {
+        // // margin: 3rem;
+        // display: flex;
+        // flex-wrap: wrap;
+    }
 }
 .section__builder {
     
     width: 100%;
     margin: 0 auto;
 
-    @include border-small;
     @include respond(tab-port) {
         position: static; // 1rem = 12px, 12/16 = 50%
         width: 95%;
         border: 0;
+    }
+    
+    @include respond(tab-land) {
+        flex: 0 0 45%;
     }
     // @include respond(standart-screen) {
     //     // width: 50%;
@@ -29,6 +37,11 @@
         width: 95%;
         border: 0;
         margin: 0 auto;
+    }
+    
+    @include respond(tab-land) {
+        flex: 0 0 45%;
+        margin-top: 3rem;
     }
     // @include respond(standart-screen) {
     //     width: 50%;

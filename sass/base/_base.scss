@@ -11,25 +11,25 @@
 html{
     font-size: 62.5%;
 
-    // from biggest to smallest with max-with to work
-    @include respond(phone) {
-        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
-    }
-    @include respond(tab-port) {
-        font-size: 75%; // 1rem = 12px, 12/16 = 50%
-    }
-    @include respond(tab-land) {
-        font-size: 87.5%; // 1rem = 14px, 14/16 = 87.5%
-    }
-    @include respond(standart-screen) {
-        font-size: 100%; // 1rem = 16px, 16/16 = 100%
-    }
-    @include respond(big-screen) {
-        font-size: 125%; // 1rem = 16px, 18/16 = 100%
-    }
-    @include respond(4k) {
-        font-size: 150%; // 1rem = 16px, 24/16 = 100%
-    }
+    // // from biggest to smallest with max-with to work
+    // @include respond(phone) {
+    //     font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    // }
+    // @include respond(tab-port) {
+    //     font-size: 75%; // 1rem = 12px, 12/16 = 50%
+    // }
+    // @include respond(tab-land) {
+    //     font-size: 87.5%; // 1rem = 14px, 14/16 = 87.5%
+    // }
+    // @include respond(standart-screen) {
+    //     font-size: 100%; // 1rem = 16px, 16/16 = 100%
+    // }
+    // @include respond(big-screen) {
+    //     font-size: 125%; // 1rem = 16px, 18/16 = 100%
+    // }
+    // @include respond(4k) {
+    //     font-size: 150%; // 1rem = 16px, 24/16 = 100%
+    // }
 }
 
 body {

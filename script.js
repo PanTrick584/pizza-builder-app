@@ -188,9 +188,9 @@ function updateIngredientData(name) {
 
 function deactivateButton(btn) {
 
-    btn.parentElement.parentElement.innerHTML = "in basket";
-    // let grandParent = parent.parentElement;
-    // console.log(grandParent);
+    let grandParent = btn.parentElement.parentElement;
+    grandParent.classList.add("item__grandParent")
+    grandParent.innerHTML = "in basket";
     // 
 }
 
