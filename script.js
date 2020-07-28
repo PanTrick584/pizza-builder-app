@@ -61,7 +61,7 @@ function updateEntireCost() {
 function updatePizzaCost(btn) {
     let name = btn.dataset.name;
     let btnClass = btn.classList[1];
-    if(btnClass === "item__box-end--addBtn"){
+    if(btnClass === "popup__box-addBtn"){
         for(key in pizzaBuilder) {
             if(name === pizzaBuilder[key].name) {
                 pizzaBuilder[key].amount++;
@@ -85,7 +85,7 @@ function updatePizzaCost(btn) {
 
 function getButtons(name) {
 
-    let addBtn = document.querySelectorAll('.item__box-end--addBtn');
+    let addBtn = document.querySelectorAll('.popup__box-addBtn');
     addBtn.forEach( btn => {
         let btnName = btn.dataset.name;
         if(btnName === name) {
@@ -95,7 +95,7 @@ function getButtons(name) {
         }
     });
 
-    let removeBtn = document.querySelectorAll('.item__box-end--removeBtn');
+    let removeBtn = document.querySelectorAll('.popup__box-removeBtn');
 
     removeBtn.forEach( btn => {
         let btnName = btn.dataset.name;
@@ -123,20 +123,20 @@ function changeBtn(name, ingredient) {
         let ingItem = document.querySelectorAll(".item");
         if(btn.dataset.name === name) {
             let popupItem = document.createElement("div");
-            popupItem.classList.add('item__container')
+            popupItem.classList.add('popup__item')
             ingItem.forEach( ing => {
                 if(ing.dataset.name === name) {
                     popupItem.innerHTML = 
-                        `<h1 class="item__header">${ingredient.name.toUpperCase()}</h1>
-                        <div class="item__box-end">
-                            <p class="item__box-end--quantity" data-name="${ingredient.name}">Quantity: 0</p>
-                            <p>Price: ${ingredient.price}</p>
-                            <p class="item__box-end--cost" data-name="${ingredient.name}">Entire cost: 0</p>
+                        `<h1 class="popup__header">${ingredient.name.toUpperCase()}</h1>
+                        <div class="popup__box">
+                            <p class="popup__box-data quantity" data-name="${ingredient.name}">Quantity: 0</p>
+                            <p class="popup__box-data">Price: ${ingredient.price}</p>
+                            <p class="popup__box-data cost" data-name="${ingredient.name}">Entire cost: 0</p>
                         </div>
-                        <div class="item__box-end">
-                            <button class="btn item__box-end--addBtn" data-name="${ingredient.name}">+</button>
-                            <button class="btn item__box-end--removeBtn" data-name="${ingredient.name}">-</button>
-                            <button class="btn item__box-end--clearBtn" data-name="${ingredient.name}">remove</button>
+                        <div class="popup__box">
+                            <button class=" popup__box-addBtn" data-name="${ingredient.name}">+</button>
+                            <button class=" popup__box-removeBtn" data-name="${ingredient.name}">-</button>
+                            <button class=" popup__box-clearBtn" data-name="${ingredient.name}">x</button>
                         </div>
                         `;
                 }
@@ -148,8 +148,8 @@ function changeBtn(name, ingredient) {
 }
 
 function updateIngredientData(name) {
-    let pQuantity = document.querySelectorAll('.item__box-end--quantity');
-    let pCost = document.querySelectorAll('.item__box-end--cost');
+    let pQuantity = document.querySelectorAll('.quantity');
+    let pCost = document.querySelectorAll('.cost');
     
     pQuantity.forEach( p => {
         for(key in pizzaBuilder) {
@@ -229,15 +229,11 @@ function createIngrediensGroup(data) {
         ingredientsGroup.classList.add("ingredients__group");
         // header
         let ingredientsHeader = document.createElement("div");
-        // let ingredientsHeaderH1 = document.createElement("h1");
         let ingredientsHeaderBtn = document.createElement("button");
         ingredientsHeaderBtn.classList.add("ingredients__group-btn");
-        // ingredientsHeaderH1.classList.add("ingredients__group-h1");
-        // ingredientsHeaderH1.classList.add("heading-two");
         ingredientsHeader.classList.add("ingredients__group-header");
         ingredientsHeaderBtn.innerHTML = `<span>&#x290B;</span>${group.name}<span>&#x290B;</span>`;
         //header
-        // ingredientsHeader.appendChild(ingredientsHeaderH1);
         ingredientsHeader.appendChild(ingredientsHeaderBtn);
         
         // container

@@ -170,16 +170,6 @@ body {
     .item {
       border-bottom: 0.3rem solid #fff98c;
       margin-bottom: 2rem; } }
-  .item__container {
-    background-color: #fff98c;
-    border: 0.3rem solid #e0c45c;
-    margin: 0 auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    transition: all .2s; }
   .item__header {
     flex: 0 0 40%;
     font-size: 1rem;
@@ -219,29 +209,6 @@ body {
         transform: scale(1.05); }
       .item__box-start--btn:active {
         transform: scale(0.95); }
-  .item__box-end {
-    display: flex;
-    flex-direction: column;
-    text-align: left; }
-    @media (min-width: 39.1em) {
-      .item__box-end {
-        width: 100%; } }
-    .item__box-end--addBtn, .item__box-end--removeBtn, .item__box-end--clearBtn {
-      padding: .5rem 1.6rem;
-      background-color: #fff98c;
-      border: 0.1rem solid #e0c45c;
-      margin: .8rem 0;
-      transition: all .2s; }
-      @media (min-width: 39.1em) {
-        .item__box-end--addBtn, .item__box-end--removeBtn, .item__box-end--clearBtn {
-          width: 100%;
-          padding: .5rem 0; }
-          .item__box-end--addBtn:not(:last-child), .item__box-end--removeBtn:not(:last-child), .item__box-end--clearBtn:not(:last-child) {
-            margin: 1rem 0; } }
-      .item__box-end--addBtn:hover, .item__box-end--removeBtn:hover, .item__box-end--clearBtn:hover {
-        background-color: #85203b; }
-      .item__box-end--addBtn:active, .item__box-end--removeBtn:active, .item__box-end--clearBtn:active {
-        transform: scale(0.95); }
   .item__grandParent {
     font-size: 1rem;
     font-weight: 700;
@@ -265,10 +232,80 @@ body {
     height: 80%;
     margin: 0 auto;
     background-color: #e0c45c;
-    border: 0.3rem solid #fff98c; }
-    .popup__container-item {
-      display: flex;
-      width: 80%; }
+    border: 0.3rem solid #fff98c;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center; }
+    @media (min-width: 39.1em) {
+      .popup__container {
+        height: 60%; } }
+  .popup__item {
+    flex: 0 0 45%;
+    background-color: #fff98c;
+    border: 0.3rem solid #e0c45c;
+    padding: 1rem;
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all .2s; }
+    @media (min-width: 39.1em) {
+      .popup__item {
+        flex: 0 0 30%; } }
+    @media (min-width: 64em) {
+      .popup__item {
+        flex: 0 0 20%; } }
+    @media (min-width: 90em) {
+      .popup__item {
+        flex: 0 0 20%; } }
+    @media (min-width: 112.5em) {
+      .popup__item {
+        flex: 0 0 10%; } }
+    @media (min-width: 160em) {
+      .popup__item {
+        flex: 0 0 10%; } }
+  .popup__header {
+    width: 100%;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 0.3rem solid #e0c45c; }
+    @media (min-width: 39.1em) {
+      .popup__header {
+        font-size: 1.6rem; } }
+    @media (min-width: 64em) {
+      .popup__header {
+        font-size: 1.5rem; } }
+  .popup__box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center; }
+    @media (min-width: 39.1em) {
+      .popup__box {
+        width: 80%; } }
+    .popup__box-data {
+      flex: 0 0 100%; }
+    .popup__box-addBtn, .popup__box-removeBtn, .popup__box-clearBtn {
+      flex: 0 0 20%;
+      padding: 1rem 0;
+      background-color: #fff98c;
+      border: 0.1rem solid #e0c45c;
+      margin: .5rem;
+      transition: all .2s; }
+      @media (min-width: 39.1em) {
+        .popup__box-addBtn, .popup__box-removeBtn, .popup__box-clearBtn {
+          margin: 0 .3rem; } }
+      .popup__box-addBtn:hover, .popup__box-removeBtn:hover, .popup__box-clearBtn:hover {
+        background-color: #85203b; }
+      .popup__box-addBtn:active, .popup__box-removeBtn:active, .popup__box-clearBtn:active {
+        transform: scale(0.95); }
   .popup__closeBtn {
     cursor: pointer;
     position: absolute;

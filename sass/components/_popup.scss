@@ -17,24 +17,118 @@
     align-items: center;
 
     @include respond(tab-land) {
-        
+
     }
 
     &__container {
-
         width: 90%;
         height: 80%;
         margin: 0 auto;
         background-color: $color-two;
         border: .3rem solid $color-one;
 
-        &-item {
-            display: flex;
-            width: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
 
+        @include respond(tab-port) {
+            height: 60%;
+        }
+    }
+    &__item {
+        flex: 0 0 45%;
+        background-color: $color-one;
+        border: .3rem solid $color-two;
+        padding: 1rem;
+        margin: 3rem 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: all .2s;
+
+        @include respond(tab-port) {
+            flex: 0 0 30%;
+        }
+        @include respond(tab-land) {
+            flex: 0 0 20%;
+        }
+        @include respond(standart-screen) {
+            flex: 0 0 20%;
+        }
+        @include respond(big-screen) {
+            flex: 0 0 10%;
+        }
+    }
+    &__header {
+        width: 100%;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        text-align: center;
+        border-bottom: .3rem solid $color-two;
+
+        @include respond(tab-port) {
+            // flex: 0 0 35%;
+            font-size: 1.6rem;
+        }
+        @include respond(tab-land) {
+            font-size: 1.5rem;
+        }
+        @include respond(standart-screen) {
+            // font-size: $font-size-small;
         }
     }
 
+    &__box {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        @include respond(tab-port) {
+            width: 80%;
+        }
+
+        &-data {
+            flex: 0 0 100%;
+        }
+
+        &-addBtn,
+        &-removeBtn,
+        &-clearBtn {
+
+            flex: 0 0 20%;
+            padding: 1rem 0;
+            background-color: $color-one;
+            border: .1rem solid $color-two;
+            margin: .5rem;
+            transition: all .2s;
+
+            @include respond(smartphone) {
+                margin: .8rem;
+            }
+
+            @include respond(tab-port) {
+                margin: 0 .3rem;
+               
+            }
+
+            &:hover {
+                 background-color: $color-four;
+            }
+            &:active {
+                transform: scale(.95);
+            }
+        }
+    }
+
+    
     &__closeBtn {
         cursor: pointer;
         
