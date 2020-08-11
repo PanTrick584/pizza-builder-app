@@ -60,8 +60,7 @@ function updateEntireCost() {
 
 function updatePizzaCost(btn) {
     let name = btn.dataset.name;
-    let btnClass = btn.classList[1];
-    if(btnClass === "popup__box-addBtn"){
+    if(btn.classList.contains("popup__box-addBtn")){
         for(key in pizzaBuilder) {
             if(name === pizzaBuilder[key].name) {
                 pizzaBuilder[key].amount++;
