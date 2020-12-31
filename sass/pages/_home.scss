@@ -1,51 +1,57 @@
 .container {
+    height: 100%;
+}
+.section__container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: $color-two;
 
     @include respond(tab-land) {
-        // // margin: 3rem;
-        // display: flex;
-        // flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 }
+.section__container-h1 {
+    font-size: 4rem;
+    margin-left: $margin-layout;
+    padding: 4rem 0;
+}
 .section__builder {
+    height: 100%;
+    background-color: $color-two;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     
-    width: 100%;
-    margin: 0 auto;
-
     @include respond(tab-port) {
-        position: static; // 1rem = 12px, 12/16 = 50%
+        position: static;
         width: 95%;
         border: 0;
     }
     
     @include respond(tab-land) {
-        flex: 0 0 45%;
+        // width: 45%;
     }
-    // @include respond(standart-screen) {
-    //     // width: 50%;
-    //     margin: 2rem 0;
-    //     // align-self: flex-end;
-    // }
 }
 
 .section__ingredients{
-    width: 100%;
-    background-color: $color-two;
+    height: 100%;
 
-    @include center-column;
-    @include border-small;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
     @include respond(tab-port) {
-        width: 95%;
+        width: 100%;
         border: 0;
         margin: 0 auto;
     }
     
     @include respond(tab-land) {
-        flex: 0 0 45%;
-        margin-top: 3rem;
     }
-    // @include respond(standart-screen) {
-    //     width: 50%;
-    //     margin-right: auto;
-
-    // }
 }

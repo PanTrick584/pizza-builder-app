@@ -1,29 +1,26 @@
 .header {
     
-    position: fixed;
-    top: 0;
     height: 100%;
     width: 100%;
     background-color: $color-two;
-    z-index: 100;
 
-    // display: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     
   
     &__container {
 
-        text-align: center;
-        @include center-column;
-        &-h1 {
-            font-size: 4rem;
-            padding: 1rem 0;
+        text-align: left;
+        margin-left: $margin-layout;
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            padding: 4rem 0 1rem 0;
         }
-        &-h2 {
-
-            @include header-red;
+        h2 {
+            font-size: 2.5rem;
+            padding: 0 0 2.5rem 0;
         }
         
     }

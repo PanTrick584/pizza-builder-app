@@ -1,75 +1,76 @@
 .builder {
-
-    width: 100%;
-    background-image: url("https://c.pxhere.com/photos/e1/04/pizza_ham_cheese_view_from_the_top_motherboard_good_food_fast_food_restaurant-1202870.jpg!d");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: $color-two;
+    margin-left: $margin-layout;
 
     @include respond(tab-port) {
-        max-height: 50rem; // 1rem = 12px, 12/16 = 50%
-        margin: 3rem auto;
     }
-    // @include respond(tab-land) {
-    //     width: 45%;
-    //     position: fixed;
-    // }
-    @include respond(standart-screen) {
-
+    @include respond(tab-land) {
     }
     
     &__pizza {
-    
-        max-width: 25rem;;
-        @include center-row;
+        height: 30rem;
+        width: auto;
+
+        display: flex;
         flex-wrap: wrap;
-        margin-bottom: $margin-small;
+        align-items: center;
+        justify-content: flex-start;
+
+        margin-bottom: 4rem;
+        @include respond(tab-port) {
+            height: 40rem;
+            justify-content: flex-start;
+        }
 
         &-cell {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 5rem;
+            height: 5rem;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+            // border: 2px solid black;
+            @include respond(tab-port) {
+                width: 8rem;
+                height: 8rem;
+            }
         }
     }
 
     &__cost {
-        
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        justify-content: flex-start;      
         
-        @include header-red;
-        @include respond(tab-port) {
-            width: 60%;
-            margin-bottom: 1.5rem;
-        }
-        @include respond(tab-land) {
-            width: 30%;
-            margin-bottom: 3rem;
-        }
+        padding: 2rem 0;
+        border-bottom: 2px solid $color-one;
+        // @include respond(tab-port) {
+        // }
+        // @include respond(tab-land) {
+        // }
 
         &-p {
-
+            width: 100%;
+            text-align: left;
+            font-size: 2.5rem;
+            font-weight: 700;
+            padding: 1rem 0;
+            letter-spacing: .2rem;
         }
 
         &-btn {
             width: 100%;
+            font-size: 2.5rem;
+            text-align: left;
+            font-weight: 700;
+            letter-spacing: .2rem;
             cursor: pointer;
-            padding: .5rem 0;
+            padding: 2rem;
             transition: all .2s;
-            border: 1px solid $color-two;
-            margin-top: 1rem;
+            margin-left: -2rem;
 
             &:hover {
-                background-color: $color-four;
+                background-color: $color-one;
+                border-radius: 10px;
             }
         }
     }

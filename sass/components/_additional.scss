@@ -1,0 +1,17 @@
+.transition {
+    transition: all .8s ease-in;
+}
+
+//TRANSFORM DOWN
+.off__down {
+    display: none;
+}
+.on__down {
+    display: flex;
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+}

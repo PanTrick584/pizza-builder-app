@@ -1,35 +1,49 @@
 .footer {
-    width: 100%;
-    background-color: $color-four;
-    text-align: center;
-    margin-top: 3rem;
+    height: 100%;
+    background-color: $color-two;
+    padding: 5rem 0;
 
+    &__h1 {
+        font-size: 4rem;
+        padding: 2rem 0;
+        margin-left: $margin-layout;
+        border-top: 2px solid $color-one;
+    }
+    &__h2 {
+        font-size: 2rem;
+        padding: 0 0 1rem 0;
+        border-bottom: 2px solid $color-two;
+        margin-left: $margin-layout;
+    }
     &__container {
-        width: 90%;
-        padding: 3rem 0;
-        margin: 0 auto;
-        background-color: $color-four;
+        padding: 10rem 0;
+        border-top: 2px solid $color-one;
+        background-color: $color-two;
+        margin-left: $margin-layout;
+
         display: flex;
-        flex-direction: column;
-        align-items: left;
 
         @include respond(tab-port) {
             flex-direction: row;
-            justify-content: space-around;
-        }
-
-        &-p {
-            margin-top: 2rem;
-            text-align: left;
-            max-width: 30%;
         }
     }
-
     &__ul {
-        flex: 0 0 30%;
         font-size: $font-size-small;
         list-style: none;
         text-decoration: none;
         text-align: left;
+
+        h3 {
+            font-size: 1.8rem;
+            padding-bottom: 1.6rem;
+        }
+        li {
+            font-size: 1.4rem;
+        }
+    }
+    &__p {
+        margin-top: 2rem;
+        text-align: left;
+        max-width: 30%;
     }
 }

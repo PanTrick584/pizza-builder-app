@@ -7,9 +7,10 @@
     padding: 0;
     box-sizing: inherit;
 }
-
-html{
+*{
     font-size: 62.5%;
+}
+html{
 
     // // from biggest to smallest with max-with to work
     // @include respond(phone) {
@@ -33,6 +34,6 @@ html{
 }
 
 body {
-    font-family: "Playfair Display", sans-serif;
+    font-family: 'Sora', sans-serif;
     box-sizing: border-box;
 }

@@ -1,81 +1,49 @@
 .ingredients {
-
-    width: 100%;
-    margin: 0;
+    height: 100%;
+    // margin: 0 auto;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    @include respond(tab-port) {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    // }
-    // @include respond(tab-land) {
-    //     flex-direction: column;
-    //     align-items: center;
-    // // }
-    // @include respond(standart-screen) {
-    //     flex-direction: row;
-    //     align-items: flex-start;
-    }
 
     &__h1 {
-        
-        width: 100%;
-        padding: 3rem 0;
-        text-align: center;
+        padding: 4rem 0;
+        margin-left: $margin-layout;
+        text-align: left;
+        font-size: 2.5rem;
+        letter-spacing: .2rem;
         background-color: $color-two;
-        font-size: 4rem;
     }
 
-    &__group {
+    &__header {
         
-        width: 100%;
-        border-radius: 2rem;
-        color: $color-two;
-
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        @include respond(tab-port) {
-            justify-content: left;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        margin-left: $margin-layout;
+        &-h1 {
+            height: 10rem;
+            flex: 0 0 49%;
         }
-       
-        &-header {
-            
-            width: 100%;
-            padding: 1rem 0;
-
-            background-color: $color-three;
-            color: $color-two;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         &-btn {
             cursor: pointer;
-            background-color: inherit;
             font-family: inherit;
-            font-size: 2rem;
-            color: $color-two;
-            border: .2rem solid $color-two;
-            width: 90%;
-            height: 4rem;
+            font-size: 2.5rem;
+            text-align: left;
+            width: 100%;
+            height: 100%;
+            // color: $color-two;
+            background-color: $color-two;
             transition: all .2s;
-
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            margin-left: -2rem;
+            
+            border-bottom: 2px solid $color-one;
 
             &:hover {
-                background-color: $color-four;
+                background-color: #000;
+                color: #fff;
+                border-radius: 10px;
             }
             &:focus,
             &:active {
@@ -84,29 +52,19 @@
 
         }
     }
-
+    &__box {
+        margin-left: $margin-layout;
+    }
     &__container {
-       
-        width: 100%;
-        color: $color-two;
-       
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
+        overflow: scroll;
+        height: 60vh;
 
         @include respond(tab-port) {
-            // flex-direction: row;
-        }
-        @include respond(tab-land) {
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: center;
         }
         @include respond(standart-screen) {
-            
-            margin: 0;
+
         }
     }
 }

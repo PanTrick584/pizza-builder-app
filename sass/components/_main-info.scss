@@ -1,0 +1,15 @@
+.main-info {
+    height: 35rem;
+    margin-left: $margin-layout;
+    margin-bottom: 3rem;
+
+    h1 {
+        font-size: 2.5rem;
+        padding: 5rem 0;
+        color: $color-two;
+    }
+    p {
+        font-size: 1.4rem;
+        width: 80%;
+    }
+}

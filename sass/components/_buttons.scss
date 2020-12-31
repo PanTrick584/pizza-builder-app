@@ -3,16 +3,10 @@
     &,
     &:link,
     &:visited {
-        background-color: $color-three;
-        // text-transform: uppercase;
-        text-decoration: none;
+        cursor: pointer;
         padding: 1.5rem 2rem;
         border: none;
         outline: none;
-        // border-radius: 1rem;
-        color: $color-two;
-        font-size: $font-size-small;
-        font-weight: 700;
         letter-spacing: .3rem;
     }
 }

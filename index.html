@@ -3,70 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-       
+        <!-- POPUP -->
+        <div class="popup" id="popup">
+            <div class="popup__container" id="popupContainer"></div>
+            <button class="btn popup__closeBtn" id="popupBtnClose">X</button>
+            <button class="btn popup__order">order now</button>
+        </div>
+        <!-- END OF POPUP -->
+        <!-- SECTION CONTAINER -->
         <!-- HEADER -->
-        <header class="header" id="header">
-            <div class="header__container">
-                <h1 class="header__container-h1 heading-one">pizza for you</h1>
-                <h2 class="header__container-h2 heading-three"> created by you, made with our love</h2>
-                <button class="header__btn" id="headerBtn">click to create</button>
-            </div>
-        </header>
+            <header class="header">
+                <div class="header__container">
+                    <h1>pizza for you</h1>
+                    <h2>created by you, made with our love</h2>
+                </div>
+            </header>
         <!-- END OF HEADER -->
+        <!-- MENU -->
+            <div class="main-menu">
+                <ul class="main-menu__ul">
+                    <li class="">strona główna</li>
+                    <li class="">zrób swoją PIZZĘ</li>
+                    <li class="">o nas</li>
+                    <li class="">coś tam</li>
+                    <li class="">kontakt</li>
+                </ul>
+            </div>
+        <!-- END OF MENU -->
+        <div class="main-info">
+            <div class="main-info__container">
+                <h1>najlepsza pizza stworzona przez Ciebie</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque possimus incidunt praesentium? Similique, non quia. Earum sequi aperiam quia accusantium repellat corrupti recusandae eum ut vitae officiis illum ipsa nulla tenetur asperiores et quasi, quo qui quam deleniti aspernatur magni. Ab veniam maiores facilis ratione quas ipsa tempora quibusdam.</p>
+            </div>
+        </div>
+        <!-- SECTION CONTAINER -->
+        <h1 class="section__container-h1">
+            kreator smaków
+        </h1>
+        <div class="section__container">
+            
         <!-- BUILDER -->
         <section class="section__builder">
             
             <div class="builder"  id="builder">
+                <div class="builder__cost">
+                    <butto class="btn builder__cost-btn" id="popupBtn">sprawdź zamówienie</butto>
+                    <p class="builder__cost-p" id="cost">koszt: 10 za ciasto</p>
+                </div>
                 <div class="builder__pizza" id="builder__pizza"></div>
-                <h2 class="builder__cost heading-three">
-                    <p class="builder__cost-p" id="cost">Cost: 10 za ciasto</p>
-                    <butto class="btn builder__cost-btn" id="popupBtn"> check order</butto>
-                </h2>
             </div>
         </section>
         <!-- END OF BUILDER -->
-     <!-- POPUP -->
-     <div class="popup" id="popup">
-        <div class="popup__container" id="popupContainer"></div>
-        <button class="btn popup__closeBtn" id="popupBtnClose">X</button>
-        <button class="btn popup__order">order now</button>
-    </div>
-    <!-- END OF POPUP -->
-    <!-- INGREDIENTS -->
-    <section class="section__ingredients">
-        <h1 class="heading-one ingredients__h1">ingredients</h1>
-         <div class="ingredients" id="ingredients">
-                <!-- JS ingredients generated -->
-         </div>
-    </section>
-    <!-- END OF IGREDIENTS -->
-    <!-- FOOTER -->
-    <footer class="footer">
-            <h1 class="header__container-h1">pizza for you</h1>
-            <h2 class="header__container-h2"> created by you, made with our love</h2>
-            <div class="footer__container">
-               <ul class="footer__ul">
-                   <li class="footer__ul-li">contact us!</li>
-                   <li class="footer__ul-li">tel: 730-137-834</li>
-                   <li class="footer__ul-li">tel. 2: 692863757</li>
-                   <li class="footer__ul-li">email: chodacki.pc@gmail.com</li>
-                   <li class="footer__ul-li">address</li>
-                   <li class="footer__ul-li"></li>
-               </ul>
-                <p class="footer__container-p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui non libero itaque veritatis autem repellendus doloremque, voluptas cumque minima enim quidem mollitia dolorem veniam nihil ad magnam quo? Illo magnam voluptates reiciendis ab mollitia voluptatum voluptatibus sequi doloribus a, repellat, ipsa dignissimos qui suscipit reprehenderit? Iure praesentium quis blanditiis possimus.</p>
-                <p class="footer__container-p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime molestiae eius voluptatibus ut, molestias illo facilis laudantium, corporis consectetur porro sed aperiam!</p>
+        <!-- INGREDIENTS -->
+        <section class="section__ingredients">
+            <h1 class="heading-one ingredients__h1">składniki</h1>
+            <div class="ingredients" id="ingredients">
+                <div class="ingredients__header" id="ingredientsHeader">
+                    <!-- JS headers goes here -->
+                </div>
+                <div class="ingredients__box" id="ingredientsContainer">
+                    <!-- JS ingredients generated -->
+                </div>
+                    
             </div>
-       </footer>
-       <!-- END OF FOOTER -->
+        </section>
+        <!-- END OF IGREDIENTS -->
+         </div>
+         <!-- END OF SECTION CONTAINER -->
+        <!-- SANDBOX -->
+        <section class="sandBox" id="sandBox"></section>
+        <!-- END OF SANDBOX -->
+        <!-- FOOTER -->
+        <footer class="footer" id="footer">
+                <h1 class="footer__h1">pizza for you</h1>
+                <h2 class="footer__h2"> created by you, made with our love</h2>
+                
+                <div class="footer__container">
+                    <ul class="footer__ul">
+                        <h3 class="footer__ul-li">contact us!</h3>
+                        <li class="footer__ul-li">tel: 730 - 137 - 834</li>
+                        <li class="footer__ul-li">tel 2: 692 - 863 - 757</li>
+                        <li class="footer__ul-li">email: chodacki.pc@gmail.com</li>
+                    </ul>
+                        <p class="footer__p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui non libero itaque veritatis autem repellendus doloremque, voluptas cumque minima enim quidem mollitia dolorem veniam nihil ad magnam quo? Illo magnam voluptates reiciendis ab mollitia voluptatum voluptatibus sequi doloribus a, repellat, ipsa dignissimos qui suscipit reprehenderit? Iure praesentium quis blanditiis possimus.</p>
+                        <p class="footer__p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime molestiae eius voluptatibus ut, molestias illo facilis laudantium, corporis consectetur porro sed aperiam!</p>
+                </div>
+        </footer>
+        <!-- END OF FOOTER -->
     </div>
-    
-    
-
     <script src="script.js"></script>
 </body>
 </html>
