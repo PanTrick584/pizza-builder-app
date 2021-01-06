@@ -10,6 +10,10 @@ const popupContainerDOM = document.getElementById("popupContainer");
 //DISPLAY
 const headerDOM = document.getElementById("header");
 const headerBtnDom = document.getElementById("headerBtn");
+// HAMBURGER MENU
+const hamburgerDOM = document.querySelector('#hamburger');
+const hamburgerUlDOM = document.querySelector('#hamburgerUl');
+
 //SANDBOX
 const sandBox = document.querySelector('#sandBox');
 //FOOTER
@@ -40,6 +44,18 @@ function pizzaBuilderGenerator(elements) {
     }
 };
 
+// APPEND HAMBURGER MENU
+const hamburger = () => {
+    if( hamburgerUlDOM.classList.contains('visible')) {
+        hamburgerUlDOM.style.marginRight = "-100rem"
+        hamburgerUlDOM.classList.remove('visible')
+    } else {
+        hamburgerUlDOM.classList.add('visible')
+        hamburgerUlDOM.style.marginRight = '-3rem';
+
+    }
+}
+
 //APPEND PIZZA STATUS
 const pizzaStatusHandler = ( data ) => {
     data.forEach( ingredients => {
@@ -57,6 +73,50 @@ const pizzaStatusHandler = ( data ) => {
         
     })
     buildPizzaSections();
+}
+
+//Basket with ingredients
+const popupBasket = () => {
+    let addedIng = PIZZA_STATUS.filter( ing => {
+        return ing.amount !== 0;
+    })
+    console.log(addedIng)
+    let el = '';
+    const basketIng = addedIng.map( ing => {
+       return el = `
+        <div class="basket__element">
+            <div class="basket__element-img">
+                <img src="${ing.picture}" />
+            </div>
+            <p class="basket__element-amount">
+               Ilość: ${ing.amount}
+            </p>
+            <p class="basket__element-price">
+               Kwota: ${ing.totalPrice}
+            </p>
+            <button data-name="${ing.name}" class="basket__element-delete">Zrezygnuj</button>
+        </div>
+        ` ;
+    });
+    popupContainerDOM.innerHTML = [...basketIng].join('');
+
+    let basketBtn = document.querySelectorAll('.basket__element-delete')
+    .forEach( btn => {
+        btn.addEventListener( 'click', () => {
+           let filteredIng = PIZZA_STATUS.filter( ing => {
+               if(ing.name === btn.dataset.name ) {
+                   ing.totalPrice = 0;
+                   ing.amount = 0;
+                   return ing
+               }
+               return ing;
+           });
+           PIZZA_STATUS = filteredIng;
+           popupBasket();
+           showIngredient(btn.dataset.name, btn);
+           updatePizzaCost(btn);
+        })
+    })
 }
 //TRANSFORM
 const activeClass = ( con, btn ) => {
@@ -179,15 +239,17 @@ function showIngredient(name, btn) {
     const num =  Math.floor(Math.random() * cell.length);
 
     //check if numbers ale always different
-    let checkCell = BOOK_CELL.map( el => {
-        let bookCellNum = parseInt(el);
-        console.log(el, bookCellNum)
-        if( num === bookCellNum ) {
-            console.log("identyczne")
-            return el
-        }
+    
+    let checkCell = BOOK_CELL.find( el => {
+            let n = parseInt(el);
+            console.log(n, num)
+            if( num === n) {
+                return el
+            }
     });
+    checkCell ? console.log('identyczne') : console.log('różne');
     console.log(checkCell)
+    console.log(BOOK_CELL)
 
     if(btn.classList.contains('item__btn-add')) {
         cell.forEach( (cell, id) => {
@@ -231,7 +293,6 @@ function showIngredient(name, btn) {
             return pic.name !== name;
         })
         CELL_ARRAY = deleteCell;
-        console.log(CELL_ARRAY, deleteCell)
 
         let deleteNum = CELL_ARRAY.map( el => {return (el.id).toString()});
 
@@ -314,9 +375,12 @@ function updateIngredientData(name) {
     })
 };
 // Events
+hamburgerDOM.addEventListener('click', () => {
+    hamburger();
+})
 popupBtn.addEventListener("click", () => {
     popup.style.display = "flex";
-    // popupBasket();
+    popupBasket();
 });
 popupClose.addEventListener("click", () => {
     popup.style.display = "none";

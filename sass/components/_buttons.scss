@@ -1,12 +1,10 @@
 .btn {
-
+    padding: 1.5rem 2rem;
     &,
     &:link,
     &:visited {
         cursor: pointer;
-        padding: 1.5rem 2rem;
         border: none;
         outline: none;
-        letter-spacing: .3rem;
     }
 }

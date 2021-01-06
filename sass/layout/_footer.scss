@@ -22,6 +22,7 @@
         margin-left: $margin-layout;
 
         display: flex;
+        flex-direction: column;
 
         @include respond(tab-port) {
             flex-direction: row;

@@ -5,9 +5,9 @@
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 100;
    
-    background-color: rgba($color-two, .3);
+    background-color: rgba($color-two, .8);
 
     //----- STYLE FOR JS! -----
     // display: flex; 
@@ -21,113 +21,85 @@
     }
 
     &__container {
-        width: 90%;
         height: 80%;
-        margin: 0 auto;
-        background-color: $color-two;
-        border: .3rem solid $color-one;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: center;
-
-        @include respond(tab-port) {
-            height: 60%;
-        }
-    }
-    &__item {
-        flex: 0 0 45%;
-        background-color: $color-one;
-        border: .3rem solid $color-two;
-        padding: 1rem;
-        margin: 3rem 0;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        transition: all .2s;
-
-        @include respond(tab-port) {
-            flex: 0 0 30%;
-        }
-        @include respond(tab-land) {
-            flex: 0 0 20%;
-        }
-        @include respond(standart-screen) {
-            flex: 0 0 20%;
-        }
-        @include respond(big-screen) {
-            flex: 0 0 10%;
-        }
-    }
-    &__header {
-        width: 100%;
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        text-align: center;
-        border-bottom: .3rem solid $color-two;
-
-        @include respond(tab-port) {
-            // flex: 0 0 35%;
-            font-size: 1.6rem;
-        }
-        @include respond(tab-land) {
-            font-size: 1.5rem;
-        }
-        @include respond(standart-screen) {
-            // font-size: $font-size-small;
-        }
-    }
-
-    &__box {
-        width: 100%;
+        width: 85%;
+        margin: 3rem auto;
 
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        text-align: center;
+
+        overflow-y: scroll;
+        scrollbar-color: $color-two;
+        scrollbar-width: thin;
+
         @include respond(tab-port) {
-            width: 80%;
+            // height: 60%;
         }
+        .basket__element {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex: 0 0 25%;
 
-        &-data {
-            flex: 0 0 100%;
-        }
-
-        &-addBtn,
-        &-removeBtn,
-        &-clearBtn {
-
-            flex: 0 0 20%;
-            padding: 1rem 0;
             background-color: $color-one;
-            border: .1rem solid $color-two;
-            margin: .5rem;
-            transition: all .2s;
+            border-radius: 20px;
+            margin-right: 2rem;
+            margin-bottom: 1rem;
 
-            @include respond(smartphone) {
-                margin: .8rem;
+            &-img img{
+                height: 120px;
+                @include respond(phone) {
+                    height: 60px;
+                }
             }
+            &-amount {
+                font-size: 1.4rem;
+                margin-right: 2rem;
+                @include respond(phone) {
+                    font-size: 1rem;
+                    margin-right: 0;
+                }
+            }
+            &-price {
+                font-size: 1.4rem;
+                @include respond(phone) {
+                    font-size: 1rem;
+                }
+            }
+            &-delete {
+                padding: 1.6rem;
+                margin: 0 1rem;
+                font-size: 1.4rem;
+                border: none;
+                text-transform: lowercase;
+                background-color: $color-one;
+                cursor: pointer;
+                transition: all .2s;
 
-            @include respond(tab-port) {
-                margin: 0 .3rem;
-               
-            }
+                @include respond(phone) {
+                    font-size: 1rem;
+                    padding: 1rem;
+                }
 
-            &:hover {
-                 background-color: $color-four;
-            }
-            &:active {
-                transform: scale(.95);
+                &:hover {
+                    background-color: $color-two;
+                    border-radius: 10px;
+                }
+                &:active{
+                    border: none;
+                    outline: none;
+                    background-color: $color-one;
+                }
+                &:focus {
+                    border: none;
+                    outline: none;
+                }
             }
         }
     }
-
     
     &__closeBtn {
         cursor: pointer;
@@ -135,11 +107,15 @@
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
-        border: .3rem solid $color-one;
+        padding: 1.5rem 2rem;
+        background-color: $color-one;
+        border-radius: 10px;
+        font-size: 2rem;
         transition: all .2s;
 
         &:hover {
-            background-color: $color-four;
+            background-color: $color-two;
+            border: 2px solid $color-one;
         }
     }
 
@@ -158,3 +134,4 @@
     }
     
 }
+

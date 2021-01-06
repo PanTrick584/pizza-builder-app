@@ -4,6 +4,59 @@
     background-color: $color-two;
     border-top: 2px solid $color-one;
     
+    &-hamburger {
+        position: fixed;
+        top: 3rem;
+        right: 3rem;
+        display: none;
+        
+        @media  (max-width: 991px) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .hamburger-box {
+            min-height: 3rem;
+            margin-bottom: 2rem;
+            transition: all .3s;
+            &:hover {
+                transform: scale(1.05);
+            }
+            &:focus {
+                transform: scale(1);
+            }
+            .hamburger-line {
+                height: 4px;
+                width: 50px;
+                background-color: #000;
+                margin-bottom: 8px;
+                border-radius: 5px;
+            }
+        }
+        
+        .hamburger-ul {
+            list-style-type: none;
+            background-color: #000;
+            color: $color-two;
+            padding: 2rem 3rem;
+            margin-right: -100rem;
+            transition: all .3s;
+            li {
+                font-size: 2rem;
+                margin: 1rem .5rem;
+                padding: 1.6rem;
+                &:hover {
+                    background-color: $color-one;
+                    color: #000;
+                    border-radius: 10px;
+                }
+            }
+        }
+        
+    }
+    
     &__ul {
 
         display: flex;
@@ -13,6 +66,10 @@
         list-style-type: none;
         padding: 3rem 0;
         margin-left: $margin-layout;
+
+        @media  (max-width: 991px) {
+            display: none;
+        }
         
         li:first-of-type {
             margin-left: -2rem;
