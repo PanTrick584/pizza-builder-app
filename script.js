@@ -394,5 +394,5 @@ document.addEventListener('DOMContentLoaded', () => {
         // checkEvents(data);
         pizzaStatusHandler(data);
     });
-    pizzaBuilderGenerator(29);
+    pizzaBuilderGenerator(17);
 });

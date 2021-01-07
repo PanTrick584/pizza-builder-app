@@ -35,28 +35,32 @@ body {
   .builder__pizza {
     height: 30rem;
     width: auto;
+    background-image: url("./../img/pizza.png");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    gap: 0;
+    align-items: flex-start;
     justify-content: flex-start;
-    margin-bottom: 4rem; }
+    margin: 4rem 0; }
     @media (min-width: 625px) {
       .builder__pizza {
-        height: 40rem;
+        height: 50rem;
         justify-content: flex-start; } }
     .builder__pizza-cell {
-      width: 5rem;
-      height: 5rem;
+      flex: 0 0 16%;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
       @media (min-width: 625px) {
         .builder__pizza-cell {
-          width: 8rem;
-          height: 8rem; } }
+          width: 10rem;
+          height: 10rem; } }
   .builder__cost {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
     padding: 2rem 0;
     border-bottom: 2px solid #fff98c; }
@@ -65,8 +69,7 @@ body {
       text-align: left;
       font-size: 2.5rem;
       font-weight: 700;
-      padding: 1rem 0;
-      letter-spacing: .2rem; }
+      padding: 2rem; }
     .builder__cost-btn {
       width: 100%;
       font-size: 2.5rem;
@@ -91,7 +94,8 @@ body {
     text-align: left;
     font-size: 2.5rem;
     letter-spacing: .2rem;
-    background-color: #e0c45c; }
+    background-color: #e0c45c;
+    border-bottom: 2px solid #fff98c; }
   .ingredients__header {
     display: flex;
     flex-direction: row;
@@ -137,7 +141,7 @@ body {
     .item {
       margin-bottom: 2rem; } }
   .item__img {
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 10rem;
