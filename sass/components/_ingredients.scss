@@ -1,49 +1,47 @@
 .ingredients {
     height: 100%;
-    // margin: 0 auto;
 
     display: flex;
     flex-direction: column;
-
-
-    &__h1 {
-        padding: 4rem 0;
-        margin-left: $margin-layout;
-        text-align: left;
-        font-size: 2.5rem;
-        letter-spacing: .2rem;
-        background-color: $color-two;
-        border-bottom: 2px solid $color-one;
+    // LAYOUT MARGIN
+    margin-left: 1rem;
+    @include respond(phone) {
+        margin-left: 2rem;
+    }
+    
+    @include respond(tab-port) {
+        flex-direction: row;
+        font-size: 5rem;
+        margin-left: 2rem;
+        margin-right: 0;
     }
 
     &__header {
         
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        
-        margin-left: $margin-layout;
         &-h1 {
-            height: 10rem;
-            flex: 0 0 49%;
+            text-align: left;
+            margin-bottom: 1rem;
         }
         &-btn {
+            width: 100%;
             cursor: pointer;
             font-family: inherit;
-            font-size: 2.5rem;
+            font-size: 1.6rem;
             text-align: left;
-            width: 100%;
-            height: 100%;
-            // color: $color-two;
             background-color: $color-two;
             transition: all .2s;
             margin-left: -2rem;
             
-            border-bottom: 2px solid $color-one;
+            @include respond(phone) {
+                font-size: 2rem;
+            }
+            @include respond(tab-port) {
+                font-size: 1.6rem;
+            }
 
             &:hover {
-                background-color: #000;
-                color: #fff;
+                background-color: $color-one;
+                color: #000;
                 border-radius: 10px;
             }
             &:focus,
@@ -54,18 +52,18 @@
         }
     }
     &__box {
-        margin-left: $margin-layout;
     }
     &__container {
+        height: 100%;
         display: flex;
         flex-direction: column;
-        overflow: scroll;
-        height: 60vh;
+        
+       
 
         @include respond(tab-port) {
         }
         @include respond(standart-screen) {
-
+            // overflow: scroll;
         }
     }
 }

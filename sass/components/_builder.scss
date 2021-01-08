@@ -1,77 +1,105 @@
 .builder {
-    background-color: $color-two;
-    margin-left: $margin-layout;
+    // LAYOUT MARGIN
+    margin-left: 1rem;
+    width: 90%;
 
+    background-color: $color-two;
+
+    @include respond(phone) {
+        margin-left: 2rem;
+    }
+    
     @include respond(tab-port) {
+        margin-left: 3.5rem;
+        margin-right: 0;
     }
     @include respond(tab-land) {
+        margin-left: 5rem;
     }
     
     &__pizza {
-        height: 30rem;
-        width: auto;
+        height: 50rem;
 
         background-image: url('./../img/pizza.png');
         background-position: bottom;
         background-size: cover;
         background-repeat: no-repeat;
 
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0;
-        align-items: flex-start;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        row-gap: 0;
 
         margin: 4rem 0;
+        @include respond(phone) {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
         @include respond(tab-port) {
-            height: 50rem;
-            justify-content: flex-start;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+        @include respond(tab-land) {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, 1fr);
         }
 
         &-cell {
-            flex: 0 0 16%;
+           
             background-position: center;
-            background-size: cover;
+            background-size: contain;
             background-repeat: no-repeat;
             // border: 2px solid black;
-            @include respond(tab-port) {
-                width: 10rem;
-                height: 10rem;
-            }
         }
     }
 
     &__cost {
         display: flex;
-        // flex-direction: column;
+        flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;      
         
-        padding: 2rem 0;
+        padding: 3rem 0 1rem 0;
+
         border-bottom: 2px solid $color-one;
-        // @include respond(tab-port) {
-        // }
-        // @include respond(tab-land) {
-        // }
+        
+        @include respond(tab-port) {
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: flex-start;
+        }
 
         &-p {
-            width: 100%;
             text-align: left;
-            font-size: 2.5rem;
+            text-transform: uppercase;
+            font-size: 1.6rem;
             font-weight: 700;
-            padding: 2rem;
+            padding: 1rem 0;
+            @include respond(phone) {
+                font-size: 2rem;
+            }
+            @include respond(tab-land) {
+                font-size: 1.4rem;
+            }
         }
 
         &-btn {
-            width: 100%;
-            font-size: 2.5rem;
+            font-size: 1.6rem;
+            font-family: inherit;
             text-align: left;
+            text-transform: uppercase;
             font-weight: 700;
-            letter-spacing: .2rem;
             cursor: pointer;
-            padding: 2rem;
+            padding: 1rem;
             transition: all .2s;
-            margin-left: -2rem;
+            margin-left: -1rem;
+            margin-right: 2rem;
+            @include respond(phone) {
+                font-size: 2rem;
+            }
+            @include respond(tab-land) {
+                font-size: 1.4rem;
+            }
 
             &:hover {
                 background-color: $color-one;

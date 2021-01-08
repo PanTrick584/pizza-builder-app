@@ -16,63 +16,51 @@
     justify-content: center;
     align-items: center;
 
-    @include respond(tab-land) {
-
-    }
-
     &__container {
-        height: 80%;
+        position: fixed;
+        height: 70%;
         width: 85%;
         margin: 3rem auto;
 
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
 
         overflow-y: scroll;
-        scrollbar-color: $color-two;
-        scrollbar-width: thin;
 
-        @include respond(tab-port) {
-            // height: 60%;
-        }
         .basket__element {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            flex: 0 0 25%;
 
             background-color: $color-one;
             border-radius: 20px;
-            margin-right: 2rem;
             margin-bottom: 1rem;
 
             &-img img{
-                height: 120px;
+                height: 60px;
                 @include respond(phone) {
                     height: 60px;
                 }
             }
             &-amount {
-                font-size: 1.4rem;
-                margin-right: 2rem;
+                font-size: 1rem;
                 @include respond(phone) {
                     font-size: 1rem;
                     margin-right: 0;
                 }
             }
             &-price {
-                font-size: 1.4rem;
+                font-size: 1rem;
                 @include respond(phone) {
                     font-size: 1rem;
                 }
             }
             &-delete {
-                padding: 1.6rem;
+                padding: 1rem;
                 margin: 0 1rem;
-                font-size: 1.4rem;
+                font-size: 1rem;
                 border: none;
                 text-transform: lowercase;
                 background-color: $color-one;
@@ -115,21 +103,27 @@
 
         &:hover {
             background-color: $color-two;
-            border: 2px solid $color-one;
         }
     }
 
     &__order {
         position: fixed;
         cursor: pointer;
-        border: .3rem solid $color-one;
+        
         top: 1.5rem;
+        left: 3rem;
+        padding: 1.5rem 2rem;
+        border-radius: 10px;
+        background-color: $color-one;
+        font-size: 2rem;
+        font-family: inherit;
+
         transition: all .2s;
 
         &:hover,
         &:active,
         &:focus {
-            background-color: $color-four;
+            background-color: $color-two;
         }
     }
     

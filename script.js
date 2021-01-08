@@ -80,7 +80,6 @@ const popupBasket = () => {
     let addedIng = PIZZA_STATUS.filter( ing => {
         return ing.amount !== 0;
     })
-    console.log(addedIng)
     let el = '';
     const basketIng = addedIng.map( ing => {
        return el = `
@@ -170,9 +169,9 @@ const buildPizzaIngredients = ( name ) => {
                     <p class="item__box-p--price totalPrice" data-name="${ing.name}">Całość: ${ing.totalPrice}</p>
                 </div>
                 <div class="item__box-btn">
-                    <button class="btn item__btn-add" data-name="${ing.name}">+</button>
-                    <button class="btn item__btn-remove" data-name="${ing.name}">-</button>
-                    <button class="btn item__btn-delete" data-name="${ing.name}">x</button>
+                    <button class="btn item__btn-add" data-name="${ing.name}">dodaj</button>
+                    <button class="btn item__btn-remove" data-name="${ing.name}">odejmij</button>
+                    <button class="btn item__btn-delete" data-name="${ing.name}">usuń</button>
                 </div>
             </div>`;
             return el;
@@ -242,14 +241,11 @@ function showIngredient(name, btn) {
     
     let checkCell = BOOK_CELL.find( el => {
             let n = parseInt(el);
-            console.log(n, num)
             if( num === n) {
                 return el
             }
     });
     checkCell ? console.log('identyczne') : console.log('różne');
-    console.log(checkCell)
-    console.log(BOOK_CELL)
 
     if(btn.classList.contains('item__btn-add')) {
         cell.forEach( (cell, id) => {
@@ -264,7 +260,6 @@ function showIngredient(name, btn) {
                 cell.dataset.name = name;
                 CELL_ARRAY.push({id: id+1, name: name});
                 BOOK_CELL.push(cell.id);
-                console.log(BOOK_CELL)
             }
         }); 
     } else if(btn.classList.contains('item__btn-remove')){
@@ -283,11 +278,9 @@ function showIngredient(name, btn) {
             CELL_ARRAY = removeArray;
             let removeBook = BOOK_CELL.filter( el => {
                 let bookNum = parseInt(el);
-                console.log(typeof el, typeof removeCell.id)
                 return bookNum !== removeCell.id
             });
             BOOK_CELL = removeBook;
-            console.log(BOOK_CELL)
     } else {
         let deleteCell = CELL_ARRAY.filter( pic => {
             return pic.name !== name;
@@ -297,7 +290,6 @@ function showIngredient(name, btn) {
         let deleteNum = CELL_ARRAY.map( el => {return (el.id).toString()});
 
         BOOK_CELL = deleteNum;
-        console.log(CELL_ARRAY, BOOK_CELL)
         cell.forEach( cell => {
             if(cell.dataset.name === name) {
                 cell.style.backgroundImage = "";
@@ -394,5 +386,5 @@ document.addEventListener('DOMContentLoaded', () => {
         // checkEvents(data);
         pizzaStatusHandler(data);
     });
-    pizzaBuilderGenerator(17);
+    pizzaBuilderGenerator(19);
 });

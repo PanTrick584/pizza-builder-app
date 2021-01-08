@@ -6,8 +6,8 @@
     
     &-hamburger {
         position: fixed;
-        top: 3rem;
-        right: 3rem;
+        top: 1.5rem;
+        right: 1.5rem;
         display: none;
         
         @media  (max-width: 991px) {
@@ -15,11 +15,12 @@
             flex-direction: column;
             align-items: flex-end;
             justify-content: center;
-            cursor: pointer;
+            
         }
         .hamburger-box {
             min-height: 3rem;
             margin-bottom: 2rem;
+            cursor: pointer;
             transition: all .3s;
             &:hover {
                 transform: scale(1.05);
@@ -28,10 +29,10 @@
                 transform: scale(1);
             }
             .hamburger-line {
-                height: 4px;
-                width: 50px;
+                height: 3px;
+                width: 30px;
                 background-color: #000;
-                margin-bottom: 8px;
+                margin-bottom: 5px;
                 border-radius: 5px;
             }
         }
@@ -47,6 +48,7 @@
                 font-size: 2rem;
                 margin: 1rem .5rem;
                 padding: 1.6rem;
+                cursor: pointer;
                 &:hover {
                     background-color: $color-one;
                     color: #000;

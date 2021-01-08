@@ -1,49 +1,50 @@
 .header {
-    
     height: 100%;
-    width: 100%;
     background-color: $color-two;
 
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    
   
     &__container {
+        //LAYOUT MARGIN
+        margin-left: 1rem;
+        margin-right: 5rem;
 
         text-align: left;
-        margin-left: $margin-layout;
-        h1 {
+        @include respond(phone) {
+            margin-left: 2rem;
+        }
+        
+        @include respond(tab-port) {
             font-size: 5rem;
+            margin-left: 3.5rem;
+            margin-right: 0;
+        }
+        @include respond(tab-land) {
+            margin-left: 5rem;
+        }
+        h1 {
+            font-size: 3rem;
             text-transform: uppercase;
             padding: 4rem 0 1rem 0;
+            @include respond(phone) {
+                font-size: 3.8rem;
+            }
+            @include respond(tab-port) {
+                font-size: 5rem;
+            }
         }
         h2 {
-            font-size: 2.5rem;
-            padding: 0 0 2.5rem 0;
+            font-size: 1.8rem;
+            padding: 2rem 0 4rem 0;
+            @include respond(phone) {
+                font-size: 2rem;
+            }
+            @include respond(tab-port) {
+                font-size: 2.4rem;
+            }
         }
         
-    }
-
-    &__btn {
-        height: 15rem;
-        width: 15rem;
-        font-family: inherit;
-        font-size: $font-size-small;
-        color: $color-two;
-        background-color: $color-three;
-        border: 5px solid $color-one;
-        border-radius: 50%;
-        transition: all .2s;
-        
-
-        &:hover {
-            color: $color-one;
-        }
-        &:active,
-        &:focus {
-            outline: none;
-            transform: scale(.95);
-        }
     }
 }

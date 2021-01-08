@@ -17,40 +17,38 @@
 
     }
     &__img {
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        height: 10rem;
-        width: 10rem;
+        height: 6rem;
+        width: 6rem;
         margin-left: 2rem;
+        @include respond(tab-port) {
+            height: 8rem;
+            width: 8rem;
+        }
     }
     &__header {
-        padding: 2rem 0;
-        font-size: 2rem;
+        padding: .5rem 0;
+        font-size: 1.6rem;
         text-transform: uppercase;
         text-align: left;
 
-        // @include respond(tab-port) {
-        // }
-        @include respond(standart-screen) {
-            // font-size: $font-size-small;
+        @include respond(phone) {
+            font-size: 2rem;
         }
     }
 
     &__box-p {
-        // width: 100%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        // margin: 0 auto;
+        text-transform: lowercase;
 
-        @include respond(tab-port) {
-            width: 100%;
-        }
         &--price {
-            padding: 2rem 3rem 2rem 0;
+            padding: .5rem 2rem 1.5rem 0;
             font-weight: 400;
-            font-size: 2rem;
+            font-size: 1.6rem;
 
             @include respond(tab-port) {
 
@@ -64,8 +62,8 @@
         justify-content: flex-start;
 
         font-family: inherit;
-        font-size: 3.5rem;
-        font-weight: 900;
+        font-size: 2rem;
+        
         text-align: center;
         transition: all .2s;
 
@@ -76,9 +74,12 @@
     &__btn-add,
     &__btn-remove,
     &__btn-delete {
-        height: 5rem;
+        height: 4rem;
         width: 7rem;
 
+        font-weight: 700;
+        background-color: $color-one;
+        border-radius: 10px;
         margin-right: 1rem;
         padding: 1rem;
         outline: none;

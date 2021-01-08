@@ -2,24 +2,56 @@
     height: 100%;
     background-color: $color-two;
     padding: 5rem 0;
+    border-top: 2px solid $color-one;
 
     &__h1 {
-        font-size: 4rem;
+        font-size: 3rem;
         padding: 2rem 0;
-        margin-left: $margin-layout;
-        border-top: 2px solid $color-one;
+        text-transform: uppercase;
+        // LAYOUR MARGIN
+        margin-left: 1rem;
+        @include respond(phone) {
+            margin-left: 2rem;
+            font-size: 3.5rem;
+        }
+        @include respond(tab-port) {
+            font-size: 5rem;
+            margin-left: 3.5rem;
+        }
+        @include respond(tab-land) {
+            margin-left: 5rem;
+        }
     }
     &__h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
         padding: 0 0 1rem 0;
-        border-bottom: 2px solid $color-two;
-        margin-left: $margin-layout;
+        // LAYOUT MARGIN
+        margin-left: 1rem;
+        @include respond(phone) {
+            font-size: 2rem;
+            margin-left: 2rem;
+        }
+        @include respond(tab-port) {
+            margin-left: 3.5rem;
+        }
+        @include respond(tab-land) {
+            margin-left: 5rem;
+        }
     }
     &__container {
         padding: 10rem 0;
-        border-top: 2px solid $color-one;
         background-color: $color-two;
-        margin-left: $margin-layout;
+        // LAYOUT MARGIN
+        margin-left: 1rem;
+        @include respond(phone) {
+            margin-left: 2rem;
+        }
+        @include respond(tab-port) {
+            margin-left: 3.5rem;
+        }
+        @include respond(tab-land) {
+            margin-left: 5rem;
+        }
 
         display: flex;
         flex-direction: column;

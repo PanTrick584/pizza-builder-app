@@ -7,7 +7,7 @@
             {"name": "salceson" , "picture": "img/beef_color.png", "price": 5, "count": 0},
             {"name": "salami", "picture": "img/salami_color.png", "price": 4, "count": 0},
             {"name": "boczek", "picture": "img/bacon_color.png", "price": 2.8, "count": 0},
-            {"name": "szynka parmeńska", "picture": "#", "price": 4.8, "count": 0}
+            {"name": "szynka parmeńska", "picture": "img/parma-ham.png", "price": 4.8, "count": 0}
     ]
     },
     {
@@ -25,9 +25,9 @@
     {
         "name": "ryby & owoce morza",
         "ingredients": [
-            {"name": "tuńczyk", "picture": "#", "price": 2, "count": 0},
-            {"name": "małże", "picture": "sea-fruits_color.png", "price": 2, "count": 0},
-            {"name": "marynowane ośmiorniczki", "picture": "https://cdn.pixabay.com/photo/2016/06/15/19/00/octopus-1459684_1280.png", "price": 2, "count": 0},
+            {"name": "tuńczyk", "picture": "img/tuna.png", "price": 2, "count": 0},
+            {"name": "małże", "picture": "img/clam.png", "price": 2, "count": 0},
+            {"name": "marynowane ośmiorniczki", "picture": "img/sea-fruits_color.png", "price": 2, "count": 0},
             {"name": "łosoś", "picture": "img/salmon_color.png", "price": 4.6, "count": 0}
         ]
     },
