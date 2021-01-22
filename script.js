@@ -10,12 +10,16 @@ const popupContainerDOM = document.getElementById("popupContainer");
 //DISPLAY
 const headerDOM = document.getElementById("header");
 const headerBtnDom = document.getElementById("headerBtn");
+// MENU FUNCTIONALITIES
+const mainInfoContainerDOM = document.querySelector('#mainInfoContainer');
+const builderCoordinatesDOM = document.querySelector('#builderCoordinates');
+const mainInfoAboutDOM = document.querySelectorAll('.mainInfoAbout');
+const mainInfoSliderDOM = document.querySelectorAll('.mainInfoSlider');
+const mainInfoBuilderDOM = document.querySelectorAll('.mainInfoBuilder');
 // HAMBURGER MENU
 const hamburgerDOM = document.querySelector('#hamburger');
 const hamburgerUlDOM = document.querySelector('#hamburgerUl');
 
-//SANDBOX
-const sandBox = document.querySelector('#sandBox');
 //FOOTER
 const footer = document.querySelector('#footer');
 
@@ -27,11 +31,28 @@ async function getData( ) {
     return data;
 };
 
-//GLOBAL VARIABLE
+//GLOBAL VARIABLES
+const BUILDER_ELEMENTS = 19;
 let PIZZA_STATUS = [];
 console.log(PIZZA_STATUS)
+// BUILDER STATE
+let CELL_AVALIABLE = [];
+let CELL_RESERVED = [];
+let CELL_RETURNED = [];
+
 let CELL_ARRAY = [];
+let CELL_NUMBERS = [];
 let BOOK_CELL = [];
+
+let caruselImages = [
+    './img/slider_pizza_1.jpg',
+    './img/slider_pizza_2.jpg'
+];
+const populateCellNumbers = (elements) => {
+    for( let i = 1; i <= elements; i++){
+        CELL_NUMBERS = [...CELL_NUMBERS, i];
+    }
+}
 // GENERATE PIZZA GRID
 function pizzaBuilderGenerator(elements) {
     let elementID = 0;
@@ -42,8 +63,88 @@ function pizzaBuilderGenerator(elements) {
         pizzaBuilderCell.classList.add('builder__pizza-cell');
         pizzaBuilderDOM.appendChild(pizzaBuilderCell);
     }
+   
 };
+// MAIN INFO SECTION
+function setCarusel() {
+    let carusel = `
+        <!-- OWL CARUSEL -->
+            <div class="carusel" id="carusel">
+                <button class="carusel__btn" id="caruselBtnRemove">&lt;</button>
+                <div class="carusel__dots" id="caruselBox">
+                    <!-- DOTS -->
+                </div>
+                <button class="carusel__btn" id="caruselBtnAdd">&gt;</button>
+            </div>
+        <!-- END OF OWL CARUSEL -->
+        `;
+    mainInfoContainerDOM.innerHTML = carusel;
+    //  CARUSEL 
+    const caruselDOM = document.querySelector('#carusel');
+    const caruselBoxDOM = document.querySelector('#caruselBox');
+    const caruselBtnRemoveDOM = document.querySelector('#caruselBtnRemove');
+    const caruselBtnAddDOM = document.querySelector('#caruselBtnAdd');
 
+    let dot = [];
+    caruselImages.forEach( img => {
+        dot = [...dot, `<div class="carusel__dots-dot"></div>`]
+        
+    })
+    caruselBoxDOM.innerHTML = [...dot].join('');
+    let num = 0;
+    let dots = document.querySelectorAll(".carusel__dots-dot");
+    let dotsArray = Array.from(dots); 
+    let dotsID = dotsArray.map( (dot, id) => {
+         dot.dataset.id = id;
+         return dot;
+    });
+    caruselBtnAddDOM.addEventListener("click", () => {
+        if( num < caruselImages.length -1 ) {
+            num++;
+            changeDot(num);
+            changeBackground(num);
+        }
+        
+    })
+    caruselBtnRemoveDOM.addEventListener("click", () =>{
+        if( num > 0 ) {
+            num--;
+            changeDot(num)
+            changeBackground(num);
+        }
+        
+    });
+    const changeBackground = (num) => caruselImages.forEach( (photo, id) => {
+        if(id === num) {
+            caruselDOM.style.backgroundImage = `url(${photo})`;
+        }
+    });
+    const changeDot = (num) => dots.forEach( (dot, id) => {
+        dot.style.backgroundColor = "transparent";
+        if(id === num) {
+            dot.style.backgroundColor = "#e0c45c";
+        }
+    })
+    changeBackground(num);
+    changeDot(num);
+}
+function setAboutMainInfo() {
+    let about = `
+        <div class="about" >
+            <div class="about__box" >
+                <div class="about__box-img">
+                </div>
+            </div>
+            <div class="about__box" >
+                <h1 class="">Cześć</h1>
+                <p>Nazywam się Patryk Chodacki</p>
+                <p>jestem twórcą tej aplikacji</p>
+            </div>
+        </div>
+    `;
+    mainInfoContainerDOM.innerHTML = about;
+    scrollToTop();
+}
 // APPEND HAMBURGER MENU
 const hamburger = () => {
     if( hamburgerUlDOM.classList.contains('visible')) {
@@ -55,7 +156,28 @@ const hamburger = () => {
 
     }
 }
-
+// SCROLL FUNCTIONS
+const scrollToTop = () => {
+    let scrollOptions = {
+        left: 0,
+        top: 0,
+        behavior: 'smooth'
+      }
+    
+      window.scrollTo(scrollOptions);
+      hamburger();
+}
+const scrollToBuilder = () => {
+    let storySection = builderCoordinatesDOM.getBoundingClientRect();
+    let scrollOptions = {
+      left: storySection.left,
+      top: storySection.top,
+      behavior: 'smooth'
+    }
+  
+    window.scrollTo(scrollOptions);
+    hamburger();
+}
 //APPEND PIZZA STATUS
 const pizzaStatusHandler = ( data ) => {
     data.forEach( ingredients => {
@@ -118,8 +240,8 @@ const popupBasket = () => {
     })
 }
 //TRANSFORM
-const activeClass = ( con, btn ) => {
-    // btn.classList.add('active');
+const activeClass = ( con ) => {
+    
     if( con.classList.contains('off__down')) {
         con.classList.remove('off__down');
         con.classList.add('on__down');
@@ -138,12 +260,10 @@ const catchSectionBtn = () => {
                    let conN = con.dataset.name;   
                    if( btnN == conN ){
                        activeClass( con, btn );
-                    //    btn.classList.remove('active');
                    } 
                    else {
                         con.classList.add('off__down');
                         con.classList.remove('on__down');
-                        // btn.classList.add('active');
                    }
                })
             } )
@@ -234,20 +354,15 @@ function getButtons(name) {
 }
 
 function showIngredient(name, btn) {
-    let cell = document.querySelectorAll(".builder__pizza-cell");
-    const num =  Math.floor(Math.random() * cell.length);
-
-    //check if numbers ale always different
+    let cell = document.querySelectorAll(".builder__pizza-cell");  
+    let num = CELL_NUMBERS[Math.floor(Math.random() * CELL_NUMBERS.length)];
     
-    let checkCell = BOOK_CELL.find( el => {
-            let n = parseInt(el);
-            if( num === n) {
-                return el
-            }
-    });
-    checkCell ? console.log('identyczne') : console.log('różne');
+    console.log(num, CELL_NUMBERS)
+    
 
     if(btn.classList.contains('item__btn-add')) {
+        let newCELL_NUMBERS = CELL_NUMBERS.filter( number => number !== num);
+        CELL_NUMBERS = newCELL_NUMBERS;
         cell.forEach( (cell, id) => {
             let picture = "";
             PIZZA_STATUS.forEach( ing => {
@@ -309,8 +424,15 @@ function updateEntireCost() {
 }
 
 function updatePizzaCost(btn) {
+
+    // if (  ) {
+    //     console.log('jest miejsce')
+    // } else {
+        
+    // }
+
     let name = btn.dataset.name;
-    if(btn.classList.contains("item__btn-add")){
+    if( btn.classList.contains("item__btn-add") ){
         PIZZA_STATUS.forEach( ing => {
             if(ing.name === name) {
                 ing.amount++;
@@ -377,6 +499,10 @@ popupBtn.addEventListener("click", () => {
 popupClose.addEventListener("click", () => {
     popup.style.display = "none";
 })
+// MENU EVENTS
+mainInfoAboutDOM.forEach( about => about.addEventListener( "click", setAboutMainInfo ))
+mainInfoSliderDOM.forEach( slider => slider.addEventListener( "click", () => {setCarusel(); scrollToTop()} ));
+mainInfoBuilderDOM.forEach( coords => coords.addEventListener('click', scrollToBuilder ))
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -386,5 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // checkEvents(data);
         pizzaStatusHandler(data);
     });
-    pizzaBuilderGenerator(19);
+    pizzaBuilderGenerator(BUILDER_ELEMENTS);
+    populateCellNumbers(BUILDER_ELEMENTS);
+    setCarusel();
 });

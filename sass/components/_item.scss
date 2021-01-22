@@ -1,20 +1,21 @@
 .item {
-    height: 100%;
     
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 
-    padding-bottom: 2rem;
-    border-bottom: 2px solid $color-one;
-    
+    padding-bottom: 2rem; 
 
     @include respond(tab-port) {
         margin-bottom: 2rem;
+        margin-right: 2rem;
+        flex: 0 0 25%;
     }
     @include respond(tab-land) {
-
+        padding-left: 2rem;
+        border-bottom: none;
+        border-left: 2px solid $color-one;
     }
     &__img {
         background-size: contain;
@@ -29,13 +30,16 @@
         }
     }
     &__header {
-        padding: .5rem 0;
         font-size: 1.6rem;
-        text-transform: uppercase;
+        font-weight: 400;
+        text-transform: lower;
         text-align: left;
 
         @include respond(phone) {
             font-size: 2rem;
+        }
+        @include respond(tab-port) {
+            font-size: 1.6rem;
         }
     }
 
@@ -85,12 +89,15 @@
         outline: none;
 
         &:hover {
-             background-color: #000;
-             color: $color-two;
+             background-color:$color-gray-dark;
+             color: $color-one;
         }
         &:active {
             background-color: #fff;
              color:$color-two;
         }
     }
+}
+.item:not(:last-child) {
+    border-bottom: 2px solid $color-one;
 }

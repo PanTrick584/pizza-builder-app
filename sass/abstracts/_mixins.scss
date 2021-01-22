@@ -1,8 +1,26 @@
-@mixin center-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@mixin header-one {
+    font-size: 3rem;
+    padding: 4rem 0 2rem 0;
+    color: $color-gray-dark;
+    text-transform: uppercase;
+    @include respond(tab-port) {
+        font-size: 5rem;
+    }
+}
+@mixin margin-layout {
+     // LAYOUT MARGIN
+     margin-left: 1rem;
+     margin-right: 5rem;
+     @include respond(phone) {
+        margin-left: 2rem;
+    }
+    @include respond(tab-port) {
+        margin-left: 3.5rem;
+        margin-right: 0;
+    }
+    @include respond(tab-land) {
+        margin-left: 5rem;
+    }
 }
 
 @mixin center-row {

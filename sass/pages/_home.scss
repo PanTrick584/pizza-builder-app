@@ -1,5 +1,10 @@
 .container {
     height: 100%;
+    background-color: $color-two;
+    &__h1 {
+        @include header-one;
+        @include margin-layout;
+    }
 }
 .section__container {
     height: 100%;   
@@ -15,26 +20,7 @@
         justify-content: flex-start;
     }
 }
-.section__container-h1 {
-    font-size: 3rem;
-    // LAYOUT MARGIN
-    margin-left: 1rem;
-    margin-right: 5rem;
-    padding: 4rem 0;
-    color: $color-two;
-    text-transform: uppercase;
-    @include respond(phone) {
-        margin-left: 2rem;
-    }
-    @include respond(tab-port) {
-        font-size: 5rem;
-        margin-left: 3.5rem;
-        margin-right: 0;
-    }
-    @include respond(tab-land) {
-        margin-left: 5rem;
-    }
-}
+
 .section__builder {
     height: 100%;
     background-color: $color-two;

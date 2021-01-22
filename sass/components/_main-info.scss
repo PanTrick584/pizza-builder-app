@@ -1,26 +1,12 @@
 .main-info {
     min-height: 35rem;
-    // LAYOUT MARGIN
-    margin-left: 1rem;
-    margin-right: 5rem;
-   
-    @include respond(phone) {
-        margin-left: 2rem;
-        margin-right: 5rem;
-    }
-    @include respond(tab-port) {
-        margin-left: 3.5rem;
-        
-    }
-    @include respond(tab-land) {
-        margin-left: 5rem;
-        margin-right: 0;
-    }
+    margin-top: 2rem;
+   @include margin-layout;
 
     h1 {
         font-size: 1.8rem;
         padding: 5rem 0;
-        color: $color-two;
+        color: $color-gray-dark;
         @include respond(phone) {
             font-size: 2rem;
         }
@@ -28,13 +14,8 @@
             font-size: 2.4rem;
         }
     }
-    p {
-        font-size: 1.2rem;
-        @include respond(phone) {
-            font-size: 1.4rem;
-        }
-        @include respond(tab-port) {
-            font-size: 1.6rem;
-        }
+    &-container {
+        height: 100%;
+        transition: all .2s;
     }
 }
