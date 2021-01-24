@@ -100,9 +100,13 @@
         }
     }
     &__info {
+        display: none;
         font-size: 2rem;
         color: rgba($color-two, .2);
         text-align: center;
         margin: 3rem;
+        @include respond(tab-land) {
+            display: block;
+        }
     }
 }

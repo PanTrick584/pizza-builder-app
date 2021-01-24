@@ -199,10 +199,14 @@ body {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 0; } }
   .ingredients__info {
+    display: none;
     font-size: 2rem;
     color: rgba(224, 196, 92, 0.2);
     text-align: center;
     margin: 3rem; }
+    @media (min-width: 991px) {
+      .ingredients__info {
+        display: block; } }
 
 .item {
   display: flex;
