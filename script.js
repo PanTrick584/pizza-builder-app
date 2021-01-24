@@ -5,6 +5,7 @@ const pizzaBuilderDOM = document.getElementById('builder__pizza');
 // POPUP DOM
 const popup = document.getElementById("popup");
 const popupOpen = document.getElementById("popupBtn");
+const popupHamburgerOpen = document.querySelector('#popupHamburgerBtn');
 const popupClose = document.getElementById("popupBtnClose");
 const popupContainerDOM = document.getElementById("popupContainer");
 //DISPLAY
@@ -19,6 +20,7 @@ const mainInfoBuilderDOM = document.querySelectorAll('.mainInfoBuilder');
 // HAMBURGER MENU
 const hamburgerDOM = document.querySelector('#hamburger');
 const hamburgerUlDOM = document.querySelector('#hamburgerUl');
+const hamburgerCost = document.querySelector('#hamburgerCost')
 
 //FOOTER
 const footer = document.querySelector('#footer');
@@ -38,9 +40,9 @@ console.log(PIZZA_STATUS)
 // BUILDER STATE
 let CELL_AVALIABLE = [];
 let CELL_RESERVED = [];
-let CELL_RETURNED = [];
 
 let CELL_ARRAY = [];
+// AVALIBLE CELLS IN BUILDER
 let CELL_NUMBERS = [];
 let BOOK_CELL = [];
 
@@ -213,7 +215,7 @@ const popupBasket = () => {
                Ilość: ${ing.amount}
             </p>
             <p class="basket__element-price">
-               Kwota: ${ing.totalPrice}
+               Kwota: ${parseFloat(ing.totalPrice.toFixed(2))}
             </p>
             <button data-name="${ing.name}" class="basket__element-delete">Zrezygnuj</button>
         </div>
@@ -359,10 +361,14 @@ function showIngredient(name, btn) {
     
     console.log(num, CELL_NUMBERS)
     
-
     if(btn.classList.contains('item__btn-add')) {
         let newCELL_NUMBERS = CELL_NUMBERS.filter( number => number !== num);
         CELL_NUMBERS = newCELL_NUMBERS;
+        //CELLS RESERVED FOR PICTURES
+        let newCELL_RESERVED = [...CELL_RESERVED, { num, name }]
+        CELL_RESERVED = newCELL_RESERVED;
+        console.log(CELL_RESERVED)
+        //
         cell.forEach( (cell, id) => {
             let picture = "";
             PIZZA_STATUS.forEach( ing => {
@@ -381,6 +387,12 @@ function showIngredient(name, btn) {
             let removeCell = CELL_ARRAY.find( pic => { 
                return pic.name === name; 
             })
+            if(CELL_RESERVED.length !== 0) {
+                let removedCellNumber = CELL_RESERVED.find( pic => pic.name === name)
+                CELL_RESERVED = [...CELL_RESERVED.filter( el =>  el !== removedCellNumber  )]
+                CELL_NUMBERS = [...CELL_NUMBERS, removedCellNumber.num]
+            }
+           
             cell.forEach( el => {
                 let deletedNum = parseInt(el.id)
                 if( deletedNum === removeCell.id) {
@@ -402,6 +414,16 @@ function showIngredient(name, btn) {
         })
         CELL_ARRAY = deleteCell;
 
+        console.log(name)
+        console.log(CELL_RESERVED)
+        let deletedNums = CELL_RESERVED.filter( el => el.name === name );
+        CELL_RESERVED = [...CELL_RESERVED.filter( el => el.name !== name )]
+        console.log(CELL_RESERVED)
+        console.log(deletedNums)
+        deletedNums.forEach( el => CELL_NUMBERS = [...CELL_NUMBERS, el.num])
+        
+        console.log(CELL_NUMBERS)
+
         let deleteNum = CELL_ARRAY.map( el => {return (el.id).toString()});
 
         BOOK_CELL = deleteNum;
@@ -420,7 +442,7 @@ function updateEntireCost() {
        return sum + num
      }, 0);
     pizzaPriceDOM.innerHTML = `koszt: ${parseFloat(sum.toFixed(2))} + 10 za ciasto`;
-    
+    hamburgerCost.innerHTML = `${parseFloat(sum.toFixed(2))} + 10 za ciasto`;
 }
 
 function updatePizzaCost(btn) {
@@ -492,10 +514,14 @@ function updateIngredientData(name) {
 hamburgerDOM.addEventListener('click', () => {
     hamburger();
 })
-popupBtn.addEventListener("click", () => {
+popupOpen.addEventListener("click", () => {
     popup.style.display = "flex";
     popupBasket();
 });
+popupHamburgerOpen.addEventListener( "click", () => {
+    popup.style.display = "flex";
+    popupBasket();
+})
 popupClose.addEventListener("click", () => {
     popup.style.display = "none";
 })

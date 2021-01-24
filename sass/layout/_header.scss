@@ -1,28 +1,33 @@
 .header {
     height: 100%;
-    background-color: $color-two;
+    padding-top: 3rem;
 
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-  
+    @include respond(tab-land) {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    
     &__container {
         //LAYOUT MARGIN
         @include margin-layout;
+        
         text-align: left;
+        width: fit-content;
+
+        @include respond(tab-land) {
+            flex: 0 0 35%;
+        }
 
         h1 {
             @include header-one;
-        }
-        h2 {
-            font-size: 1.8rem;
-            padding: 2rem 0 4rem 0;
-            @include respond(phone) {
-                font-size: 2rem;
-            }
-            @include respond(tab-port) {
-                font-size: 2.4rem;
-            }
+            font-size: 2.4rem !important;
+            background-color: $color-two;
+            border-radius: $border-radius;
+            padding: $padding-background;
+            margin-bottom: .8rem;
+            width: 100%;
         }
         
     }

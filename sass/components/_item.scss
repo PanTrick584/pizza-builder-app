@@ -5,6 +5,8 @@
     justify-content: flex-start;
     align-items: flex-start;
 
+    color: $color-two;
+
     padding-bottom: 2rem; 
 
     @include respond(tab-port) {
@@ -34,6 +36,7 @@
         font-weight: 400;
         text-transform: lower;
         text-align: left;
+        color: $color-two;
 
         @include respond(phone) {
             font-size: 2rem;

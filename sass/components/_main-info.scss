@@ -1,19 +1,17 @@
 .main-info {
     min-height: 35rem;
     margin-top: 2rem;
+    padding: 3rem;
+    border-radius: $border-radius;
+    background-color: $color-two;
+    display: none;
+    
    @include margin-layout;
+     margin-right: $margin-layout;
 
-    h1 {
-        font-size: 1.8rem;
-        padding: 5rem 0;
-        color: $color-gray-dark;
-        @include respond(phone) {
-            font-size: 2rem;
-        }
-        @include respond(tab-port) {
-            font-size: 2.4rem;
-        }
-    }
+   @include respond(tab-port){
+       display: block;
+   }
     &-container {
         height: 100%;
         transition: all .2s;

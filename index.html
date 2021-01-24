@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <link rel="icon" href="img/salmon_color.png" type="image/gif" sizes="16x16"> 
+    <title>Pizza Biulder</title>
 </head>
 <body>
     <div class="container">
@@ -15,11 +16,8 @@
             <header class="header">
                 <div class="header__container">
                     <h1>pizza for you</h1>
-                    <h2>created by you, made with our love</h2>
                 </div>
-            </header>
-        <!-- END OF HEADER -->
-        <!-- MENU -->
+                <!-- MENU -->
             <div class="main-menu">
                 <div class="main-menu-hamburger" >
                     <div class="hamburger-box" id="hamburger">
@@ -28,8 +26,10 @@
                         <div class="hamburger-line"></div>
                     </div>
                         <ul class="hamburger-ul" id="hamburgerUl">
-                            <li class="mainInfoSlider">strona główna</li>
-                            <li class="mainInfoBuilder" >zbuduj swoją pizzę</li>
+                            <h3>Koszt:</h3>
+                            <li id="hamburgerCost" >10zł za ciasto</li>
+                            <li class="mainInfoSlider" id="popupHamburgerBtn">sprawdź zamówienie</li>
+                            <li class="mainInfoBuilder">zrób swoją PIZZĘ</li>
                             <li class="mainInfoAbout">o nas</li>
                             <li>kontakt</li>
                         </ul>
@@ -40,8 +40,12 @@
                     <li class="mainInfoAbout">o nas</li>
                     <li class="">kontakt</li>
                 </ul>
+                <h2>created by you, made with our love</h2>
             </div>
         <!-- END OF MENU -->
+            </header>
+        <!-- END OF HEADER -->
+        
         <div class="main-info">
             <div class="main-info__container" id="mainInfoContainer">
                 

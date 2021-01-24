@@ -1,45 +1,51 @@
 .ingredients {
     height: 100%;
-    width: 95%;
-
+    width: 100%;
     display: flex;
     flex-direction: column;
-    // LAYOUT MARGIN
-    margin-left: 1rem;
-    @include respond(phone) {
-        margin-left: 2rem;
-    }
-    
+  
     @include respond(tab-port) {
-        flex-direction: row;
         font-size: 5rem;
         margin-left: 2rem;
         margin-right: 0;
     }
 
     &__header {
-            padding-top: 2rem;
-            flex: 0 0 25%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         &-h1 {
-            text-align: left;
             margin-bottom: 1rem;
-        }
-        &-btn {
-            width: 100%;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 1.6rem;
-            text-align: left;
-            background-color: $color-two;
-            transition: all .2s;
-            margin-left: -2rem;
-            border-bottom: 2px solid $color-one;
-            
+            flex: 0 0 23%;
             @include respond(phone) {
                 font-size: 2rem;
             }
             @include respond(tab-port) {
                 font-size: 1.6rem;
+                margin-right: 1rem;
+            }
+        }
+        &-btn {
+            width: 100%;
+            height: 6rem;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            text-align: center;
+            background-color: $color-two;
+            transition: all .2s;
+            border-radius: 15px;
+            // border-bottom: 2px solid $color-one;
+            padding: 0 .5rem !important;
+            
+            @include respond(phone) {
+                font-size: 1.2rem;
+            }
+            @include respond(tab-port) {
+                font-size: 1.6rem;
+                border-radius: $border-radius;
+                padding: 0 2rem !important;
+
             }
 
             &:hover {
@@ -59,11 +65,17 @@
         }
     }
     &__box {
-
+        height: 36vh;
+        overflow: scroll;
+        @include respond(tab-port) {
+            height: 100%;
+            overflow: hidden;
+            scrollbar-color: $color-gray-dark;
+        }
     }
     &__container {
         flex: 0 0 45%;
-        height: 100%;
+        // height: 100%;
         padding-top: 1rem;
         display: flex;
         flex-direction: column;

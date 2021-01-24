@@ -3,8 +3,6 @@
     margin-left: 1rem;
     width: 90%;
 
-    background-color: $color-two;
-
     @include respond(phone) {
         margin-left: 2rem;
     }
@@ -18,7 +16,9 @@
     }
     
     &__pizza {
-        height: 50rem;
+        height: 22rem;
+
+        border-radius: $border-radius;
 
         background-image: url('./../img/pizza.png');
         background-position: bottom;
@@ -30,12 +30,14 @@
         grid-template-rows: repeat(5, 1fr);
         row-gap: 0;
 
-        margin: 4rem 0;
+        margin: .8rem 0;
         @include respond(phone) {
+            height: 35rem;
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: repeat(4, 1fr);
         }
         @include respond(tab-port) {
+            height: 50rem;
             grid-template-columns: repeat(7, 1fr);
             grid-template-rows: repeat(3, 1fr);
         }
@@ -54,50 +56,45 @@
     }
 
     &__cost {
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: flex-start;      
+        justify-content: space-between;      
         
-        padding: 3rem 0 1rem 0;
-
-        border-bottom: 2px solid $color-one;
         
         @include respond(tab-port) {
+            display: flex;
             flex-direction: row;
-            align-items: flex-end;
-            justify-content: flex-start;
         }
 
         &-p {
+            padding: $padding-background;
+            background-color: $color-two;
+            border-radius: $border-radius;
             text-align: left;
             text-transform: uppercase;
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            padding: 1rem 0;
+            color: $color-gray-dark;
             @include respond(phone) {
-                font-size: 2rem;
-            }
-            @include respond(tab-land) {
                 font-size: 1.6rem;
             }
         }
 
         &-btn {
-            font-size: 1.6rem;
+            padding: $padding-background;
+            background-color: $color-two;
+            border-radius: $border-radius;
+            font-size: 1.2rem;
             font-family: inherit;
             text-align: left;
             text-transform: uppercase;
             font-weight: 700;
             cursor: pointer;
-            padding: 1rem;
+            color: $color-gray-dark;
             transition: all .2s;
-            margin-left: -1rem;
-            margin-right: 2rem;
+            margin-bottom: .8rem;
             @include respond(phone) {
-                font-size: 2rem;
-            }
-            @include respond(tab-land) {
                 font-size: 1.6rem;
             }
 
