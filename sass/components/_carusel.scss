@@ -1,6 +1,6 @@
 .carusel {
     
-    height: 60vh;
+    height: 35rem;
     // width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@
     align-items: center;
 
     @include respond(tab-land) {
-        // margin-right: 5rem;
+        height: 60vh;
     }
 
     &__btn{
