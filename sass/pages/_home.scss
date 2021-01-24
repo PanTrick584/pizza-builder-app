@@ -10,40 +10,46 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
         font-size: 2.4rem;
-        padding: $padding-background;
-        background-color: $color-two;
+        padding: 1.6rem;
+        color: $color-two;
         text-transform: uppercase;
         border-radius: $border-radius;
         width: fit-content;
-        color: $color-gray-dark;
         @include respond(tab-port) {
             display: block;
+            font-size: 5rem;
         }
     }
     
 }
 .section__container {
-    height: 100%;   
+    height: 85vh;   
 
     display: flex;
     flex-direction: column;
+    @include margin-layout;
+    @include respond(tab-port) {
+        height: 100%;
+        margin-right: 5rem;
+    }
 
     @include respond(tab-land) {
+        height: 100%;
         flex-direction: row;
         align-items: flex-start;
-        justify-content: flex-start;
-        margin-right: 5rem;
+        justify-content: space-between;
+        margin-bottom: 5rem;
     }
 }
 
 .section__builder {
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     
     @include respond(tab-port) {
-        flex: 0 0 55%;
+        height: 100%;
+        flex: 0 0 43%;
         border: 0;
     }
 }
@@ -58,6 +64,7 @@
     @include margin-layout;
     @include respond(tab-port) {
        margin-left: 0 !important;
+       margin-right: 0 !important;
     }
 }
 .ingredients__h1 {

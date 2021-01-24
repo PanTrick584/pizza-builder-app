@@ -8,4 +8,7 @@
 }
 .on__down {
     display: flex;
+    @include respond (tab-land) {
+        display: grid;
+    }
 }

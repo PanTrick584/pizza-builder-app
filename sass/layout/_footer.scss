@@ -1,21 +1,23 @@
 .footer {
-    height: 100%;
-    background-color: $color-two;
-    padding: 5rem 0;
-    border-top: 2px solid $color-one;
-    display: none;
+    height: 5vh;
+    background-color: $color-gray-dark;
+    @include respond(tab-port) {
+        height: 100%;
+    }
 
     &__h1 {
-        font-size: 3rem;
-        padding: 2rem 0;
+        display: none;
+        font-size: 1.8rem;
         text-transform: uppercase;
+        color: $color-two;
         // LAYOUR MARGIN
         margin-left: 1rem;
         @include respond(phone) {
             margin-left: 2rem;
             font-size: 3.5rem;
         }
-        @include respond(tab-port) {
+        @include respond(tab-land) {
+            display: block;
             font-size: 5rem;
             margin-left: 3.5rem;
         }
@@ -25,7 +27,8 @@
     }
     &__h2 {
         font-size: 1.6rem;
-        padding: 0 0 1rem 0;
+        // padding: 1rem 0;
+        color: $color-two;
         // LAYOUT MARGIN
         margin-left: 1rem;
         @include respond(phone) {
@@ -34,14 +37,14 @@
         }
         @include respond(tab-port) {
             margin-left: 3.5rem;
+            padding: 3rem 0;
         }
         @include respond(tab-land) {
             margin-left: 5rem;
         }
     }
     &__container {
-        padding: 10rem 0;
-        background-color: $color-two;
+        display: none;
         // LAYOUT MARGIN
         margin-left: 1rem;
         @include respond(phone) {
@@ -49,6 +52,7 @@
         }
         @include respond(tab-port) {
             margin-left: 3.5rem;
+            display: block;
         }
         @include respond(tab-land) {
             margin-left: 5rem;
@@ -62,6 +66,7 @@
         }
     }
     &__ul {
+        display: none;
         font-size: $font-size-small;
         list-style: none;
         text-decoration: none;

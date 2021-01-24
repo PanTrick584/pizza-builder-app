@@ -1,5 +1,6 @@
 .ingredients {
     height: 100%;
+    //important for smartphone layout
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -35,55 +36,73 @@
             background-color: $color-two;
             transition: all .2s;
             border-radius: 15px;
-            // border-bottom: 2px solid $color-one;
             padding: 0 .5rem !important;
+            transition: all .2s;
             
             @include respond(phone) {
                 font-size: 1.2rem;
             }
             @include respond(tab-port) {
                 font-size: 1.6rem;
-                border-radius: $border-radius;
+                border-radius: 15px;
+                padding: 0 2rem !important;
+            }
+            @include respond(tab-port) {
+                height: 8rem;
+                font-size: 1.6rem;
+                border-radius: 15px;
                 padding: 0 2rem !important;
 
             }
 
             &:hover {
                 background-color: $color-one;
-                color: #000;
-                border-radius: 10px;
+                color: $color-gray-dark;
+                border-radius: 8px;
+                // transform: scale(1.05);
             }
             &:focus,
             &:active {
-                background-color: $color-gray-dark;
-                color: $color-one;
-                border-radius: 10px;
+                background-color: $color-one;
+                color: $color-gray-dark;
+                border-radius: 8px;
                 outline: none;
-                border-bottom: 2px solid transparent;
+                // transform: scale(1);
             }
 
         }
     }
     &__box {
-        height: 36vh;
+        height: 30vh;
         overflow: scroll;
-        @include respond(tab-port) {
+        
+        @media screen and (min-height: 630px) {
+            height: 36vh;
+        }
+        @media screen and (min-height: 725px) {
+            height: 42vh;
+        }
+        @media screen and (min-height: 820px) {
+            height: 46vh;
+        }
+        @include respond(tab-land) {
             height: 100%;
             overflow: hidden;
-            scrollbar-color: $color-gray-dark;
         }
     }
     &__container {
-        flex: 0 0 45%;
-        // height: 100%;
-        padding-top: 1rem;
-        display: flex;
         flex-direction: column;
-        
-        @include respond(tab-port) {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
+        margin-top: 3rem;
+
+        @include respond(tab-land) {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 0;
         }
+    }
+    &__info {
+        font-size: 2rem;
+        color: rgba($color-two, .2);
+        text-align: center;
+        margin: 3rem;
     }
 }

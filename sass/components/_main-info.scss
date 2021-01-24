@@ -12,6 +12,9 @@
    @include respond(tab-port){
        display: block;
    }
+   @include respond(tab-land){
+      height: 64rem;
+   }
     &-container {
         height: 100%;
         transition: all .2s;

@@ -1,20 +1,6 @@
 .builder {
-    // LAYOUT MARGIN
-    margin-left: 1rem;
-    width: 90%;
+    width: 100%;
 
-    @include respond(phone) {
-        margin-left: 2rem;
-    }
-    
-    @include respond(tab-port) {
-        margin-left: 3.5rem;
-        margin-right: 0;
-    }
-    @include respond(tab-land) {
-        margin-left: 5rem;
-    }
-    
     &__pizza {
         height: 22rem;
 
@@ -42,6 +28,7 @@
             grid-template-rows: repeat(3, 1fr);
         }
         @include respond(tab-land) {
+            height: 63rem;
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: repeat(4, 1fr);
         }
@@ -79,6 +66,12 @@
             @include respond(phone) {
                 font-size: 1.6rem;
             }
+            @include respond(tab-port) {
+                border-radius: 15px;
+            }
+            @include respond(tab-land) {
+                height: 8rem;
+            }
         }
 
         &-btn {
@@ -94,8 +87,15 @@
             color: $color-gray-dark;
             transition: all .2s;
             margin-bottom: .8rem;
+            margin-right: 1rem;
             @include respond(phone) {
                 font-size: 1.6rem;
+            }
+            @include respond(tab-port) {
+                border-radius: 15px;
+            }
+            @include respond(tab-land) {
+                height: 8rem;
             }
 
             &:hover {

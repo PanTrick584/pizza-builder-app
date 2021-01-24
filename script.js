@@ -1,5 +1,7 @@
 const ingredientsContainerDOM = document.getElementById('ingredientsContainer');
 const ingredientsHeaderDOM = document.getElementById('ingredientsHeader');
+const ingredientsInfoDOM = document.querySelector('#ingredientsInfo')
+//  PIZZA BUILDER
 const pizzaPriceDOM = document.getElementById('cost');
 const pizzaBuilderDOM = document.getElementById('builder__pizza');
 // POPUP DOM
@@ -241,7 +243,17 @@ const popupBasket = () => {
         })
     })
 }
-//TRANSFORM
+// CHECK IF CONTAINS
+const checkIfContains = () => {
+    const containers = document.querySelectorAll('.ingredients__container');
+    let contains = Array.from(containers).filter( con => con.classList.contains('on__down'));
+        if(contains.length === 0) {
+            ingredientsInfoDOM.innerHTML = 'naciśnij dowolną grupę składników powyżej, by wybrać to, co chcesz znaleźć w swojej wymarzonej pizzy';
+        } else {
+            ingredientsInfoDOM.innerHTML = '';
+        }
+}
+// TRANSFORM
 const activeClass = ( con ) => {
     
     if( con.classList.contains('off__down')) {
@@ -251,6 +263,7 @@ const activeClass = ( con ) => {
         con.classList.add('off__down');
         con.classList.remove('on__down');
     }
+    checkIfContains();
 }
 // CATCH BUTTON FOR TRANSFORMING HTML
 const catchSectionBtn = () => {
@@ -259,7 +272,8 @@ const catchSectionBtn = () => {
                btn.addEventListener( 'click', () => {
                containers.forEach( con => {
                    let btnN = btn.dataset.name;
-                   let conN = con.dataset.name;   
+                   let conN = con.dataset.name;  
+                                     
                    if( btnN == conN ){
                        activeClass( con, btn );
                    } 
@@ -268,6 +282,7 @@ const catchSectionBtn = () => {
                         con.classList.remove('on__down');
                    }
                })
+               
             } )
         })
 }

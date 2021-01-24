@@ -7,17 +7,14 @@
 
     color: $color-two;
 
-    padding-bottom: 2rem; 
-
     @include respond(tab-port) {
         margin-bottom: 2rem;
-        margin-right: 2rem;
-        flex: 0 0 25%;
+        flex: 0 0 23%;
     }
     @include respond(tab-land) {
-        padding-left: 2rem;
         border-bottom: none;
-        border-left: 2px solid $color-one;
+        border-left: 2px solid $color-two;
+        padding-left: 1rem;
     }
     &__img {
         background-size: contain;
@@ -51,11 +48,13 @@
         align-items: center;
         justify-content: flex-start;
         text-transform: lowercase;
+        margin-bottom: 1rem;
 
         &--price {
-            padding: .5rem 2rem 1.5rem 0;
+            // padding: .5rem .5rem 1.5rem 0;
             font-weight: 400;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
+            margin-right: 1.2rem;
 
             @include respond(tab-port) {
 
@@ -85,15 +84,17 @@
         width: 7rem;
 
         font-weight: 700;
-        background-color: $color-one;
+        background-color: $color-two;
+        color: $color-gray-dark;
         border-radius: 10px;
         margin-right: 1rem;
         padding: 1rem;
         outline: none;
+        transition: all .2s;
 
         &:hover {
-             background-color:$color-gray-dark;
-             color: $color-one;
+             background-color:$color-one;
+             border-radius: 5px;
         }
         &:active {
             background-color: #fff;
@@ -103,4 +104,10 @@
 }
 .item:not(:last-child) {
     border-bottom: 2px solid $color-one;
+    padding-bottom: .5rem;
+    @include respond(tab-land) {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
 }
