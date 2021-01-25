@@ -63,7 +63,7 @@
     }
     
     &__ul {
-        background-color: $color-two;
+        background-color: rgba($color-two, .7);
         border-radius: 15px;
 
         display: flex;

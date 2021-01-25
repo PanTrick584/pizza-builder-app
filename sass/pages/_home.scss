@@ -1,6 +1,6 @@
 .container {
     height: 100%;
-    background-color: #2c2c2c;
+    background-image: url('../img/background.png');
     @include respond(tab-port) {
         height: 100%;
     }

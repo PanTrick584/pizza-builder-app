@@ -373,16 +373,13 @@ function getButtons(name) {
 function showIngredient(name, btn) {
     let cell = document.querySelectorAll(".builder__pizza-cell");  
     let num = CELL_NUMBERS[Math.floor(Math.random() * CELL_NUMBERS.length)];
-    
-    console.log(num, CELL_NUMBERS)
-    
+        
     if(btn.classList.contains('item__btn-add')) {
         let newCELL_NUMBERS = CELL_NUMBERS.filter( number => number !== num);
         CELL_NUMBERS = newCELL_NUMBERS;
         //CELLS RESERVED FOR PICTURES
         let newCELL_RESERVED = [...CELL_RESERVED, { num, name }]
         CELL_RESERVED = newCELL_RESERVED;
-        console.log(CELL_RESERVED)
         //
         cell.forEach( (cell, id) => {
             let picture = "";
@@ -429,16 +426,10 @@ function showIngredient(name, btn) {
         })
         CELL_ARRAY = deleteCell;
 
-        console.log(name)
-        console.log(CELL_RESERVED)
         let deletedNums = CELL_RESERVED.filter( el => el.name === name );
         CELL_RESERVED = [...CELL_RESERVED.filter( el => el.name !== name )]
-        console.log(CELL_RESERVED)
-        console.log(deletedNums)
         deletedNums.forEach( el => CELL_NUMBERS = [...CELL_NUMBERS, el.num])
         
-        console.log(CELL_NUMBERS)
-
         let deleteNum = CELL_ARRAY.map( el => {return (el.id).toString()});
 
         BOOK_CELL = deleteNum;
@@ -461,12 +452,6 @@ function updateEntireCost() {
 }
 
 function updatePizzaCost(btn) {
-
-    // if (  ) {
-    //     console.log('jest miejsce')
-    // } else {
-        
-    // }
 
     let name = btn.dataset.name;
     if( btn.classList.contains("item__btn-add") ){

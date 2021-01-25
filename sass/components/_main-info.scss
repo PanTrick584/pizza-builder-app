@@ -3,7 +3,7 @@
     margin-top: 2rem;
     padding: 3rem;
     border-radius: $border-radius;
-    background-color: $color-two;
+    background-color: rgba($color-two, .7);
     display: none;
     
    @include margin-layout;
