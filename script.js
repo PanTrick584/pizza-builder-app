@@ -49,8 +49,8 @@ let CELL_NUMBERS = [];
 let BOOK_CELL = [];
 
 let caruselImages = [
-    './img/slider_pizza_1.jpg',
-    './img/slider_pizza_2.jpg'
+    './img/slider_pizza_1.png',
+    './img/slider_pizza_2.png'
 ];
 const populateCellNumbers = (elements) => {
     for( let i = 1; i <= elements; i++){

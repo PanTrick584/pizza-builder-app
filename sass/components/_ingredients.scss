@@ -94,7 +94,7 @@
         flex-direction: column;
         
 
-        @include respond(tab-land) {
+        @include respond(tab-port) {
             // margin-top: 3rem;
             grid-template-columns: repeat(2, 1fr);
             row-gap: 0;

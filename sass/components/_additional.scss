@@ -8,7 +8,7 @@
 }
 .on__down {
     display: flex;
-    @include respond (tab-land) {
+    @include respond (tab-port) {
         display: grid;
     }
 }

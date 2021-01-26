@@ -3,9 +3,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 
-    background-color: rgba($color-two, .7);
+    background-color: rgba($color-two, .85);
     color: $color-gray-dark;
     padding: 0 0 .5rem .5rem;
     margin: .5rem;
@@ -13,14 +13,14 @@
 
 
     @include respond(tab-port) {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         flex: 0 0 20%;
-        padding: 2rem;
-        margin-right: 1rem;
+        padding: 1rem;
         border-radius: 20px;
     }
     @include respond(tab-land) {
         border-bottom: none;
+        margin-right: 1rem;
     }
     &__img {
         background-size: contain;
@@ -36,25 +36,27 @@
     }
     &__header {
         font-size: 1.6rem;
-        font-weight: 400;
+        font-weight: 700;
         text-transform: lower;
         text-align: left;
         color: $color-gray-dark;
 
-        @include respond(phone) {
-            font-size: 2rem;
-        }
         @include respond(tab-port) {
-            font-size: 1.6rem;
+            font-size: 2rem;
         }
     }
 
     &__box-p {
+        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-around;
         text-transform: lowercase;
         margin-bottom: 1rem;
+
+        @include respond(tab-land) {
+            
+        }
 
         &--price {
             // padding: .5rem .5rem 1.5rem 0;
@@ -69,9 +71,10 @@
                 
     }
     &__box-btn {
+        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-around;
 
         font-family: inherit;
         font-size: 2rem;
@@ -79,9 +82,9 @@
         text-align: center;
         transition: all .2s;
 
-        @include respond(tab-port) {
-            width: 100%;
-        }        
+        // @include respond(tab-land) {
+        //     width: 100%;
+        // }        
     }
     &__btn-add,
     &__btn-remove,

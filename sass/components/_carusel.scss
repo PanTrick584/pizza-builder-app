@@ -1,10 +1,10 @@
 .carusel {
     
-    height: 35rem;
+    height: 25rem;
     // width: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     transition: all .2s;
     border-radius: $border-radius;
 
@@ -13,13 +13,16 @@
     align-items: center;
 
     @include respond(tab-land) {
-        height: 60vh;
+        min-height: 30rem;
+    }
+    @include respond(standart-screen) {
+        min-height: 45rem;
     }
 
     &__btn{
         display: block;
         height: 100%;
-        width: 15%;
+        width: 5%;
         background-color: rgba($color-two, .3);
         color: $color-two;
         border: none;
