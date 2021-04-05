@@ -39,7 +39,7 @@
             height: 100vh;
             width: 30vh;
             list-style-type: none;
-            background-color: rgba(#2c2c2c, .4);
+            background-color: rgba(#000, .9);
             color: $color-two;
             padding: 2rem 3rem;
             margin-right: -100rem;
@@ -63,8 +63,8 @@
     }
     
     &__ul {
-        background-color: rgba($color-two, .85);
-        border-radius: 15px;
+        background-color: rgba(#000, .9);
+        // border-radius: 15px;
 
         display: flex;
         align-items: flex-start;
@@ -80,14 +80,14 @@
         li {
             font-size: 2rem;
             font-weight: 700;
-            color: $color-gray-dark;
+            color: $color-two;
             padding: 1.5rem 2rem;
             cursor: pointer;
             transition: all .2s;
             border-radius: 10px;
 
             &:hover {
-                background-color: $color-one;
+                color: $color-one;
             }
         }
     }

@@ -1,6 +1,6 @@
 .footer {
     height: 5vh;
-    background-color: $color-gray-dark;
+    background-color: rgba(#000, .9);
     @include respond(tab-port) {
         height: 100%;
     }

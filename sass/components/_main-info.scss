@@ -1,9 +1,9 @@
 .main-info {
-    min-height: 30rem;
+    min-height: 70vh;
     margin-top: 2rem;
-    padding: 3rem;
-    border-radius: $border-radius;
-    background-color: rgba($color-two, .7);
+    // padding: 3rem;
+    // border-radius: $border-radius;
+    // background-color: rgba($color-two, .7);
     display: none;
     
    @include margin-layout;
