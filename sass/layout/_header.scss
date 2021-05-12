@@ -1,6 +1,5 @@
 .header {
     height: 10vh;
-    padding-top: .5rem;
 
     @include respond(tab-land) {
         height: 100%;
@@ -12,8 +11,6 @@
 
     
     &__container {
-        //LAYOUT MARGIN
-        @include margin-layout;
         
         text-align: left;
         width: fit-content;
@@ -24,7 +21,6 @@
         }
 
         h1 {
-            @include header-one;
             color: $color-two;
             border-radius: 15px;
             padding: 1.6rem;
@@ -38,7 +34,6 @@
             }
             @include respond(tab-land) {
                 font-size: 6.2rem;
-                border-radius: $border-radius;
             }
         }
         

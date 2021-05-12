@@ -5,18 +5,15 @@
     justify-content: flex-start;
     align-items: center;
 
-    background-color: rgba(#000, .9);
+    background-color: $color-gray;
     color: $color-two;
     padding: 0 0 .5rem .5rem;
     margin: .5rem;
-    border-radius: 10px;
-
 
     @include respond(tab-port) {
         margin-bottom: 1rem;
         flex: 0 0 20%;
         padding: 1rem;
-        border-radius: 20px;
     }
     @include respond(tab-land) {
         border-bottom: none;
@@ -39,7 +36,7 @@
         font-weight: 700;
         text-transform: lowercase;
         text-align: left;
-        color: $color-two;
+        color: $color-red;
 
         @include respond(tab-port) {
             font-size: 2rem;
@@ -54,19 +51,11 @@
         text-transform: lowercase;
         margin-bottom: 1rem;
 
-        @include respond(tab-land) {
-            
-        }
-
         &--price {
-            // padding: .5rem .5rem 1.5rem 0;
             font-weight: 400;
             font-size: 1.4rem;
             margin-right: 1.2rem;
-
-            @include respond(tab-port) {
-
-            }
+            color: $color-red;
         }
                 
     }
@@ -80,11 +69,7 @@
         font-size: 2rem;
         
         text-align: center;
-        transition: all .2s;
-
-        // @include respond(tab-land) {
-        //     width: 100%;
-        // }        
+        transition: all .2s;      
     }
     &__btn-add,
     &__btn-remove,
@@ -93,28 +78,24 @@
         width: 7rem;
 
         font-weight: 700;
-        background-color: $color-two;
-        color: $color-gray-dark;
+        background-color: $color-gray;
+        color: $color-red;
         border-radius: 10px;
         margin-right: .5rem;
         padding: 1rem;
         outline: none;
+        border: 2px solid $color-red;
+        cursor: pointer;
         transition: all .2s;
 
         &:hover {
-             background-color:$color-one;
+             background-color:$color-red;
+             color: $color-gray;
              border-radius: 5px;
         }
         &:active {
             background-color: #fff;
-             color:$color-two;
+             color:$color-red;
         }
     }
 }
-// .item:not(:last-child) {
-//     @include respond(tab-land) {
-//         border-bottom: none;
-//         padding-bottom: 0;
-//     }
-    
-// }

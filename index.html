@@ -3,63 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/salmon_color.png" type="image/gif" sizes="16x16"> 
     <title>Pizza Biulder</title>
 </head>
 <body>
-    <div class="container">
-        
-        <!-- SECTION CONTAINER -->
-        <!-- HEADER -->
-            <header class="header">
-                <div class="header__container">
-                    <h1>pizza for you</h1>
+    <div class="container" id="container">
+        <!-- NAVIGATION -->
+        <nav class="navigation">
+            <!-- MAIN HEADER -->
+            <h1 class="navigation-header-one">PIZZA BUILDER</h1>
+            <!-- END OF MAIN HEADER -->
+        </nav>
+        <!-- MAIN -->
+        <main class="content">
+            <div class="welcome-popup" id="welcomePopup">
+                <div class="welcome-popup-box">
+                    <h2 class="welcome-popup-header">Witaj w kreatorze pizzy!</h2>
+                    <button class="welcome-popup-button" id="welcomePopupButton">Zaczynamy!</button>
                 </div>
-                <!-- MENU -->
-            <div class="main-menu">
-                <div class="main-menu-hamburger" >
-                    <div class="hamburger-box" id="hamburger">
-                        <div class="hamburger-line"></div>
-                        <div class="hamburger-line"></div>
-                        <div class="hamburger-line"></div>
-                    </div>
-                        <ul class="hamburger-ul" id="hamburgerUl">
-                            <h3>Koszt:</h3>
-                            <h3 id="hamburgerCost">10zł za ciasto</h3>
-                            <li class="mainInfoSlider" id="popupHamburgerBtn">sprawdź zamówienie</li>
-                            <li class="mainInfoAbout">o nas</li>
-                        </ul>
-                </div>
-                <ul class="main-menu__ul">
-                    <li class="mainInfoSlider">strona główna</li>
-                    <li class="mainInfoBuilder">zrób swoją PIZZĘ</li>
-                    <li class="mainInfoAbout">o nas</li>
-                    <li class="">kontakt</li>
-                </ul>
             </div>
-        <!-- END OF MENU -->
-            </header>
-        <!-- END OF HEADER -->
-        
-        <div class="main-info">
-            <div class="main-info__container" id="mainInfoContainer">
-                
-                   <!-- JS GOES HERE -->
-            </div>
-        </div>
-        <!-- SECTION CONTAINER -->
-        <h1 class="container__h1" id="builderCoordinates">kreator smaków</h1>
-        <div class="section__container">
-        <!-- BUILDER -->
-        <!-- POPUP -->
+            <!-- POPUP -->
         <div class="popup" id="popup">
             <div class="popup__container" id="popupContainer"></div>
             <button class="btn popup__closeBtn" id="popupBtnClose">X</button>
             <button class="btn popup__order">zamów</button>
         </div>
         <!-- END OF POPUP -->
+        <!-- BUILDER -->
         <section class="section__builder">
             <div class="builder"  id="builder">
                 <div class="builder__cost">
@@ -85,23 +58,17 @@
         <!-- END OF IGREDIENTS -->
          </div>
          <!-- END OF SECTION CONTAINER -->
+        </main>       
         <!-- FOOTER -->
         <footer class="footer" id="footer">
-                <!-- <h1 class="footer__h1">kontakt</h1> -->
-                <h2 class="footer__h2"> created by you, made with our love</h2>
+                <h2 class="footer__h2">
+                     <a href="https://github.com/PanTrick584/pizza-builder-app">https://github.com/PanTrick584/pizza-builder-app</a>
+                </h2>
                 
-                <div class="footer__container">
-                    <ul class="footer__ul">
-                        <h3 class="footer__ul-li">contact us!</h3>
-                        <li class="footer__ul-li">tel: 730 - 137 - 834</li>
-                        <li class="footer__ul-li">tel 2: 692 - 863 - 757</li>
-                        <li class="footer__ul-li">email: chodacki.pc@gmail.com</li>
-                    </ul>
-                        <!-- TODO: add some content to footer -->
-                </div>
         </footer>
         <!-- END OF FOOTER -->
     </div>
+    <!-- END OF CONTAINER -->
     <script src="script.js"></script>
 </body>
 </html>

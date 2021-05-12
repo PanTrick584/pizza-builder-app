@@ -7,36 +7,35 @@
   
     @include respond(tab-port) {
         font-size: 5rem;
-        margin-left: 2rem;
         margin-right: 0;
     }
 
     &__header {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
         &-h1 {
-            margin-bottom: 1rem;
             flex: 0 0 23%;
             @include respond(phone) {
                 font-size: 2rem;
             }
             @include respond(tab-port) {
                 font-size: 1.6rem;
-                margin-right: 1rem;
+                margin-right: .5rem;
+                margin-left: .5rem;
             }
         }
         &-btn {
             width: 100%;
-            height: 6rem;
             cursor: pointer;
             font-family: inherit;
             font-size: 1rem;
+            text-transform: uppercase;
             text-align: left;
             background-color: rgba(#000, .9);
-            color: $color-two;
+            color: $color-red;
+            border: none;
             transition: all .2s;
-            border-radius: 15px;
+            background-color: $color-gray;
+            outline: none;
             padding: 0 .5rem !important;
             transition: all .2s;
             
@@ -45,36 +44,25 @@
             }
             @include respond(tab-port) {
                 font-size: 1.6rem;
-                border-radius: 15px;
-                padding: 0 2rem !important;
-            }
-            @include respond(tab-port) {
-                height: 8rem;
-                font-size: 1.6rem;
-                border-radius: 15px;
-                padding: 0 2rem !important;
-
+                padding: 3rem 2rem !important;
             }
 
             &:hover {
                 background-color: $color-one;
                 color: $color-gray-dark;
-                border-radius: 8px;
-                // transform: scale(1.05);
             }
             &:focus,
             &:active {
                 background-color: $color-one;
                 color: $color-gray-dark;
-                border-radius: 8px;
                 outline: none;
-                // transform: scale(1);
             }
 
         }
     }
     &__box {
         height: 30vh;
+        width: 35vw;
         overflow: scroll;
         
         @media screen and (min-height: 630px) {
@@ -102,7 +90,7 @@
         }
     }
     &__info {
-        display: none;
+        display: none !important;
         font-size: 2rem;
         color: rgba($color-two, .2);
         text-align: center;

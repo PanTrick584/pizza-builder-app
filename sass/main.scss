@@ -1,22 +1,14 @@
-@import "abstracts/variables";
-@import "abstracts/mixins";
-
 @import "base/base";
-@import "base/typography";
-@import "base/utilities";
+@import "base/mixins";
+@import "base/variables";
+@import "base/effects";
 
-@import "components/buttons";
 @import "components/builder";
 @import "components/ingredients";
 @import "components/item";
 @import "components/popup";
-@import "components/additional";
-@import "components/main-info";
-@import "components/carusel";
-@import "components/about";
 
 @import "layout/header";
-@import "layout/menu";
+@import "layout/navigation";
 @import "layout/footer";
-
-@import "pages/home";
+@import "layout/container";

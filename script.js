@@ -1,3 +1,6 @@
+// CONTAINER
+const containerDOM = document.querySelector('#container');
+// INGREDIENTS
 const ingredientsContainerDOM = document.getElementById('ingredientsContainer');
 const ingredientsHeaderDOM = document.getElementById('ingredientsHeader');
 const ingredientsInfoDOM = document.querySelector('#ingredientsInfo')
@@ -10,6 +13,9 @@ const popupOpen = document.getElementById("popupBtn");
 const popupHamburgerOpen = document.querySelector('#popupHamburgerBtn');
 const popupClose = document.getElementById("popupBtnClose");
 const popupContainerDOM = document.getElementById("popupContainer");
+// POPUP WELCOME
+const popupWelcomeDOM = document.querySelector('#welcomePopup')
+const popupWelcomeButtonDOM = document.querySelector('#welcomePopupButton')
 //DISPLAY
 const headerDOM = document.getElementById("header");
 const headerBtnDom = document.getElementById("headerBtn");
@@ -70,68 +76,68 @@ function pizzaBuilderGenerator(elements) {
    
 };
 // MAIN INFO SECTION
-function setCarusel() {
-    let carusel = `
-        <!-- OWL CARUSEL -->
-            <div class="carusel" id="carusel">
-                <button class="carusel__btn" id="caruselBtnRemove">&lt;</button>
-                <div class="carusel__dots" id="caruselBox">
-                    <!-- DOTS -->
-                </div>
-                <button class="carusel__btn" id="caruselBtnAdd">&gt;</button>
-            </div>
-        <!-- END OF OWL CARUSEL -->
-        `;
-    mainInfoContainerDOM.innerHTML = carusel;
-    //  CARUSEL 
-    const caruselDOM = document.querySelector('#carusel');
-    const caruselBoxDOM = document.querySelector('#caruselBox');
-    const caruselBtnRemoveDOM = document.querySelector('#caruselBtnRemove');
-    const caruselBtnAddDOM = document.querySelector('#caruselBtnAdd');
+// function setCarusel() {
+//     let carusel = `
+//         <!-- OWL CARUSEL -->
+//             <div class="carusel" id="carusel">
+//                 <button class="carusel__btn" id="caruselBtnRemove">&lt;</button>
+//                 <div class="carusel__dots" id="caruselBox">
+//                     <!-- DOTS -->
+//                 </div>
+//                 <button class="carusel__btn" id="caruselBtnAdd">&gt;</button>
+//             </div>
+//         <!-- END OF OWL CARUSEL -->
+//         `;
+//     // mainInfoContainerDOM.innerHTML = carusel;
+//     //  CARUSEL 
+//     const caruselDOM = document.querySelector('#carusel');
+//     const caruselBoxDOM = document.querySelector('#caruselBox');
+//     const caruselBtnRemoveDOM = document.querySelector('#caruselBtnRemove');
+//     const caruselBtnAddDOM = document.querySelector('#caruselBtnAdd');
 
-    let dot = [];
-    caruselImages.forEach( img => {
-        dot = [...dot, `<div class="carusel__dots-dot"></div>`]
+//     let dot = [];
+//     caruselImages.forEach( img => {
+//         dot = [...dot, `<div class="carusel__dots-dot"></div>`]
         
-    })
-    caruselBoxDOM.innerHTML = [...dot].join('');
-    let num = 0;
-    let dots = document.querySelectorAll(".carusel__dots-dot");
-    let dotsArray = Array.from(dots); 
-    let dotsID = dotsArray.map( (dot, id) => {
-         dot.dataset.id = id;
-         return dot;
-    });
-    caruselBtnAddDOM.addEventListener("click", () => {
-        if( num < caruselImages.length -1 ) {
-            num++;
-            changeDot(num);
-            changeBackground(num);
-        }
+//     })
+//     // caruselBoxDOM.innerHTML = [...dot].join('');
+//     let num = 0;
+//     let dots = document.querySelectorAll(".carusel__dots-dot");
+//     let dotsArray = Array.from(dots); 
+//     let dotsID = dotsArray.map( (dot, id) => {
+//          dot.dataset.id = id;
+//          return dot;
+//     });
+//     // caruselBtnAddDOM.addEventListener("click", () => {
+//     //     if( num < caruselImages.length -1 ) {
+//     //         num++;
+//     //         changeDot(num);
+//     //         changeBackground(num);
+//     //     }
         
-    })
-    caruselBtnRemoveDOM.addEventListener("click", () =>{
-        if( num > 0 ) {
-            num--;
-            changeDot(num)
-            changeBackground(num);
-        }
+//     // })
+//     // caruselBtnRemoveDOM.addEventListener("click", () =>{
+//     //     if( num > 0 ) {
+//     //         num--;
+//     //         changeDot(num)
+//     //         changeBackground(num);
+//     //     }
         
-    });
-    const changeBackground = (num) => caruselImages.forEach( (photo, id) => {
-        if(id === num) {
-            caruselDOM.style.backgroundImage = `url(${photo})`;
-        }
-    });
-    const changeDot = (num) => dots.forEach( (dot, id) => {
-        dot.style.backgroundColor = "transparent";
-        if(id === num) {
-            dot.style.backgroundColor = "#e0c45c";
-        }
-    })
-    changeBackground(num);
-    changeDot(num);
-}
+//     // });
+//     const changeBackground = (num) => caruselImages.forEach( (photo, id) => {
+//         if(id === num) {
+//             caruselDOM.style.backgroundImage = `url(${photo})`;
+//         }
+//     });
+//     const changeDot = (num) => dots.forEach( (dot, id) => {
+//         dot.style.backgroundColor = "transparent";
+//         if(id === num) {
+//             dot.style.backgroundColor = "#e0c45c";
+//         }
+//     })
+//     changeBackground(num);
+//     changeDot(num);
+// }
 function setAboutMainInfo() {
     let about = `
         <div class="about" >
@@ -157,31 +163,9 @@ const hamburger = () => {
     } else {
         hamburgerUlDOM.classList.add('visible')
         hamburgerUlDOM.style.marginRight = '-3rem';
+    }
+}
 
-    }
-}
-// SCROLL FUNCTIONS
-const scrollToTop = () => {
-    let scrollOptions = {
-        left: 0,
-        top: 0,
-        behavior: 'smooth'
-      }
-    
-      window.scrollTo(scrollOptions);
-      hamburger();
-}
-const scrollToBuilder = () => {
-    let storySection = builderCoordinatesDOM.getBoundingClientRect();
-    let scrollOptions = {
-      left: storySection.left,
-      top: storySection.top,
-      behavior: 'smooth'
-    }
-  
-    window.scrollTo(scrollOptions);
-    hamburger();
-}
 //APPEND PIZZA STATUS
 const pizzaStatusHandler = ( data ) => {
     data.forEach( ingredients => {
@@ -448,7 +432,7 @@ function updateEntireCost() {
        return sum + num
      }, 0);
     pizzaPriceDOM.innerHTML = `koszt: ${parseFloat(sum.toFixed(2))} + 10 za ciasto`;
-    hamburgerCost.innerHTML = `${parseFloat(sum.toFixed(2))} + 10 za ciasto`;
+    // hamburgerCost.innerHTML = `${parseFloat(sum.toFixed(2))} + 10 za ciasto`;
 }
 
 function updatePizzaCost(btn) {
@@ -510,35 +494,42 @@ function updateIngredientData(name) {
         }    
     })
 };
-// Events
-hamburgerDOM.addEventListener('click', () => {
-    hamburger();
-})
+
+// EVENTS FUNCTIONS
+const welcomePopup = (  ) => {
+
+    popupWelcomeButtonDOM.classList.add( 'welcome-button-animation-rotate' )
+    containerDOM.classList.add('container-overflow')
+    setTimeout(() => {
+        popupWelcomeDOM.classList.add('welcome-popup-animation-move')
+        setTimeout(()=> {
+            popupWelcomeDOM.classList.add('welcome-popup-display')
+            containerDOM.classList.remove('container-overflow')
+        }, 800)
+        
+    }, 1000)
+    
+
+}
+// EVENTS
 popupOpen.addEventListener("click", () => {
     popup.style.display = "flex";
     popupBasket();
 });
-popupHamburgerOpen.addEventListener( "click", () => {
-    popup.style.display = "flex";
-    popupBasket();
-})
+
 popupClose.addEventListener("click", () => {
     popup.style.display = "none";
 })
-// MENU EVENTS
-mainInfoAboutDOM.forEach( about => about.addEventListener( "click", setAboutMainInfo ))
-mainInfoSliderDOM.forEach( slider => slider.addEventListener( "click", () => {setCarusel(); scrollToTop()} ));
-mainInfoBuilderDOM.forEach( coords => coords.addEventListener('click', scrollToBuilder ))
+
+// WELCOME POPUP
+popupWelcomeDOM.addEventListener('click', () => welcomePopup() )
 
 document.addEventListener('DOMContentLoaded', () => {
 
     getData()
     .then( data => {
-        // createIngrediensGroup(data);
-        // checkEvents(data);
         pizzaStatusHandler(data);
     });
     pizzaBuilderGenerator(BUILDER_ELEMENTS);
     populateCellNumbers(BUILDER_ELEMENTS);
-    setCarusel();
 });

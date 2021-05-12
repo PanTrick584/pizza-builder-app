@@ -1,20 +1,24 @@
 .container {
-    height: 100%;
+    // CORE LAYOUT
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 90vh;
+    width: 100vw;
     background-image: url('../img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     @include respond(tab-port) {
-        height: 100%;
-        background-attachment: fixed;
     }
     &__h1 {
         display: none;
-        @include margin-layout;
-        margin-top: 2rem;
         margin-bottom: 2rem;
         font-size: 2.4rem;
         padding: 1.6rem;
         color: $color-two;
         text-transform: uppercase;
-        border-radius: $border-radius;
         width: fit-content;
         @include respond(tab-port) {
             display: block;
@@ -28,7 +32,6 @@
 
     display: flex;
     flex-direction: column;
-    @include margin-layout;
     @include respond(tab-port) {
         height: 100%;
         margin-right: 5rem;
@@ -39,7 +42,6 @@
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
-        margin-bottom: 5rem;
     }
 }
 
@@ -62,7 +64,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    @include margin-layout;
     @include respond(tab-port) {
        margin-left: 0 !important;
        margin-right: 0 !important;
@@ -89,4 +90,9 @@
         margin-right: 0;
     }
 }
-
+// CONTENT
+.content {
+    display: flex;
+    margin: 4rem;
+    position: relative;
+}

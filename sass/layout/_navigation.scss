@@ -1,0 +1,14 @@
+.navigation {
+    height: min-content;
+    width: 20vw;
+    background-color: $color-gray;
+    margin-top: 4rem;
+
+
+    &-header-one {
+        font-size: 4rem;
+        color: $color-red;
+        text-align: right;
+        padding: 1.5rem 2rem;
+    }
+}

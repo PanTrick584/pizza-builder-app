@@ -1,0 +1,69 @@
+.transition {
+    transition: all .8s ease-in;
+}
+
+//TRANSFORM DOWN
+.off__down {
+    display: none;
+}
+.on__down {
+    display: flex;
+    @include respond (tab-port) {
+        display: grid;
+    }
+}
+
+// WEECOME POPUP ANIMATION
+.container-overflow {
+    overflow: hidden;
+}
+.welcome-popup-display {
+    display: none !important;
+}
+.welcome-popup-animation-move {
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+    animation-duration: .8s;
+    animation-name: welcome-popup-move;
+}
+
+.welcome-button-animation-rotate {
+    animation-iteration-count: 5;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+    animation-duration: .6s;
+    animation-name: welcome-button-rotate;
+}
+.welcome-button-animation-move {
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform-origin: 50% 50%;
+    animation-duration: .8s;
+    animation-name: welcome-button-move;
+}
+
+@keyframes welcome-button-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes welcome-button-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(800%);
+    }
+}
+@keyframes welcome-popup-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(200%);
+    }
+}
